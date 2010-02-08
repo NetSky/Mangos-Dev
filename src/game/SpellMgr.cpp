@@ -119,7 +119,23 @@ uint16 GetSpellAuraMaxTicks(SpellEntry const* spellInfo)
 
     return 6;
 }
+int32 ApplyHasteToChannelSpell(int32 orginalDuration, SpellEntry const* spellInfo, Spell const* spell)
+{
+    if (spell)
+    {
+        if(Player* modOwner = spell->GetCaster()->GetSpellModOwner())
+            modOwner->ApplySpellMod(spellInfo->Id, SPELLMOD_CASTING_TIME, orginalDuration, spell);
 
+        if( !(spellInfo->Attributes & (SPELL_ATTR_UNK4|SPELL_ATTR_TRADESPELL)) )
+            orginalDuration = int32(orginalDuration * spell->GetCaster()->GetFloatValue(UNIT_MOD_CAST_SPEED));
+        else
+        {
+            if (spell->IsRangedSpell() && !spell->IsAutoRepeat())
+                orginalDuration = int32(orginalDuration * spell->GetCaster()->m_modAttackSpeedPct[RANGED_ATTACK]);
+        }
+    }
+    return orginalDuration;
+}
 WeaponAttackType GetWeaponAttackType(SpellEntry const *spellInfo)
 {
     if(!spellInfo)
@@ -242,6 +258,9 @@ SpellSpecific GetSpellSpecific(uint32 spellId)
             if ((spellInfo->SpellFamilyFlags & UI64LIT(0x1000000)) && spellInfo->EffectApplyAuraName[0]==SPELL_AURA_MOD_CONFUSE)
                 return SPELL_MAGE_POLYMORPH;
 
+            if (spellInfo->SpellFamilyFlags & UI64LIT(0x2000000000000))
+                return SPELL_MAGE_BOMB;
+
             break;
         }
         case SPELLFAMILY_WARRIOR:
@@ -347,6 +366,7 @@ bool IsSingleFromSpellSpecificPerTargetPerCaster(SpellSpecific spellSpec1,SpellS
         case SPELL_POSITIVE_SHOUT:
         case SPELL_JUDGEMENT:
         case SPELL_HAND:
+		case SPELL_MAGE_BOMB:
             return spellSpec1==spellSpec2;
         default:
             return false;
@@ -363,6 +383,7 @@ bool IsSingleFromSpellSpecificSpellRanksPerTarget(SpellSpecific spellSpec1,Spell
         case SPELL_CURSE:
         case SPELL_ASPECT:
         case SPELL_HAND:
+		case SPELL_MAGE_BOMB:
             return spellSpec1==spellSpec2;
         default:
             return false;
@@ -419,8 +440,8 @@ bool IsPositiveTarget(uint32 targetA, uint32 targetB)
         case TARGET_IN_FRONT_OF_CASTER:
         case TARGET_ALL_ENEMY_IN_AREA_CHANNELED:
         case TARGET_CURRENT_ENEMY_COORDINATES:
-        case TARGET_SINGLE_ENEMY:
-        case TARGET_IN_FRONT_OF_CASTER_30:
+        case TARGET_PERIODIC_TRIGGER_AURA:
+        case TARGET_IN_FRONT_OF_CASTER_2:
             return false;
         case TARGET_CASTER_COORDINATES:
             return (targetB == TARGET_ALL_PARTY || targetB == TARGET_ALL_FRIENDLY_UNITS_AROUND_CASTER);
@@ -456,7 +477,7 @@ bool IsExplicitNegativeTarget(uint32 targetA)
     {
         case TARGET_CHAIN_DAMAGE:
         case TARGET_CURRENT_ENEMY_COORDINATES:
-        case TARGET_SINGLE_ENEMY:
+        case TARGET_PERIODIC_TRIGGER_AURA:
             return true;
         default:
             break;
@@ -1384,6 +1405,11 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                         (spellInfo_2->Id == 8326 && spellInfo_1->Id == 20584) )
                          return false;
 
+                    // Mini and Potent Fungus
+                    if( (spellInfo_1->Id == 57055 && spellInfo_2->Id == 56648) ||
+                        (spellInfo_2->Id == 57055 && spellInfo_1->Id == 56648) )
+                         return true;
+
                     break;
                 }
                 case SPELLFAMILY_MAGE:
@@ -1458,6 +1484,11 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
         case SPELLFAMILY_MAGE:
             if( spellInfo_2->SpellFamilyName == SPELLFAMILY_MAGE )
             {
+				// Living Bomb & Ignite
+                if( (spellInfo_1->SpellIconID == 3000) && (spellInfo_2->SpellIconID == 937) ||
+                    (spellInfo_2->SpellIconID == 3000) && (spellInfo_1->SpellIconID == 937) )
+                    return false;
+
                 // Blizzard & Chilled (and some other stacked with blizzard spells
                 if( (spellInfo_1->SpellFamilyFlags & UI64LIT(0x80)) && (spellInfo_2->SpellFamilyFlags & UI64LIT(0x100000)) ||
                     (spellInfo_2->SpellFamilyFlags & UI64LIT(0x80)) && (spellInfo_1->SpellFamilyFlags & UI64LIT(0x100000)) )
@@ -1518,6 +1549,16 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 // Metamorphosis, diff effects
                 if (spellInfo_1->SpellIconID == 3314 && spellInfo_2->SpellIconID == 3314)
                     return false;
+
+                // Shadowflame and Corruption
+                if ( ( (spellInfo_1->SpellFamilyFlags2 & 0x00000002) && spellInfo_2->SpellIconID == 313 ) ||
+                    ( (spellInfo_2->SpellFamilyFlags2 & 0x00000002) && spellInfo_1->SpellIconID == 313 ) )
+                    return false;
+
+                // Shadowflame and Curse of Agony
+                if ( ( (spellInfo_1->SpellFamilyFlags2 & 0x00000002) && spellInfo_2->SpellIconID == 544 ) ||
+                    ( (spellInfo_2->SpellFamilyFlags2 & 0x00000002) && spellInfo_1->SpellIconID == 544 ) )
+                    return false;
             }
             // Detect Invisibility and Mana Shield (multi-family check)
             if( spellInfo_1->Id == 132 && spellInfo_2->SpellIconID == 209 && spellInfo_2->SpellVisual[0] == 968 )
@@ -1565,6 +1606,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 // Dispersion
                 if ((spellInfo_1->Id == 47585 && spellInfo_2->Id == 60069) ||
                     (spellInfo_2->Id == 47585 && spellInfo_1->Id == 60069))
+                    return false;
+                // Power Word: Shield and Divine Aegis
+                if ((spellInfo_1->SpellIconID == 566 && spellInfo_2->SpellIconID == 2820) ||
+                    (spellInfo_2->SpellIconID == 566 && spellInfo_1->SpellIconID == 2820))
                     return false;
             }
             break;
@@ -1659,6 +1704,10 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                     (spellInfo_2->SpellFamilyFlags & UI64LIT(0x4)) && (spellInfo_1->SpellFamilyFlags & UI64LIT(0x00000004000)) )
                     return false;
 
+                // Deterrence
+                if( spellInfo_1->SpellIconID == 83 && spellInfo_2->SpellIconID == 83 )
+                    return false;
+
                 // Bestial Wrath
                 if( spellInfo_1->SpellIconID == 1680 && spellInfo_2->SpellIconID == 1680 )
                     return false;
@@ -1692,12 +1741,19 @@ bool SpellMgr::IsNoStackSpellDueToSpell(uint32 spellId_1, uint32 spellId_2) cons
                 if ((spellInfo_1->SpellIconID == 1487) && (spellInfo_2->SpellIconID == 1487))
                     return false;
 
-                // Seal of Corruption (caster/target parts stacking allow, other stacking checked by spell specs)
+                // Seal of Corruption
                 if (spellInfo_1->SpellIconID == 2292 && spellInfo_2->SpellIconID == 2292)
                     return false;
 
                 // Divine Sacrifice and Divine Guardian
                 if (spellInfo_1->SpellIconID == 3837 && spellInfo_2->SpellIconID == 3837)
+                    return false;
+
+                // Sacred Shield and Blessing of Sanctuary
+                if ((( spellInfo_1->SpellFamilyFlags & UI64LIT(0x0008000000000000)) &&
+                    (spellInfo_2->Id == 25899 || spellInfo_2->Id == 20911)) ||
+                    (( spellInfo_2->SpellFamilyFlags & UI64LIT(0x0008000000000000))
+                    && (spellInfo_1->Id == 25899 || spellInfo_1->Id == 20911)))
                     return false;
             }
 
@@ -3324,6 +3380,9 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
             // some generic arena related spells have by some strange reason MECHANIC_TURN
             if  (spellproto->Mechanic == MECHANIC_TURN)
                 return DIMINISHING_NONE;
+            // Entrapment triggered
+            else if (spellproto->SpellIconID == 20)
+                return DIMINISHING_ENTRAPMENT;
             break;
         case SPELLFAMILY_ROGUE:
         {
@@ -3338,6 +3397,19 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
                 return DIMINISHING_LIMITONLY;
             break;
         }
+        case SPELLFAMILY_PALADIN:
+        {
+            // Repentance
+            if (spellproto->SpellFamilyFlags & UI64LIT(0x00000000004))
+                return DIMINISHING_DISORIENT;
+            break;
+        }
+        case SPELLFAMILY_HUNTER:
+        {
+            // Scatter Shot
+            if (spellproto->SpellFamilyFlags & UI64LIT(0x00000040000) && spellproto->SpellFamilyFlags2 & UI64LIT(0x00000008000))
+                return DIMINISHING_SCATTER_SHOT;
+        }
         case SPELLFAMILY_WARLOCK:
         {
             // Curses/etc
@@ -3345,7 +3417,7 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
                 return DIMINISHING_LIMITONLY;
             // Seduction
             else if (spellproto->SpellFamilyFlags & UI64LIT(0x00040000000))
-                return DIMINISHING_CHARM;
+                return DIMINISHING_FEAR_BLIND;
             break;
         }
         case SPELLFAMILY_DRUID:
@@ -3359,6 +3431,9 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
             // Faerie Fire
             else if (spellproto->SpellFamilyFlags & UI64LIT(0x00000000400))
                 return DIMINISHING_LIMITONLY;
+            // Hibernate
+            else if (spellproto->SpellFamilyFlags & UI64LIT(0x0002000001000000) && spellproto->SpellFamilyFlags2 & UI64LIT(0x00000008000))
+                return DIMINISHING_HIBERNATE;
             break;
         }
         case SPELLFAMILY_WARRIOR:
@@ -3366,6 +3441,9 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
             // Hamstring - limit duration to 10s in PvP
             if (spellproto->SpellFamilyFlags & UI64LIT(0x00000000002))
                 return DIMINISHING_LIMITONLY;
+            // Charge Stun
+            else if (spellproto->Id == 7922)
+                return DIMINISHING_NONE;
             break;
         }
         case SPELLFAMILY_PRIEST:
@@ -3373,13 +3451,16 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
             // Vampiric Embrace
             if ((spellproto->SpellFamilyFlags & UI64LIT(0x00000000004)) && spellproto->SpellIconID == 150)
                 return DIMINISHING_LIMITONLY;
+            // Mind Control
+            if ((spellproto->SpellFamilyFlags & UI64LIT(0x00000020000)) && spellproto->SpellIconID == 150)
+                return DIMINISHING_MIND_CONTROL;
             break;
         }
         case SPELLFAMILY_DEATHKNIGHT:
         {
             // Hungering Cold (no flags)
             if (spellproto->SpellIconID == 2797)
-                return DIMINISHING_POLYMORPH_GOUGE_SAP;
+                return DIMINISHING_DISORIENT;
             break;
         }
         default:
@@ -3394,27 +3475,27 @@ DiminishingGroup GetDiminishingReturnsGroupForSpell(SpellEntry const* spellproto
     if (mechanic & ((1<<(MECHANIC_STUN-1))|(1<<(MECHANIC_SHACKLE-1))))
         return triggered ? DIMINISHING_TRIGGER_STUN : DIMINISHING_CONTROL_STUN;
     if (mechanic & (1<<(MECHANIC_SLEEP-1)))
-        return DIMINISHING_FREEZE_SLEEP;
+        return DIMINISHING_DISORIENT;
     if (mechanic & (1<<(MECHANIC_POLYMORPH-1)))
-        return DIMINISHING_POLYMORPH_GOUGE_SAP;
+        return DIMINISHING_DISORIENT;
     if (mechanic & (1<<(MECHANIC_ROOT-1)))
         return triggered ? DIMINISHING_TRIGGER_ROOT : DIMINISHING_CONTROL_ROOT;
     if (mechanic & ((1<<(MECHANIC_FEAR-1))|(1<<(MECHANIC_TURN-1))))
         return DIMINISHING_FEAR_BLIND;
     if (mechanic & (1<<(MECHANIC_CHARM-1)))
-        return DIMINISHING_CHARM;
+        return DIMINISHING_FEAR_BLIND;
     if (mechanic & (1<<(MECHANIC_SILENCE-1)))
         return DIMINISHING_SILENCE;
     if (mechanic & (1<<(MECHANIC_DISARM-1)))
         return DIMINISHING_DISARM;
     if (mechanic & (1<<(MECHANIC_FREEZE-1)))
-        return DIMINISHING_FREEZE_SLEEP;
+        return DIMINISHING_DISORIENT;
     if (mechanic & ((1<<(MECHANIC_KNOCKOUT-1))|(1<<(MECHANIC_SAPPED-1))))
-        return DIMINISHING_POLYMORPH_GOUGE_SAP;
+        return DIMINISHING_DISORIENT;
     if (mechanic & (1<<(MECHANIC_BANISH-1)))
         return DIMINISHING_BANISH;
     if (mechanic & (1<<(MECHANIC_HORROR-1)))
-        return DIMINISHING_DEATHCOIL;
+        return DIMINISHING_HORROR;
 
     return DIMINISHING_NONE;
 }
@@ -3427,6 +3508,13 @@ int32 GetDiminishingReturnsLimitDuration(DiminishingGroup group, SpellEntry cons
     // Explicit diminishing duration
     switch(spellproto->SpellFamilyName)
     {
+        case SPELLFAMILY_WARLOCK:
+        {
+            // Banish
+            if (spellproto->SpellFamilyFlags & UI64LIT(0x0800000000000000))
+                return 6000;
+            break;
+        }
         case SPELLFAMILY_HUNTER:
         {
             // Wyvern Sting
@@ -3471,13 +3559,13 @@ bool IsDiminishingReturnsGroupDurationLimited(DiminishingGroup group)
         case DIMINISHING_CONTROL_ROOT:
         case DIMINISHING_TRIGGER_ROOT:
         case DIMINISHING_FEAR_BLIND:
-        case DIMINISHING_CHARM:
-        case DIMINISHING_POLYMORPH_GOUGE_SAP:
+        case DIMINISHING_DISORIENT:
         case DIMINISHING_CHEAPSHOT_POUNCE:
-        case DIMINISHING_FREEZE_SLEEP:
         case DIMINISHING_CYCLONE:
         case DIMINISHING_BANISH:
         case DIMINISHING_LIMITONLY:
+        case DIMINISHING_MIND_CONTROL:
+        case DIMINISHING_HIBERNATE:
             return true;
         default:
             return false;
@@ -3497,13 +3585,15 @@ DiminishingReturnsType GetDiminishingReturnsGroupType(DiminishingGroup group)
         case DIMINISHING_CONTROL_ROOT:
         case DIMINISHING_TRIGGER_ROOT:
         case DIMINISHING_FEAR_BLIND:
-        case DIMINISHING_CHARM:
-        case DIMINISHING_POLYMORPH_GOUGE_SAP:
+        case DIMINISHING_DISORIENT:
         case DIMINISHING_SILENCE:
         case DIMINISHING_DISARM:
-        case DIMINISHING_DEATHCOIL:
-        case DIMINISHING_FREEZE_SLEEP:
+        case DIMINISHING_HORROR:
         case DIMINISHING_BANISH:
+        case DIMINISHING_HIBERNATE:
+        case DIMINISHING_ENTRAPMENT:
+        case DIMINISHING_SCATTER_SHOT:
+        case DIMINISHING_MIND_CONTROL:
             return DRTYPE_PLAYER;
         default:
             break;

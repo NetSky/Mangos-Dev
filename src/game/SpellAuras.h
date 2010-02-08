@@ -217,9 +217,12 @@ class MANGOS_DLL_SPEC Aura
         void HandleAuraIncreaseBaseHealthPercent(bool Apply, bool Real);
         void HandleNoReagentUseAura(bool Apply, bool Real);
         void HandlePhase(bool Apply, bool Real);
+        void HandleIgnoreUnitState(bool Apply, bool Real);
         void HandleModTargetArmorPct(bool Apply, bool Real);
         void HandleAuraModAllCritChance(bool Apply, bool Real);
         void HandleAllowOnlyAbility(bool Apply, bool Real);
+        void HandleAuraInitializeImages(bool Apply, bool Real);
+        void HandleAuraCloneCaster(bool Apply, bool Real);
 
         virtual ~Aura();
 
@@ -237,6 +240,8 @@ class MANGOS_DLL_SPEC Aura
 
         int32 GetAuraMaxDuration() const { return m_maxduration; }
         void SetAuraMaxDuration(int32 duration) { m_maxduration = duration; }
+        int32 GetAuraOrigDuration() const { return m_origDuration; }
+        void SetAuraOrigDuration(int32 duration) { m_origDuration = duration; }
         int32 GetAuraDuration() const { return m_duration; }
         void SetAuraDuration(int32 duration) { m_duration = duration; }
         time_t GetAuraApplyTime() const { return m_applyTime; }
@@ -295,6 +300,7 @@ class MANGOS_DLL_SPEC Aura
 
         void SetAura(bool remove) { m_target->SetVisibleAura(m_auraSlot, remove ? 0 : GetId()); }
         void SendAuraUpdate(bool remove);
+        void SendFakeAuraUpdate(uint32 auraId, bool remove);
 
         uint8 GetStackAmount() {return m_stackAmount;}
         void SetStackAmount(uint8 num);
@@ -336,11 +342,9 @@ class MANGOS_DLL_SPEC Aura
 
         void SetRemoveMode(AuraRemoveMode mode) { m_removeMode = mode; }
 
-        virtual Unit* GetTriggerTarget() const { return m_target; }
-
         // add/remove SPELL_AURA_MOD_SHAPESHIFT (36) linked auras
         void HandleShapeshiftBoosts(bool apply);
-        void HandleSpellSpecificBoosts(bool apply);
+        void HandleSpellSpecificBoosts(bool apply, bool last_stack);
 
         // Allow Apply Aura Handler to modify and access m_AuraDRGroup
         void setDiminishGroup(DiminishingGroup group) { m_AuraDRGroup = group; }
@@ -351,6 +355,8 @@ class MANGOS_DLL_SPEC Aura
 
         uint32 const *getAuraSpellClassMask() const { return  m_spellProto->GetEffectSpellClassMask(m_effIndex); }
         bool isAffectedOnSpell(SpellEntry const *spell) const;
+
+        void ApplyHasteToPeriodic();
     protected:
         Aura(SpellEntry const* spellproto, uint32 eff, int32 *currentBasePoints, Unit *target, Unit *caster = NULL, Item* castItem = NULL);
 
@@ -379,6 +385,7 @@ class MANGOS_DLL_SPEC Aura
         int32 m_timeCla;                                    // Timer for power per sec calcultion
         int32 m_periodicTimer;                              // Timer for periodic auras
         uint32 m_periodicTick;                              // Tick count pass (including current if use in tick code) from aura apply, used for some tick count dependent aura effects
+		uint32 m_origDuration;                              // Duration before applying haste, etc...
 
         AuraRemoveMode m_removeMode:8;                      // Store info for know remove aura reason
         DiminishingGroup m_AuraDRGroup:8;                   // Diminishing
@@ -427,19 +434,6 @@ class MANGOS_DLL_SPEC PersistentAreaAura : public Aura
         ~PersistentAreaAura();
     protected:
         void Update(uint32 diff);
-};
-
-class MANGOS_DLL_SPEC SingleEnemyTargetAura : public Aura
-{
-    friend Aura* CreateAura(SpellEntry const* spellproto, uint32 eff, int32 *currentBasePoints, Unit *target, Unit *caster, Item* castItem);
-
-    public:
-        ~SingleEnemyTargetAura();
-        Unit* GetTriggerTarget() const;
-
-    protected:
-        SingleEnemyTargetAura(SpellEntry const* spellproto, uint32 eff, int32 *currentBasePoints, Unit *target, Unit *caster  = NULL, Item* castItem = NULL);
-        uint64 m_casters_target_guid;
 };
 
 Aura* CreateAura(SpellEntry const* spellproto, uint32 eff, int32 *currentBasePoints, Unit *target, Unit *caster = NULL, Item* castItem = NULL);
