@@ -553,12 +553,35 @@ PersistentAreaAura::~PersistentAreaAura()
 {
 }
 
+SingleEnemyTargetAura::SingleEnemyTargetAura(SpellEntry const* spellproto, uint32 eff, int32 *currentBasePoints, Unit *target,
+Unit *caster, Item* castItem) : Aura(spellproto, eff, currentBasePoints, target, caster, castItem)
+{
+    if (caster)
+        m_casters_target_guid = caster->GetTypeId()==TYPEID_PLAYER ? ((Player*)caster)->GetSelection() : caster->GetTargetGUID();
+    else
+        m_casters_target_guid = 0;
+}
+
+SingleEnemyTargetAura::~SingleEnemyTargetAura()
+{
+}
+
+Unit* SingleEnemyTargetAura::GetTriggerTarget() const
+{
+    return ObjectAccessor::GetUnit(*m_target, m_casters_target_guid);
+}
+
 Aura* CreateAura(SpellEntry const* spellproto, uint32 eff, int32 *currentBasePoints, Unit *target, Unit *caster, Item* castItem)
 {
     if (IsAreaAuraEffect(spellproto->Effect[eff]))
         return new AreaAura(spellproto, eff, currentBasePoints, target, caster, castItem);
 
     uint32 triggeredSpellId = spellproto->EffectTriggerSpell[eff];
+
+    if(SpellEntry const* triggeredSpellInfo = sSpellStore.LookupEntry(triggeredSpellId))
+        for (int i = 0; i < 3; ++i)
+            if (triggeredSpellInfo->EffectImplicitTargetA[i] == TARGET_SINGLE_ENEMY)
+                return new SingleEnemyTargetAura(spellproto, eff, currentBasePoints, target, caster, castItem);
 
     return new Aura(spellproto, eff, currentBasePoints, target, caster, castItem);
 }
@@ -1562,7 +1585,7 @@ void Aura::HandleAddTargetTrigger(bool apply, bool /*Real*/)
 void Aura::TriggerSpell()
 {
     const uint64& casterGUID = GetCasterGUID();
-    Unit* target = GetTarget();
+    Unit* target = GetTriggerTarget();
 
     if(!casterGUID || !target)
         return;
@@ -2330,7 +2353,7 @@ void Aura::TriggerSpell()
 void Aura::TriggerSpellWithValue()
 {
     const uint64& casterGUID = GetCasterGUID();
-    Unit* target = GetTarget();
+    Unit* target = GetTriggerTarget();
 
     if(!casterGUID || !target)
         return;
@@ -2351,18 +2374,6 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
     // spells required only Real aura add/remove
     if(!Real)
         return;
-
-    // link dummyauras to caster (for target selection from periodic triggered spells or other special effects)
-    if( !IsAreaAura() && !m_permanent)
-    {
-        if (Unit* caster = GetCaster())
-        {
-            if(apply)
-                caster->AddDummyAuraLink(this);
-            else
-                caster->RemoveDummyAuraLink(this);
-        }
-    }
 
     // AT APPLY
     if(apply)
@@ -4986,6 +4997,48 @@ void Aura::HandlePeriodicDamage(bool apply, bool Real)
                         m_target->GetHealth() > m_target->GetMaxHealth() * m_spellProto->CalculateSimpleValue(1) / 100)
                         m_modifier.m_amount += m_modifier.m_amount * m_spellProto->CalculateSimpleValue(2) / 100;
                     return;
+                }
+                break;
+            }
+            case SPELLFAMILY_WARLOCK:
+            {
+                //Conflagrate DOT
+                if (m_spellProto->TargetAuraState == AURA_STATE_CONFLAGRATE)
+                {
+                    Aura const* aura = NULL;                // found req. aura for damage calculation
+
+                    Unit::AuraList const &mPeriodic = m_target->GetAurasByType(SPELL_AURA_PERIODIC_DAMAGE);
+                    for(Unit::AuraList::const_iterator i = mPeriodic.begin(); i != mPeriodic.end(); ++i)
+                    {
+                        // for caster applied auras only
+                        if ((*i)->GetSpellProto()->SpellFamilyName != SPELLFAMILY_WARLOCK ||
+                            (*i)->GetCasterGUID()!=caster->GetGUID())
+                            continue;
+
+                        // Immolate
+                        if ((*i)->GetSpellProto()->SpellFamilyFlags & UI64LIT(0x0000000000000004))
+                        {
+                            aura = *i;                      // it selected always if exist
+                            break;
+                        }
+
+                        // Shadowflame
+                        if ((*i)->GetSpellProto()->SpellFamilyFlags2 & 0x00000002)
+                            aura = *i;                      // remember but wait possible Immolate as primary priority
+                    }
+
+                    // found Immolate or Shadowflame
+                    if (aura)
+                    {
+                        int32 damagetick = caster->SpellDamageBonus(m_target, aura->GetSpellProto(), aura->GetModifier()->m_amount, DOT);
+                        m_modifier.m_amount += damagetick * 0.3f;
+
+                        // Glyph of Conflagrate
+                        if (!caster->HasAura(56235))
+                            m_target->RemoveAurasByCasterSpell(aura->GetId(), caster->GetGUID());
+
+                        return;
+                    }
                 }
                 break;
             }

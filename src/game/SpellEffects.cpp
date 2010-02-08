@@ -480,11 +480,8 @@ void Spell::EffectSchoolDMG(uint32 effect_idx)
                     {
                         // DoT not have applied spell bonuses in m_amount
                         int32 damagetick = m_caster->SpellDamageBonus(unitTarget, aura->GetSpellProto(), aura->GetModifier()->m_amount, DOT);
-                        damage += damagetick * 4;
-
-                        // Glyph of Conflagrate
-                        if (!m_caster->HasAura(56235))
-                            unitTarget->RemoveAurasByCasterSpell(aura->GetId(), m_caster->GetGUID());
+                        damage += damagetick * 3;
+                        //Remove auras in DoT part
                         break;
                     }
                 }
@@ -837,16 +834,14 @@ void Spell::EffectDummy(uint32 i)
                 }
                 case 17251:                                 // Spirit Healer Res
                 {
-                    if (!unitTarget)
+                    if (!unitTarget || !m_originalCaster)
                         return;
 
-                    Unit* caster = GetAffectiveCaster();
-
-                    if (caster && caster->GetTypeId() == TYPEID_PLAYER)
+                    if (m_originalCaster->GetTypeId() == TYPEID_PLAYER)
                     {
                         WorldPacket data(SMSG_SPIRIT_HEALER_CONFIRM, 8);
                         data << uint64(unitTarget->GetGUID());
-                        ((Player*)caster)->GetSession()->SendPacket( &data );
+                        ((Player*)m_originalCaster)->GetSession()->SendPacket( &data );
                     }
                     return;
                 }
@@ -2083,11 +2078,54 @@ void Spell::EffectDummy(uint32 i)
                 if(unitTarget->GetTypeId() != TYPEID_PLAYER)
                 {
                    unitTarget->GetMap()->CreatureRelocation((Creature*)unitTarget,x,y,z,orientation);
-				   ((Creature*)unitTarget)->SendMonsterMove(x, y, z, orientation, ((Creature*)unitTarget)->GetSplineFlags(), 1);
+                   ((Creature*)unitTarget)->SendMonsterMove(x, y, z, orientation, ((Creature*)unitTarget)->GetSplineFlags(), 1);
                 }
                 else unitTarget->NearTeleportTo(x,y,z,orientation,false);
 
                 return;
+            }
+            // Raise Dead
+            else if (m_spellInfo->Id == 46584)
+            {   
+                if( unitTarget->isDead() && unitTarget->GetCreatureType()==CREATURE_TYPE_HUMANOID && unitTarget->getLevel() >= m_caster->getLevel()-3 )
+                {
+                    if( m_caster->GetTypeId()==TYPEID_PLAYER && ((Player*)m_caster)->HasSpell(52143) )
+                    {
+                        m_caster->CastSpell(m_caster, 52150, true, NULL);
+                        ((Player*)m_caster)->SendCooldownEvent(m_spellInfo,52150, this); 
+                        ((Player*)m_caster)->RemoveSpellCooldown(52150, true);
+                    }
+                    else
+                    {
+                        m_caster->CastSpell(m_caster, 46585, true, NULL);
+                        ((Player*)m_caster)->SendCooldownEvent(m_spellInfo,46585, this); 
+                        ((Player*)m_caster)->RemoveSpellCooldown(46585, true);
+                    }
+                }
+                else
+                {
+                    if(((Player*)m_caster)->HasItemCount(37201,1))
+                    {
+                           if( m_caster->GetTypeId()==TYPEID_PLAYER && ((Player*)m_caster)->HasSpell(52143) )
+                        {
+                            m_caster->CastSpell(m_caster, 52150, true, NULL);
+                            ((Player*)m_caster)->SendCooldownEvent(m_spellInfo,52150, this); 
+                            ((Player*)m_caster)->RemoveSpellCooldown(52150, true);
+                               
+                        }
+                        else
+                        {
+                            m_caster->CastSpell(m_caster, 46585, true, NULL);
+                            ((Player*)m_caster)->SendCooldownEvent(m_spellInfo,46585, this); 
+                            ((Player*)m_caster)->RemoveSpellCooldown(46585, true);
+                           
+                        }
+                        ((Player*)m_caster)->DestroyItemCount(37201,1,true);
+                    }
+                    else 
+                        m_caster->CastStop();
+                    return;
+                }
             }
             break;
     }
@@ -2595,7 +2633,7 @@ void Spell::EffectApplyAura(uint32 i)
         (unitTarget->GetTypeId() != TYPEID_PLAYER || !((Player*)unitTarget)->GetSession()->PlayerLoading()) )
         return;
 
-    Unit* caster = GetAffectiveCaster();
+    Unit* caster = m_originalCaster ? m_originalCaster : m_caster;
     if(!caster)
         return;
 
@@ -2746,7 +2784,9 @@ void Spell::EffectHeal( uint32 /*i*/ )
     if (unitTarget && unitTarget->isAlive() && damage >= 0)
     {
         // Try to get original caster
-        Unit *caster = GetAffectiveCaster();
+        Unit *caster = m_originalCasterGUID ? m_originalCaster : m_caster;
+
+        // Skip if m_originalCaster not available
         if (!caster)
             return;
 
@@ -2828,7 +2868,9 @@ void Spell::EffectHealPct( uint32 /*i*/ )
     if (unitTarget && unitTarget->isAlive() && damage >= 0)
     {
         // Try to get original caster
-        Unit *caster = GetAffectiveCaster();
+        Unit *caster = m_originalCasterGUID ? m_originalCaster : m_caster;
+
+        // Skip if m_originalCaster not available
         if (!caster)
             return;
 
@@ -2847,7 +2889,9 @@ void Spell::EffectHealMechanical( uint32 /*i*/ )
     if (unitTarget && unitTarget->isAlive() && damage >= 0)
     {
         // Try to get original caster
-        Unit *caster = GetAffectiveCaster();
+        Unit *caster = m_originalCasterGUID ? m_originalCaster : m_caster;
+
+        // Skip if m_originalCaster not available
         if (!caster)
             return;
 
@@ -4338,7 +4382,7 @@ void Spell::EffectTameCreature(uint32 /*i*/)
 {
     // Caster must be player, checked in Spell::CheckCast
     // Spell can be triggered, we need to check original caster prior to caster
-    Player* plr = (Player*)GetAffectiveCaster();
+    Player* plr = (Player*)(m_originalCaster ? m_originalCaster : m_caster);
 
     Creature* creatureTarget = (Creature*)unitTarget;
 
@@ -5260,11 +5304,10 @@ void Spell::EffectScriptEffect(uint32 effIndex)
                 // Emblazon Runeblade
                 case 51770:
                 {
-                    Unit* caster = GetAffectiveCaster();
-                    if(!caster)
+                    if(!m_originalCaster)
                         return;
 
-                    caster->CastSpell(caster, damage, false);
+                    m_originalCaster->CastSpell(m_originalCaster, damage, false);
                     break;
                 }
                 // Death Gate

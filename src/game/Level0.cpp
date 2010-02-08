@@ -103,10 +103,7 @@ bool ChatHandler::HandleServerInfoCommand(const char* /*args*/)
     PSendSysMessage(LANG_USING_EVENT_AI,sWorld.GetCreatureEventAIVersion());
     PSendSysMessage(LANG_CONNECTED_USERS, activeClientsNum, maxActiveClientsNum, queuedClientsNum, maxQueuedClientsNum);
     PSendSysMessage(LANG_UPTIME, str.c_str());
-    SendSysMessage("Revision [7.2.2010][pr208] - MaNGOS modified for Valhalla Server");
-    SendSysMessage("GIT: http://github.com/Tasssadar/Valhalla-Project/commits");
-    SendSysMessage("Changelog: http://valhalla-team.com/web/changelog.php");
-
+    SendSysMessage("Mangos Netsky Dev. Branch");
     return true;
 }
 
@@ -161,7 +158,7 @@ bool ChatHandler::HandleGMListIngameCommand(const char* /*args*/)
     for(; itr != m.end(); ++itr)
     {
         AccountTypes itr_sec = itr->second->GetSession()->GetSecurity();
-        if ((itr->second->isGameMaster() || (itr_sec > SEC_PLAYER && itr_sec <= (AccountTypes)sWorld.getConfig(CONFIG_GM_LEVEL_IN_GM_LIST))) &&
+        if ((itr->second->isGameMaster() || (itr_sec > SEC_PLAYER && itr_sec <= sWorld.getConfig(CONFIG_GM_LEVEL_IN_GM_LIST))) &&
             (!m_session || itr->second->IsVisibleGloballyFor(m_session->GetPlayer())))
         {
             if(first)
