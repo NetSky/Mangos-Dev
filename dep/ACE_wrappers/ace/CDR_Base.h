@@ -4,7 +4,7 @@
 /**
  *  @file   CDR_Base.h
  *
- *  $Id: CDR_Base.h 82088 2008-06-19 16:22:16Z shuston $
+ *  $Id: CDR_Base.h 86825 2009-09-28 17:45:23Z johnnyw $
  *
  * ACE Common Data Representation (CDR) basic types.
  *
@@ -124,7 +124,7 @@ public:
     /// Use whichever byte order is native to this machine.
     BYTE_ORDER_NATIVE = ACE_CDR_BYTE_ORDER
   };
-    
+
   /**
    * Do byte swapping for each basic IDL type size.  There exist only
    * routines to put byte, halfword (2 bytes), word (4 bytes),
@@ -177,10 +177,14 @@ public:
    */
   static int grow (ACE_Message_Block *mb, size_t minsize);
 
-  /// Copy a message block chain into a single message block,
-  /// preserving the alignment of the first message block of the
-  /// original stream, not the following message blocks.
-  static void consolidate (ACE_Message_Block *dst,
+  /**
+   * Copy a message block chain into a single message block,
+   * preserving the alignment of the first message block of the
+   * original stream, not the following message blocks.
+   * @retval -1 Failure
+   * @retval 0 Success.
+   */
+  static int consolidate (ACE_Message_Block *dst,
                           const ACE_Message_Block *src);
 
   static size_t total_length (const ACE_Message_Block *begin,

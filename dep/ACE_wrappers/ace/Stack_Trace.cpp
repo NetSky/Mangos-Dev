@@ -2,7 +2,7 @@
 /**
  *  @file   Stack_Trace.cpp
  *
- *  $Id: Stack_Trace.cpp 82575 2008-08-08 20:36:10Z mitza $
+ *  $Id: Stack_Trace.cpp 84075 2008-12-31 15:40:56Z mitza $
  *
  *  @brief  Encapsulate string representation of stack trace.
  *
@@ -17,7 +17,7 @@
 #include "ace/OS_NS_string.h"
 #include "ace/OS_NS_stdio.h"
 
-ACE_RCSID (ace, Stack_Trace, "$Id: Stack_Trace.cpp 82575 2008-08-08 20:36:10Z mitza $")
+ACE_RCSID (ace, Stack_Trace, "$Id: Stack_Trace.cpp 84075 2008-12-31 15:40:56Z mitza $")
 
 /*
   This is ugly, simply because it's very platform-specific.
@@ -77,13 +77,13 @@ ACE_Stack_Trace::generate_trace (ssize_t starting_frame_offset, size_t num_frame
         {
           // this could be more efficient by remembering where we left off in buf_
           char *symp = &stack_syms[i][0];
-          while (this->buflen_ < SYMBUFSIZ && *symp != '\0')
+          while (this->buflen_ < SYMBUFSIZ - 2 && *symp != '\0')
             {
               this->buf_[this->buflen_++] = *symp++;
             }
           this->buf_[this->buflen_++] = '\n'; // put a newline at the end
         }
-      this->buf_[this->buflen_+1] = '\0'; // zero terminate the string
+      this->buf_[this->buflen_] = '\0'; // zero terminate the string
 
       ::free (stack_syms);
     }
@@ -570,6 +570,14 @@ add_frame_to_buf (struct frame_state const *fs, void *usrarg)
 
 static void emptyStack () { }
 
+#if defined (_MSC_VER)
+#  pragma warning(push)
+// Suppress warning 4748 "/GS can not protect parameters and local
+// variables from local buffer overrun because optimizations are
+// disabled in function"
+#  pragma warning(disable: 4748)
+#endif /* _MSC_VER */
+
 static int
 cs_operate(int (*func)(struct frame_state const *, void *), void *usrarg,
            size_t starting_frame, size_t num_frames)
@@ -663,6 +671,11 @@ cs_operate(int (*func)(struct frame_state const *, void *), void *usrarg,
 
   return 0;
 }
+
+#if defined (_MSC_VER)
+// Restore the warning state to what it was before entry.
+#  pragma warning(pop)
+#endif /* _MSC_VER */
 
 void
 ACE_Stack_Trace::generate_trace (ssize_t starting_frame_offset,

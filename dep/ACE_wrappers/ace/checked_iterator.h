@@ -23,7 +23,7 @@
  * not supported, the pointer passed to the function is returned
  * instead.
  *
- * $Id: checked_iterator.h 80826 2008-03-04 14:51:23Z wotte $
+ * $Id: checked_iterator.h 82770 2008-09-17 18:11:47Z johnnyw $
  *
  * @internal The functions and types in this header are meant for
  *           internal use.  They may change at any point between
@@ -37,7 +37,7 @@
 #  include <iterator>
 # endif  /* _MSC_VER >= 1400 */
 
-# if defined (_MSC_VER) && (_MSC_FULL_VER >= 140050000 && _MSC_FULL_VER < 160020506)
+# if defined (_MSC_VER) && (_MSC_FULL_VER >= 140050000)
 template <typename PTR>
 stdext::checked_array_iterator<PTR>
 ACE_make_checked_array_iterator (PTR buf, size_t len)

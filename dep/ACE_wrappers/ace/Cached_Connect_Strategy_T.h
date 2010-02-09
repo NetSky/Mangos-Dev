@@ -4,7 +4,7 @@
 /**
  *  @file    Cached_Connect_Strategy_T.h
  *
- *  $Id: Cached_Connect_Strategy_T.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id: Cached_Connect_Strategy_T.h 82771 2008-09-17 18:47:48Z johnnyw $
  *
  *  @author Kirthika Parameswaran <kirthika@cs.wustl.edu>
  */
@@ -130,7 +130,7 @@ protected:
                     const ACE_PEER_CONNECTOR_ADDR &remote_addr,
                     ACE_Time_Value *timeout,
                     const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                    int reuse_addr,
+                    bool reuse_addr,
                     int flags,
                     int perms,
                     ACE_Hash_Map_Entry<ACE_Refcounted_Hash_Recyclable<ACE_PEER_CONNECTOR_ADDR>, ACE_Pair<SVC_HANDLER *, ATTRIBUTES> > *&entry,
@@ -140,7 +140,7 @@ protected:
                                     const ACE_PEER_CONNECTOR_ADDR &remote_addr,
                                     ACE_Time_Value *timeout,
                                     const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                                    int reuse_addr,
+                                    bool reuse_addr,
                                     int flags,
                                     int perms,
                                     ACE_Hash_Map_Entry<ACE_Refcounted_Hash_Recyclable<ACE_PEER_CONNECTOR_ADDR>, ACE_Pair<SVC_HANDLER *, ATTRIBUTES> > *&entry,
@@ -150,7 +150,7 @@ protected:
                                      const ACE_PEER_CONNECTOR_ADDR &remote_addr,
                                      ACE_Time_Value *timeout,
                                      const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                                     int reuse_addr,
+                                     bool reuse_addr,
                                      int flags,
                                      int perms,
                                      int &found);
@@ -168,7 +168,7 @@ protected:
                               const ACE_PEER_CONNECTOR_ADDR &remote_addr,
                               ACE_Time_Value *timeout,
                               const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                              int reuse_addr,
+                              bool reuse_addr,
                               int flags,
                               int perms);
 
@@ -235,7 +235,7 @@ protected:
                                             const ACE_PEER_CONNECTOR_ADDR &remote_addr,
                                             ACE_Time_Value *timeout,
                                             const ACE_PEER_CONNECTOR_ADDR &local_addr,
-                                            int reuse_addr,
+                                            bool reuse_addr,
                                             int flags,
                                             int perms,
                                             ACE_Hash_Map_Entry<ACE_Refcounted_Hash_Recyclable<ACE_PEER_CONNECTOR_ADDR>,

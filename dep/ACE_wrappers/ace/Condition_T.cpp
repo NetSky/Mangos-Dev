@@ -1,4 +1,4 @@
-// $Id: Condition_T.cpp 81283 2008-04-09 01:28:18Z schmidt $
+// $Id: Condition_T.cpp 86893 2009-10-02 15:32:35Z schmidt $
 
 #ifndef ACE_CONDITION_T_CPP
 #define ACE_CONDITION_T_CPP
@@ -99,9 +99,12 @@ ACE_Condition<MUTEX>::wait (MUTEX &mutex,
       return ACE_OS::cond_wait (&this->cond_,
                                 &mutex.lock_);
   else
-    return ACE_OS::cond_timedwait (&this->cond_,
-                                   &mutex.lock_,
-                                   (ACE_Time_Value *) abstime);
+    {
+      ACE_Time_Value tv = *abstime;
+      return ACE_OS::cond_timedwait (&this->cond_,
+                                     &mutex.lock_,
+                                     &tv);
+    }
 }
 
 // Peform an "alertable" timed wait.  If the argument ABSTIME == 0

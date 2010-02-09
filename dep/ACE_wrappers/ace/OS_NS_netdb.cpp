@@ -1,9 +1,9 @@
 // -*- C++ -*-
-// $Id: OS_NS_netdb.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id: OS_NS_netdb.cpp 82723 2008-09-16 09:35:44Z johnnyw $
 
 #include "ace/OS_NS_netdb.h"
 
-ACE_RCSID(ace, OS_NS_netdb, "$Id: OS_NS_netdb.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, OS_NS_netdb, "$Id: OS_NS_netdb.cpp 82723 2008-09-16 09:35:44Z johnnyw $")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/OS_NS_netdb.inl"
@@ -276,7 +276,7 @@ ACE_OS::getmacaddress (struct macaddr_node_t *node)
 # else
 #   if defined (ACE_HAS_PHARLAP_RT)
       DEVHANDLE ip_dev = (DEVHANDLE)0;
-      EK_TCPIPCFG *devp;
+      EK_TCPIPCFG *devp = 0;
       size_t i;
       ACE_TCHAR dev_name[16];
 

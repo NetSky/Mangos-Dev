@@ -1,4 +1,4 @@
-// $Id: Service_Types.cpp 81826 2008-06-02 15:29:53Z schmidt $
+// $Id: Service_Types.cpp 84068 2008-12-24 18:32:05Z shuston $
 
 #include "ace/Service_Types.h"
 
@@ -14,7 +14,7 @@
 
 ACE_RCSID (ace,
            Service_Types,
-           "$Id: Service_Types.cpp 81826 2008-06-02 15:29:53Z schmidt $")
+           "$Id: Service_Types.cpp 84068 2008-12-24 18:32:05Z shuston $")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -435,14 +435,14 @@ ACE_Stream_Type::push (ACE_Module_Type *new_module)
 }
 
 ACE_Module_Type *
-ACE_Stream_Type::find (const ACE_TCHAR *mod_name) const
+ACE_Stream_Type::find (const ACE_TCHAR *module_name) const
 {
   ACE_TRACE ("ACE_Stream_Type::find");
 
   for (ACE_Module_Type *m = this->head_;
        m != 0;
        m = m->link ())
-    if (ACE_OS::strcmp (m->name (), mod_name) == 0)
+    if (ACE_OS::strcmp (m->name (), module_name) == 0)
       return m;
 
   return 0;

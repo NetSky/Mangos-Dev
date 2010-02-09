@@ -3,7 +3,7 @@
 /**
  * @file Condition_Recursive_Thread_Mutex.cpp
  *
- * $Id: Condition_Recursive_Thread_Mutex.cpp 80826 2008-03-04 14:51:23Z wotte $
+ * $Id: Condition_Recursive_Thread_Mutex.cpp 85363 2009-05-18 07:48:11Z johnnyw $
  *
  * Originally in Synch.cpp
  *
@@ -78,7 +78,7 @@ ACE_Condition<ACE_Recursive_Thread_Mutex>::wait (ACE_Recursive_Thread_Mutex &mut
   // returned with the lock held, but waiters primed and waiting to be
   // released. At cond_wait below, the mutex will be released.
   // On return, it will be reacquired.
-  const int result = abstime == 0
+  int const result = abstime == 0
     ? ACE_OS::cond_wait (&this->cond_,
                          &mutex.get_nesting_mutex ())
     : ACE_OS::cond_timedwait (&this->cond_,

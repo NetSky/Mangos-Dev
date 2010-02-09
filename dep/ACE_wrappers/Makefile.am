@@ -9,7 +9,7 @@
 ## /acebuilds/ACE_wrappers-repository/bin/mwc.pl -include /acebuilds/MPC/config -include /acebuilds/MPC/templates -feature_file /acebuilds/ACE_wrappers-repository/local.features -noreldefs -type automake -exclude build,Kokyu
 
 SUBDIRS = \
-	ace 
+	ace
 
 ACLOCAL = @ACLOCAL@
 ACLOCAL_AMFLAGS = -I m4

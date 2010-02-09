@@ -1,4 +1,4 @@
-dnl $Id: configure.ac 82832 2008-09-25 17:38:39Z jtc $
+dnl $Id$
 
 dnl An autoconf script to automatically configure ACE.
 dnl Process this file with autoconf to produce a configure script.
@@ -19,7 +19,7 @@ AC_INIT([ACE],
         [ace-bugs@cs.wustl.edu],
         [ace])
 
-AC_REVISION([$Id: configure.ac 82832 2008-09-25 17:38:39Z jtc $])
+AC_REVISION([$Id$])
 
 AC_COPYRIGHT([ACE(TM), TAO(TM), CIAO(TM), and CoSMIC(TM) (henceforth
 referred to as "DOC software") are copyrighted by Douglas C.
@@ -63,7 +63,7 @@ dnl Add maintainer mode option to the option list.
 dnl AM_MAINTAINER_MODE
 
 dnl The maintainer of this configure script.
-ACE_CONFIGURE_MAINTAINER='ace-users@cs.wustl.edu'
+ACE_CONFIGURE_MAINTAINER='ace-users@list.isis.vanderbilt.edu'
 
 
 dnl Until autoconf support in ACE is complete, prevent this script
@@ -764,7 +764,7 @@ dnl Check if XTI headers define TCP macros that conflict with netinet/tcp.h's
 #  endif /* ACE_HAS_XTI */
 #  if !defined (ACE_LACKS_NETINET_TCP_H)
 #    include /**/ <netinet/tcp.h>
-#  endif /* !ACE_LACKS_NETIINET_TCP_H */
+#  endif /* !ACE_LACKS_NETINET_TCP_H */
         ]],[[
          int a = 0;
         ]])],[
@@ -1003,12 +1003,6 @@ AC_CHECK_HEADER([new],
   [
    ACE_CHECK_HAS_HEADERS([new.h])
   ])
-
-dnl ace/OS.i can #include <cstring>,not #include <cstring.h>
-dnl "cstring" is the correct form.
-dnl TODO: Double check the above comment.
-AC_CHECK_HEADER([cstring],
-  [AC_DEFINE([ACE_HAS_GNU_CSTRING_H])],)
 
 AC_CHECK_HEADER([memory],,)
 
@@ -1568,48 +1562,6 @@ ACE_CACHE_CHECK([for sys_siglist],
         ])
 ],[AC_DEFINE([ACE_HAS_SYS_SIGLIST])],)
 
-dnl Check for sys_errlist
-dnl TODO: Check whether this variable can be defined somewhere else.
-ACE_CACHE_CHECK([for sys_errlist],
-    [ace_cv_lib_posix_sys_errlist],[
-      AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-#include <stdio.h>
-#include <errno.h>
-#if !defined (_sys_errlist)
-# define _sys_errlist sys_errlist
-#endif
-        ]],[[
-         void* vp = (void*) &_sys_errlist;
-        ]])],[
-         ace_cv_lib_posix_sys_errlist=yes
-        ],[
-         dnl Check if sys_errlist is a global variable in a library
-         AC_LINK_IFELSE([AC_LANG_PROGRAM(
-           [[
-#include <stdio.h>
-#include <errno.h>
-
-#if !defined (_sys_errlist)
-# define _sys_errlist sys_errlist
-#endif
-
-extern const char * const _sys_errlist[];
-           ]],
-           [[
-            void* vp = (void*) &_sys_errlist;
-           ]])],
-           [
-            ace_cv_lib_posix_sys_errlist=yes
-           ],
-           [
-            ace_cv_lib_posix_sys_errlist=no
-           ])
-        ])
-    ],[AC_DEFINE([ACE_HAS_SYS_ERRLIST])],)
-
-dnl Save the cache for debugging purposes
-AC_CACHE_SAVE
-
 
 dnl SECTION 9: checks for compiler characteristics
 
@@ -2113,62 +2065,6 @@ ACE_CACHE_CHECK([for new style C++ include file support],
    AC_DEFINE([ACE_HAS_STDCPP_STL_INCLUDES])
    AC_DEFINE([ACE_HAS_STRING_CLASS])
   ],)
-
-AC_CHECK_HEADER([map],
-[
-  AC_CHECK_HEADER([net/if.h],
-   [
-    ACE_CACHE_CHECK([if STL map class conflicts with <net/if.h> map struct],
-    [ace_cv_header_stl_map_conflict],
-    [
-     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-#ifndef ACE_LACKS_SYS_TYPES_H
-# include <sys/types.h>
-#endif
-#include <map>
-#include <net/if.h>
-       ]],[[
-#ifdef ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB
-        std::map<char, char> ace_map;
-#else
-        map<char, char> ace_map;
-#endif  /* ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB */
-       ]])],[
-        ace_cv_header_stl_map_conflict=no
-       ],[
-        ace_cv_header_stl_map_conflict=yes
-       ])
-    ],[AC_DEFINE([ACE_HAS_STL_MAP_CONFLICT])],)
-  ],)
-],)
-
-AC_CHECK_HEADER([queue],
-[
-  AC_CHECK_HEADER([netinet/in.h],
-   [
-    ACE_CACHE_CHECK([if STL queue class conflicts with <netinet/in.h> queue struct],
-    [ace_cv_header_stl_queue_conflict],
-    [
-     AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[
-#ifndef ACE_LACKS_SYS_TYPES_H
-# include <sys/types.h>
-#endif
-#include <queue>
-#include <netinet/in.h>
-       ]],[[
-#ifdef ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB
-        std::queue<char> ace_queue;
-#else
-        queue<char> ace_queue;
-#endif  /* ACE_USES_STD_NAMESPACE_FOR_STDCPP_LIB */
-       ]])],[
-        ace_cv_header_stl_queue_conflict=no
-       ],[
-        ace_cv_header_stl_queue_conflict=yes
-       ])
-    ],[AC_DEFINE([ACE_HAS_STL_QUEUE_CONFLICT])],)
-  ],)
-],)
 
 dnl Check whether platform supports the standard C++ library
 dnl TODO: For now, check whether headers <new>, <iomanip>
@@ -3109,6 +3005,8 @@ ACE_CHECK_HAS_FUNCS(getifaddrs)
 
 ACE_CHECK_LACKS_FUNCS(getegid geteuid getgid)
 
+ACE_CHECK_LACKS_FUNCS(setenv unsetenv)
+
 ACE_CHECK_LACKS_FUNCS(getopt)
 if test $ac_cv_func_getopt = yes; then
     AC_CHECK_DECL([getopt],
@@ -3366,11 +3264,10 @@ if test "$ac_cv_func_strnlen" = yes; then
 		[#include <string.h>])
 fi
 
+ACE_CHECK_HAS_FUNCS(strsignal)
+
 ACE_CHECK_LACKS_FUNCS(strchr)
 
-# believe it or not, both ACE_LACKS_STRERROR and ACE_HAS_STRERROR
-# feature test macros are currently used.
-ACE_CHECK_HAS_FUNCS(strerror)
 ACE_CHECK_LACKS_FUNCS(strerror)
 
 ACE_CHECK_LACKS_FUNCS(strftime)
@@ -3385,9 +3282,11 @@ ACE_CHECK_LACKS_FUNCS(strtod)
 
 ACE_CHECK_LACKS_FUNCS(strtol)
 
+ACE_FUNC_STRTOLL
+
 ACE_CHECK_LACKS_FUNCS(strtoul)
 
-ACE_CHECK_LACKS_FUNCS(strtoull)
+ACE_FUNC_STRTOULL
 
 # swab() comes in a number of forms:
 #   swab (const void*, void*, size_t) is POSIX, XPG4, SUS, SUSv2 standard.
@@ -3683,8 +3582,9 @@ ACE_CHECK_HAS_FUNCS(vasprintf vaswprintf vfwprintf vswprintf)
 
 ACE_CHECK_HAS_FUNCS(wcsnlen)
 
-ACE_CHECK_LACKS_FUNCS(fgetws fputws itow towlower towupper wcscat wcschr wcscmp wcscpy wcscspn wcslen wcsncat wcsncmp wcsncpy wcsnicmp wcspbrk wcsrchr wcsspn wcsstr wcstod wcstok wcstol wcstoul wcstoull)
+ACE_CHECK_LACKS_FUNCS(fgetws fputws isblank iswblank isctype iswctype itow towlower towupper wcscat wcschr wcscmp wcscpy wcscspn wcslen wcsncat wcsncmp wcsncpy wcsnicmp wcspbrk wcsrchr wcsspn wcsstr wcstod)
 
+ACE_CHECK_LACKS_FUNCS(wcstok)
 if test "$ac_cv_func_wcstok" = yes; then
 dnl The wcstok() function varies with standards. Check which one we have.
 AC_MSG_CHECKING([for 2- or 3-param wcstok])
@@ -3707,6 +3607,14 @@ AC_LINK_IFELSE([AC_LANG_PROGRAM(
            AC_MSG_RESULT([2])
           ])
 fi dnl test "$ac_cv_func_wcstok" = yes
+
+ACE_CHECK_LACKS_FUNCS(wcstol)
+
+ACE_FUNC_WCSTOLL
+
+ACE_CHECK_LACKS_FUNCS(wcstoul)
+
+ACE_FUNC_WCSTOULL
 
 dnl Check for SYSV IPC functions
 dnl
@@ -3827,7 +3735,7 @@ dnl if test "$ace_cv_shm_open_requires_one_slash" = yes; then
 dnl   AC_DEFINE([ACE_SHM_OPEN_REQUIRES_ONE_SLASH])
 dnl fi
 
-ACE_CHECK_HAS_FUNCS(snprintf)
+ACE_CHECK_LACKS_FUNCS(vsnprintf)
 
 ACE_CHECK_LACKS_FUNCS(tempnam truncate)
 
@@ -4660,7 +4568,7 @@ if test "$ace_user_enable_reentrant_funcs" = yes; then
                   fi
                  ],
                  [
-                  echo "Nothing to do";
+                  dnl Nothing to do!
                  ])
                 ],
                 [AC_DEFINE([ACE_LACKS_PWD_REENTRANT_FUNCTIONS])])
@@ -6023,85 +5931,6 @@ dnl
 dnl SECTION 13: checks for system services
 dnl
 
-dnl Check if platform defines ctime() as a macro
-ACE_CACHE_CHECK([for ctime() macro],
-  [ace_cv_feature_have_ctime_macro],
-  [
-   AC_EGREP_CPP([ACE_CTIME_MACRO],
-     [
-#include <time.h>
-
-#if defined (ctime)
-  ACE_CTIME_MACRO
-#endif
-     ],
-     [
-      ace_cv_feature_have_ctime_macro=yes
-     ],
-     [
-      ace_cv_feature_have_ctime_macro=no
-     ])
-  ], [AC_DEFINE([ACE_HAS_BROKEN_CTIME])],)
-
-dnl Check if platform defines ctime_r, asctime_r, rand_r or getpwnam_r
-dnl as macros.
-ACE_CACHE_CHECK([for reentrant function macros],
-  [ace_cv_feature_has_broken_r_routines],
-  [
-   AC_EGREP_CPP([ACE_R_MACROS],
-     [
-#ifndef _REENTRANT
-# define _REENTRANT
-#endif
-
-#include <time.h>
-
-#if !defined (ACE_LACKS_PWD_H)
-# include <pwd.h>
-#endif
-
-#if defined (ctime_r) || \
-    defined (asctime_r) || \
-    defined (rand_r) || \
-    defined (getpwnam_r)
-  ACE_R_MACROS
-#endif
-     ],
-     [
-      ace_cv_feature_has_broken_r_routines=yes
-     ],
-     [
-      ace_cv_feature_has_broken_r_routines=no
-     ])
-  ], [AC_DEFINE([ACE_HAS_BROKEN_R_ROUTINES])],)
-
-dnl Check if platform defines sig{empty,fill,add,del}set as macros
-ACE_CACHE_CHECK([for sig{empty fill add del}set macros],
-  [ace_cv_feature_have_sig_macros],
-  [
-   AC_EGREP_CPP([ACE_SIG_MACROS],
-     [
-#ifndef ACE_LACKS_SYS_TYPES_H
-# include <sys/types.h>
-#endif
-#include <signal.h>
-
-#if defined (sigemptyset) || \
-    defined (sigfillset) || \
-    defined (sigaddset) || \
-    defined (sigdelset) || \
-    defined (sigismember)
-  ACE_SIG_MACROS
-#endif
-     ],
-     [
-      ace_cv_feature_have_sig_macros=yes
-     ],
-     [
-      ace_cv_feature_have_sig_macros=no
-     ])
-  ], [AC_DEFINE([ACE_HAS_SIG_MACROS])],)
-
 dnl Check for open() mode masks
 ACE_CACHE_CHECK([for open() mode masks],
   [ace_cv_feature_have_open_mode_masks],[
@@ -7157,7 +6986,7 @@ elif test "$ace_cv_lib_signal_vi1_2" != yes &&
    test "$ace_cv_lib_struct_sigaction_vv1_handler" != yes &&
    test "$ace_cv_lib_struct_sigaction_vi1a2_handler" != yes &&
    test "$ace_cv_lib_struct_sigaction_va1_handler" = yes; then
-  AC_DEFINE([ACE_HAS_LYNXOS_SIGNALS])
+  AC_DEFINE([ACE_HAS_LYNXOS4_SIGNALS])
   AC_DEFINE([ACE_HAS_TANDEM_SIGNALS])
 elif test "$ace_cv_lib_signal_vi1_2" = yes &&
    test "$ace_cv_lib_signal_vi1_ret" = yes &&
@@ -7253,17 +7082,17 @@ ACE_CACHE_CHECK([if generated ACE configuration is usable],
    dnl there would be no chance that the rest of ACE would compile.
   ],
   [
-   AC_MSG_ERROR(
+   AC_MSG_WARN(
      [
 The generated configuration appears to be unusable.  Please verify
 that your system path and environment variables are correct.  If they
 appear to be correct then please send the maintainer of this configure
-script $ACE_CONFIGURE_MAINTAINER the *COMPRESSED* 'config.log' file
-and the following information:
+script $ACE_CONFIGURE_MAINTAINER the *COMPRESSED* 'config.log' file,
+the generated ace/config.h file and the following information:
 
   ACE 'configure' Script Information
   ==================================
-  [RCS] translit([$Id: configure.ac 82832 2008-09-25 17:38:39Z jtc $], [$"])
+  [RCS] translit([$Id$], [$"])
 
 
   ACE Version:        ACE_VERSION
@@ -7408,6 +7237,11 @@ AC_CONFIG_FILES([
   Makefile
   ace/Makefile
 ])
+
+if test -d $srcdir/TAO -a X$ace_user_with_tao = Xyes; then
+  AC_CONFIG_SUBDIRS([TAO])
+  AC_SUBST([TAO],[TAO])
+fi
 
 dnl Note that the "ACE_VERSION" in the message below is an M4 macro
 dnl that expands to the version of ACE being configured.

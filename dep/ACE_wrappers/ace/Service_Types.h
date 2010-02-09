@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Types.h
  *
- *  $Id: Service_Types.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id: Service_Types.h 84068 2008-12-24 18:32:05Z shuston $
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */
@@ -182,7 +182,7 @@ public:
   int remove (ACE_Module_Type *module);
 
   /// Locate the ACE_Module with @a mod_name.
-  ACE_Module_Type *find (const ACE_TCHAR *mod_name) const;
+  ACE_Module_Type *find (const ACE_TCHAR *module_name) const;
 
   /// Dump the state of an object.
   void dump (void) const;

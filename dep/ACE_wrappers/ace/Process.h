@@ -4,7 +4,7 @@
 /**
  *  @file    Process.h
  *
- *  $Id: Process.h 82233 2008-07-01 22:49:26Z shuston $
+ *  $Id: Process.h 86698 2009-09-13 15:58:17Z johnnyw $
  *
  *  @author Tim Harrison <harrison@cs.wustl.edu>
  */
@@ -113,7 +113,7 @@ public:
    * Set a single environment variable, @a variable_name.  Since
    * different platforms separate each environment variable
    * differently, you must call this method once for each variable.
-   * <format> can be any printf format string.  So options->setenv
+   * @a format can be any printf format string.  So options->setenv
    * ("FOO","one + two = %s", "three") will result in "FOO=one + two =
    * three".
    */
@@ -220,9 +220,9 @@ public:
   /// ACE_Process_Manager to manage groups of processes.
   pid_t setgroup (pid_t pgrp);
 
-  /// Allows disabling of handle inheritence, default is TRUE.
-  int handle_inheritence (void);
-  void handle_inheritence (int);
+  /// Allows disabling of handle inheritance, default is TRUE.
+  int handle_inheritance (void);
+  void handle_inheritance (int);
 
   /// Cause the specified handle to be passed to a child process
   /// when it runs a new program image.
@@ -351,9 +351,6 @@ protected:
 
   ACE_TEXT_STARTUPINFO startup_info_;
 
-  /// Default TRUE.
-  BOOL handle_inheritence_;
-
   /// Pointer to security_buf1_.
   LPSECURITY_ATTRIBUTES process_attributes_;
 
@@ -378,6 +375,9 @@ protected:
   uid_t rgid_;
   uid_t egid_;
 #endif /* ACE_WIN32 */
+
+  /// Default true.
+  bool handle_inheritance_;
 
 #if !defined (ACE_HAS_WINCE)
   /// Is 1 if stdhandles was called.
@@ -439,7 +439,7 @@ protected:
   ACE_TCHAR process_name_[MAXPATHLEN + 1];
 
   /// Indicate if a Unicode environment should be used
-  bool use_unicode_environment_;  
+  bool use_unicode_environment_;
 };
 
 //class ACE_Process_Manager;
@@ -495,14 +495,14 @@ public:
    */
   virtual void child (pid_t parent);
 
-  /// Called by a <Process_Manager> that is removing this Process from
+  /// Called by a Process_Manager that is removing this Process from
   /// its table of managed Processes.  Default is to do nothing.
   virtual void unmanage (void);
 
   /**
-   * Wait for the process we've created to exit.  If <status> != 0, it
+   * Wait for the process we've created to exit.  If @a status != 0, it
    * points to an integer where the function store the exit status of
-   * child process to.  If <wait_options> == <WNOHANG> then return 0
+   * child process to.  If @a wait_options == @c WNOHANG then return 0
    * and don't block if the child process hasn't exited yet.  A return
    * value of -1 represents the <wait> operation failed, otherwise,
    * the child process id is returned.
@@ -514,7 +514,7 @@ public:
    * Timed wait for the process we've created to exit.  A return value
    * of -1 indicates that the something failed; 0 indicates that a
    * timeout occurred.  Otherwise, the child's process id is returned.
-   * If <status> != 0, it points to an integer where the function
+   * If @a status != 0, it points to an integer where the function
    * stores the child's exit status.
    *
    * @note On UNIX platforms this function uses <ualarm>, i.e., it
@@ -531,7 +531,7 @@ public:
   int kill (int signum = SIGINT);
 
   /**
-   * Terminate the process abruptly using <ACE::terminate_process>.
+   * Terminate the process abruptly using ACE::terminate_process().
    * This call doesn't give the process a chance to cleanup, so use it
    * with caution...
    */
@@ -591,6 +591,7 @@ protected:
 
   /// Set of handles that were passed to the child process.
   ACE_Handle_Set handles_passed_;
+
   /// Handle duplicates made for the child process.
   ACE_Handle_Set dup_handles_;
 
@@ -601,7 +602,6 @@ private:
   wchar_t* convert_env_buffer (const char* env) const;
 #endif
 };
-
 
 /**
  * @class ACE_Managed_Process

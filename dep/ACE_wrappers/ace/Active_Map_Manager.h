@@ -4,7 +4,7 @@
 /**
  *  @file    Active_Map_Manager.h
  *
- *  $Id: Active_Map_Manager.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id: Active_Map_Manager.h 83956 2008-12-03 07:57:38Z johnnyw $
  *
  *  @author Irfan Pyarali
  */
@@ -78,7 +78,7 @@ public:
   // = This really should be protected but because of template
   // friends, they are not.
 
-  /// Increment the <slot_generation> number.
+  /// Increment the slot_generation number.
   void increment_slot_generation_count (void);
 
 private:

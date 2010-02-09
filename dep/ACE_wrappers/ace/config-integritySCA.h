@@ -8,7 +8,7 @@
  * Integrity RTOS with SCA from Green Hills Software
  * http://www.ghs.com/products/rtos/integrity.html
  *
- * $Id: config-integritySCA.h 81935 2008-06-12 22:01:53Z jtc $
+ * $Id: config-integritySCA.h 87167 2009-10-19 19:33:53Z olli $
  */
 
 #define ghs
@@ -47,8 +47,7 @@
 
 /***** ANSI defines *****/
 #define ACE_LACKS_TEMPNAM /* believe it or not, this is ANSI C */
-#define ACE_HAS_STRERROR
-
+#define ACE_LACKS_PUTENV_PROTOTYPE
 
 #define ACE_LACKS_SENDMSG
 

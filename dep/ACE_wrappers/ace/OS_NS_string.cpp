@@ -1,24 +1,17 @@
-// $Id: OS_NS_string.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id: OS_NS_string.cpp 87239 2009-10-27 10:02:16Z olli $
 
-#include "ace/OS_NS_string.h"
-#include "ace/OS_NS_stdlib.h"
 #include "ace/ACE.h"
+#include "ace/OS_NS_string.h"
+#include "ace/OS_NS_stdio.h"
+#include "ace/OS_NS_stdlib.h"
 
 ACE_RCSID (ace,
            OS_NS_string,
-           "$Id: OS_NS_string.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id: OS_NS_string.cpp 87239 2009-10-27 10:02:16Z olli $")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/OS_NS_string.inl"
 #endif /* ACE_HAS_INLINED_OSCALLS */
-
-#if defined (ACE_HAS_WCHAR)
-#  include "ace/OS_NS_stdlib.h"
-#endif /* ACE_HAS_WCHAR */
-
-#if !defined (ACE_LACKS_STRERROR)
-#  include "ace/OS_NS_stdio.h"
-#endif /* ACE_LACKS_STRERROR */
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -125,6 +118,9 @@ ACE_OS::strerror (int errnum)
   errmsg = ret_errortext;
   ACE_SECURECRTCALL (strerror_s (ret_errortext, sizeof(ret_errortext), errnum),
                      char *, 0, errmsg);
+  if (errnum < 0 || errnum >= _sys_nerr)
+    g = EINVAL;
+
   return errmsg;
 #elif defined (ACE_WIN32)
   if (errnum < 0 || errnum >= _sys_nerr)
@@ -147,11 +143,47 @@ ACE_OS::strerror (int errnum)
  * Just returns "Unknown Error" all the time.
  */
 char *
-ACE_OS::strerror_emulation (int errnum)
+ACE_OS::strerror_emulation (int)
 {
-  return "Unknown Error";
+  return const_cast <char*> ("Unknown Error");
 }
 #endif /* ACE_LACKS_STRERROR */
+
+
+char *
+ACE_OS::strsignal (int signum)
+{
+  static char signal_text[128];
+#if defined (ACE_HAS_STRSIGNAL)
+  char *ret_val;
+
+# if defined (ACE_NEEDS_STRSIGNAL_RANGE_CHECK)
+  if (signum < 0 || signum >= ACE_NSIG)
+    ret_val = 0;
+  else
+# endif /* (ACE_NEEDS_STRSIGNAL_RANGE_CHECK */
+  ret_val = ACE_STD_NAMESPACE::strsignal (signum);
+
+  if (ret_val <= reinterpret_cast<char *> (0))
+    {
+      ACE_OS::sprintf (signal_text, "Unknown signal: %d", signum);
+      ret_val = signal_text;
+    }
+  return ret_val;
+#else
+  if (signum < 0 || signum >= ACE_NSIG)
+    {
+      ACE_OS::sprintf (signal_text, "Unknown signal: %d", signum);
+      return signal_text;
+    }
+# if defined (ACE_SYS_SIGLIST)
+  return ACE_SYS_SIGLIST[signum];
+# else
+  ACE_OS::sprintf (signal_text, "Signal: %d", signum);
+  return signal_text;
+# endif /* ACE_SYS_SIGLIST */
+#endif /* ACE_HAS_STRSIGNAL */
+}
 
 const char *
 ACE_OS::strnchr (const char *s, int c, size_t len)

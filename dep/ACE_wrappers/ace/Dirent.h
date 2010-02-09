@@ -4,7 +4,7 @@
 /**
  *  @file    Dirent.h
  *
- *  $Id: Dirent.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id: Dirent.h 84316 2009-02-03 19:46:05Z johnnyw $
  *
  *  Define a portable C++ interface to ACE_OS_Dirent directory-entry
  *  manipulation.
@@ -39,17 +39,17 @@ public:
   /// Default constructor.
   ACE_Dirent (void);
 
-  /// Constructor calls <opendir>
+  /// Constructor calls @c opendir()
   explicit ACE_Dirent (const ACE_TCHAR *dirname);
 
   /// Opens the directory named by filename and associates a directory
   /// stream with it.
   int open (const ACE_TCHAR *filename);
 
-  /// Destructor calls <closedir>.
+  /// Destructor calls @c closedir().
   ~ACE_Dirent (void);
 
-  /// Closes the directory stream and frees the <ACE_DIR> structure.
+  /// Closes the directory stream and frees the ACE_DIR structure.
   void close (void);
 
   // = Iterator methods.

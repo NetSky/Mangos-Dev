@@ -4,7 +4,7 @@
 /**
  *  @file    Log_Msg.h
  *
- *  $Id: Log_Msg.h 82511 2008-08-05 16:52:44Z shuston $
+ *  $Id: Log_Msg.h 87250 2009-10-28 11:57:17Z olli $
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */
@@ -24,19 +24,35 @@
 #include "ace/Default_Constants.h"
 #include "ace/Log_Priority.h"
 #include "ace/os_include/os_limits.h"
+#include "ace/Atomic_Op.h"
+#include "ace/Synch_Traits.h"
 
 // The ACE_ASSERT macro used to be defined here, include ace/Assert.h
 // for backwards compatibility.
 #include "ace/Assert.h"
 
 #if defined (ACE_NLOGGING)
-#define ACE_HEX_DUMP(X) do {} while (0)
-#define ACE_RETURN(Y) do { return (Y); } while (0)
-#define ACE_ERROR_RETURN(X, Y) return (Y)
-#define ACE_ERROR_BREAK(X) { break; }
-#define ACE_ERROR(X) do {} while (0)
-#define ACE_DEBUG(X) do {} while (0)
-#define ACE_ERROR_INIT(VALUE, FLAGS)
+#if !defined (ACE_HEX_DUMP)
+# define ACE_HEX_DUMP(X) do {} while (0)
+#endif
+#if !defined (ACE_RETURN)
+# define ACE_RETURN(Y) do { return (Y); } while (0)
+#endif
+#if !defined (ACE_ERROR_RETURN)
+# define ACE_ERROR_RETURN(X, Y) return (Y)
+#endif
+#if !defined (ACE_ERROR_BREAK)
+# define ACE_ERROR_BREAK(X) { break; }
+#endif
+#if !defined (ACE_ERROR)
+# define ACE_ERROR(X) do {} while (0)
+#endif
+#if !defined (ACE_DEBUG)
+# define ACE_DEBUG(X) do {} while (0)
+#endif
+#if !defined (ACE_ERROR_INIT)
+# define ACE_ERROR_INIT(VALUE, FLAGS)
+#endif
 #else
 #if !defined (ACE_HEX_DUMP)
 #define ACE_HEX_DUMP(X) \
@@ -315,11 +331,11 @@ public:
 
   /// Set the field that indicates whether interrupted calls should be
   /// restarted.
-  void restart (int);
+  void restart (bool r);
 
   /// Get the field that indicates whether interrupted calls should be
   /// restarted.
-  int restart (void) const;
+  bool restart (void) const;
 
   // = Notice that the following two function is equivalent to
   //   "void msg_ostream (HANDLE)" and "HANDLE msg_ostream (void)"
@@ -469,7 +485,7 @@ public:
             int line,
             int op_status = -1,
             int errnum = 0,
-            int restart = 1,
+            bool restart = true,
             ACE_OSTREAM_TYPE *os = 0,
             ACE_Log_Msg_Callback *c = 0);
 
@@ -509,8 +525,8 @@ public:
    *  - '@': print a void* pointer (in hexadecimal)
    *  - 'r': call the function pointed to by the corresponding argument
    *  - 'R': print return status
-   *  - 'S': print out the appropriate _sys_siglist entry corresponding
-   *         to var-argument.
+   *  - 'S': print out the appropriate signal message corresponding
+   *         to var-argument, e.g., as done by strsignal()
    *  - 's': prints a ACE_TCHAR* character string (also see C and W)
    *  - 'T': print timestamp in hour:minute:sec:usec format.
    *  - 'D': print timestamp as Weekday Month day year hour:minute:sec.usec
@@ -583,6 +599,8 @@ public:
   ACE_ALLOC_HOOK_DECLARE;
 
 private:
+  void cleanup_ostream ();
+
   /// Status of operation (-1 means failure, >= 0 means success).
   int status_;
 
@@ -602,10 +620,19 @@ private:
 
   /// Indicates whether we should restart system calls that are
   /// interrupted.
-  int restart_;
+  bool restart_;
 
   /// The ostream where logging messages can be written.
   ACE_OSTREAM_TYPE *ostream_;
+
+  /// This pointer is 0 if we are not reference counting (the user has not
+  /// passed "true" for the delete_ostream argument to msg_ostream).
+  /// If we are reference counting, this points to a shared count that will
+  /// be deleted when it reaches zero.  Since we want optional but shared
+  /// ownership neither std::auto_ptr nor ACE_Strong_Bound_Ptr have the right
+  /// semantics.  *Bound_Ptr also doesn't take advantage of Atomic_Op.
+  typedef ACE_Atomic_Op<ACE_SYNCH_MUTEX, unsigned long> Atomic_ULong;
+  Atomic_ULong *ostream_refcount_;
 
   /// The callback object.
   ACE_Log_Msg_Callback *msg_callback_;
@@ -618,9 +645,6 @@ private:
 
   /// Are we allowing tracing in this thread?
   bool tracing_enabled_;
-
-  /// Are we deleting this ostream?
-  bool delete_ostream_;
 
   /**
    * If we're running in the context of an ACE_Thread_Manager this

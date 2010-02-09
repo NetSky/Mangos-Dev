@@ -6,7 +6,7 @@
  *
  *  standard type definitions
  *
- *  $Id: os_stddef.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id: os_stddef.h 84499 2009-02-17 20:23:18Z olli $
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.
@@ -35,28 +35,6 @@
 extern "C"
 {
 #endif /* __cplusplus */
-
-//FUZZ: disable check_for_NULL
-// NULL pointer constant
-#if defined (ACE_LACKS_NULL)
-#  undef NULL
-#  if defined(__cplusplus)
-#    define NULL 0
-#  else
-#    define NULL ((void *)0)
-#  endif
-#endif /* ACE_LACKS_NULL */
-//FUZZ: enable check_for_NULL
-
-/*
-  Integer constant expression of type size_t, the value of which is the offset
-  in bytes to the structure member (member-designator), from the beginning of
-  its structure (type).
-*/
-#if defined (ACE_LACKS_OFFSETOF)
-#  undef offsetof
-#  define offsetof(TYPE, MEMBER) ((size_t) &((TYPE *)0)->MEMBER)
-#endif /* ACE_LACKS_OFFSETOF */
 
 //  Signed integer type of the result of subtracting two pointers.
 #if defined (ACE_LACKS_PTRDIFF_T)

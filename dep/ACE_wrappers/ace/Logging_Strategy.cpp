@@ -1,4 +1,4 @@
-// $Id: Logging_Strategy.cpp 81696 2008-05-14 18:15:31Z johnnyw $
+// $Id: Logging_Strategy.cpp 87536 2009-11-13 00:37:58Z dai_y $
 
 #include "ace/Logging_Strategy.h"
 #include "ace/Service_Config.h"
@@ -17,7 +17,7 @@
 
 ACE_RCSID (ace,
            Logging_Strategy,
-           "$Id: Logging_Strategy.cpp 81696 2008-05-14 18:15:31Z johnnyw $")
+           "$Id: Logging_Strategy.cpp 87536 2009-11-13 00:37:58Z dai_y $")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -562,5 +562,12 @@ ACE_END_VERSIONED_NAMESPACE_DECL
 // The following is a "Factory" used by the ACE_Service_Config and
 // svc.conf file to dynamically initialize the state of the
 // Logging_Strategy.
+
+ACE_STATIC_SVC_DEFINE (ACE_Logging_Strategy,
+                       ACE_TEXT ("Logging_Strategy"),
+                       ACE_Service_Type::SERVICE_OBJECT,
+                       &ACE_SVC_NAME (ACE_Logging_Strategy),
+                       ACE_Service_Type::DELETE_THIS | ACE_Service_Type::DELETE_OBJ,
+                       0)
 
 ACE_FACTORY_DEFINE (ACE, ACE_Logging_Strategy)

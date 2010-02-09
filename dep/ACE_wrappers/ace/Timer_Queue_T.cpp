@@ -1,4 +1,4 @@
-// $Id: Timer_Queue_T.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id: Timer_Queue_T.cpp 84405 2009-02-11 14:54:53Z schmidt $
 
 #ifndef ACE_TIMER_QUEUE_T_CPP
 #define ACE_TIMER_QUEUE_T_CPP
@@ -166,7 +166,7 @@ ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK>::dump (void) const
 
 template <class TYPE, class FUNCTOR, class ACE_LOCK>
 ACE_Timer_Queue_T<TYPE, FUNCTOR, ACE_LOCK>::ACE_Timer_Queue_T (FUNCTOR *upcall_functor,
-                                                           ACE_Free_List<ACE_Timer_Node_T <TYPE> > *freelist)
+                                                               ACE_Free_List<ACE_Timer_Node_T <TYPE> > *freelist)
   : gettimeofday_ (ACE_OS::gettimeofday),
     delete_upcall_functor_ (upcall_functor == 0),
     delete_free_list_ (freelist == 0),

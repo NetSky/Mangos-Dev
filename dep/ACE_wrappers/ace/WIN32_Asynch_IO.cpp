@@ -1,10 +1,10 @@
-// $Id: WIN32_Asynch_IO.cpp 82444 2008-07-28 13:33:07Z johnnyw $
+// $Id: WIN32_Asynch_IO.cpp 84565 2009-02-23 08:20:39Z johnnyw $
 
 #include "ace/WIN32_Asynch_IO.h"
 
 ACE_RCSID (ace,
            Win32_Asynch_IO,
-           "$Id: WIN32_Asynch_IO.cpp 82444 2008-07-28 13:33:07Z johnnyw $")
+           "$Id: WIN32_Asynch_IO.cpp 84565 2009-02-23 08:20:39Z johnnyw $")
 
 #if defined (ACE_HAS_WIN32_OVERLAPPED_IO) && \
     (defined (ACE_HAS_WINSOCK2) && (ACE_HAS_WINSOCK2 == 1))
@@ -2385,7 +2385,7 @@ ACE_WIN32_Asynch_Connect::open (const ACE_Handler::Proxy_Ptr &handler_proxy,
   if (this->flg_open_)
     ACE_ERROR_RETURN ((LM_ERROR,
                        ACE_TEXT ("%N:%l:ACE_WIN32_Asynch_Connect::open:")
-                       ACE_TEXT ("connector already open \n")),
+                       ACE_TEXT ("connector already open\n")),
                       -1);
 
   //int result =

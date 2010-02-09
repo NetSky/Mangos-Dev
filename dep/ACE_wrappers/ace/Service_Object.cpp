@@ -1,4 +1,4 @@
-// $Id: Service_Object.cpp 81826 2008-06-02 15:29:53Z schmidt $
+// $Id: Service_Object.cpp 85189 2009-04-28 09:26:27Z johnnyw $
 
 #include "ace/config-all.h"
 
@@ -19,14 +19,14 @@
 
 ACE_RCSID (ace,
            Service_Object,
-           "$Id: Service_Object.cpp 81826 2008-06-02 15:29:53Z schmidt $")
+           "$Id: Service_Object.cpp 85189 2009-04-28 09:26:27Z johnnyw $")
 
-  ACE_BEGIN_VERSIONED_NAMESPACE_DECL
+ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
 ACE_ALLOC_HOOK_DEFINE(ACE_Service_Object)
-  ACE_ALLOC_HOOK_DEFINE(ACE_Service_Type)
+ACE_ALLOC_HOOK_DEFINE(ACE_Service_Type)
 
-  void
+void
 ACE_Service_Type::dump (void) const
 {
 #if defined (ACE_HAS_DUMP)

@@ -1,8 +1,8 @@
-// $Id: OS_NS_wchar.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id: OS_NS_wchar.cpp 84262 2009-01-29 10:34:33Z johnnyw $
 
 #include "ace/OS_NS_wchar.h"
 
-ACE_RCSID(ace, OS_NS_wchar, "$Id: OS_NS_wchar.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, OS_NS_wchar, "$Id: OS_NS_wchar.cpp 84262 2009-01-29 10:34:33Z johnnyw $")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/OS_NS_wchar.inl"
@@ -84,7 +84,7 @@ ACE_OS::wcscmp_emulation (const ACE_WCHAR_T *string1,
 {
   while (*string1 == *string2++)
     if (*string1++ == 0)
-      return (0);
+      return 0;
   return (*string1 - *--string2);
 }
 #endif /* !ACE_HAS_WCHAR || ACE_LACKS_WCSCMP */

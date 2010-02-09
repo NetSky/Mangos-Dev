@@ -4,7 +4,7 @@
 /**
  *  @file    Reactor.h
  *
- *  $Id: Reactor.h 82117 2008-06-22 17:05:12Z schmidt $
+ *  $Id: Reactor.h 84316 2009-02-03 19:46:05Z johnnyw $
  *
  *  @author Irfan Pyarali <irfan@cs.wustl.edu>
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
@@ -233,13 +233,13 @@ public:
 
   /**
    * Initialize the ACE_Reactor to manage <max_number_of_handles>.
-   * If <restart> is non-0 then the ACE_Reactor's <handle_events>
+   * If @a restart is false then the ACE_Reactor's <handle_events>
    * method will be restarted automatically when <EINTR> occurs.  If
-   * <signal_handler> or <timer_queue> are non-0 they are used as the
+   * @a signal_handler or @a timer_queue are non-0 they are used as the
    * signal handler and timer queue, respectively.
    */
   int open (size_t max_number_of_handles,
-            int restart = 0,
+            bool restart = false,
             ACE_Sig_Handler *signal_handler = 0,
             ACE_Timer_Queue *timer_queue = 0);
 
@@ -380,7 +380,7 @@ public:
    * Shorthand for calling
    * register_handler(ACE_HANDLE,ACE_Event_Handler*,ACE_Reactor_Mask),
    * multiple times for the same @a event_handler and @a masks but
-   * different <handles>.
+   * different @a handles.
    */
   int register_handler (const ACE_Handle_Set &handles,
                         ACE_Event_Handler *event_handler,
@@ -524,7 +524,7 @@ public:
    * Resume @a handles.
    *
    * Shorthand for calling resume_handler(ACE_HANDLE) with multiple
-   * <handles>.
+   * @a handles.
    */
   int resume_handler (const ACE_Handle_Set &handles);
 
@@ -656,7 +656,7 @@ public:
   int cancel_wakeup (ACE_Event_Handler *event_handler,
                      ACE_Reactor_Mask masks_to_be_cleared);
 
-  /// Clear @a masks_to_be_cleared from the <handle>'s entry.
+  /// Clear @a masks_to_be_cleared from the @a handle's entry.
   /// Note that this call does not cause the Reactor to re-examine
   /// its set of handlers - the new masks will be noticed the next
   /// time the Reactor waits for activity. If there is no other
@@ -793,10 +793,10 @@ public:
   int requeue_position (void);
 
   /// Get the existing restart value.
-  int restart (void);
+  bool restart (void);
 
   /// Set a new value for restart and return the original value.
-  int restart (int r);
+  bool restart (bool r);
 
   // = Low-level wait_set mask manipulation methods.
 
@@ -819,7 +819,7 @@ public:
                  ACE_Reactor_Mask mask,
                  int ops);
 
-  /// GET/SET/ADD/CLR the ready "bit" bound with the <handle> and @a mask.
+  /// GET/SET/ADD/CLR the ready "bit" bound with the @a handle and @a mask.
   int ready_ops (ACE_HANDLE handle,
                  ACE_Reactor_Mask mask,
                  int ops);
@@ -835,9 +835,9 @@ public:
    */
   int current_info (ACE_HANDLE handle, size_t &msg_size);
 
-  /// Return 1 if we any event associations were made by the reactor
-  /// for the handles that it waits on, 0 otherwise.
-  int uses_event_associations (void);
+  /// Return true if we any event associations were made by the reactor
+  /// for the handles that it waits on, false otherwise.
+  bool uses_event_associations (void);
 
   /// Declare the dynamic allocation hooks.
   ACE_ALLOC_HOOK_DECLARE;

@@ -4,7 +4,7 @@
 /**
  *  @file    Connector.h
  *
- *  $Id: Connector.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id: Connector.h 84316 2009-02-03 19:46:05Z johnnyw $
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */
@@ -190,7 +190,7 @@ public:
    * 1). @a flags and @a perms can be used to pass any flags that are
    * needed to perform specific operations such as opening a file
    * within connect with certain permissions.  If the connection fails
-   * the <close> hook on the <svc_handler> will be called
+   * the <close> hook on the @a svc_handler will be called
    * automatically to prevent resource leaks.
    */
   virtual int connect (SVC_HANDLER *&svc_handler,
@@ -209,7 +209,7 @@ public:
    * context of the internal cache its use is thread-safe.  But the
    * actual svc_handler for the current connection is returned in the
    * second parameter @a svc_handler.  If the connection fails the
-   * <close> hook on the <svc_handler> will be called automatically to
+   * <close> hook on the @a svc_handler will be called automatically to
    * prevent resource leaks.
    */
   virtual int connect (SVC_HANDLER *&svc_handler_hint,

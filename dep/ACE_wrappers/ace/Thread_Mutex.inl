@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Thread_Mutex.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id: Thread_Mutex.inl 83934 2008-12-01 13:47:06Z johnnyw $
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -86,7 +86,7 @@ ACE_Thread_Mutex::remove (void)
 {
 // ACE_TRACE ("ACE_Thread_Mutex::remove");
   int result = 0;
-  if (this->removed_ == false)
+  if (!this->removed_)
     {
       this->removed_ = true;
       result = ACE_OS::thread_mutex_destroy (&this->lock_);
