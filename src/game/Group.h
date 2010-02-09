@@ -345,6 +345,9 @@ class MANGOS_DLL_SPEC Group
         InstanceGroupBind* GetBoundInstance(Map* aMap);
         BoundInstancesMap& GetBoundInstances(Difficulty difficulty) { return m_boundInstances[difficulty]; }
 
+        //FG/Netsky 2sided groups
+        void BroadcastGroupUpdate(void);
+
     protected:
         bool _addMember(const uint64 &guid, const char* name, bool isAssistant=false);
         bool _addMember(const uint64 &guid, const char* name, bool isAssistant, uint8 group);

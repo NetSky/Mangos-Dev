@@ -201,6 +201,8 @@ void WorldSession::HandleGroupAcceptOpcode( WorldPacket & recv_data )
     // everything's fine, do it, PLAYER'S GROUP IS SET IN ADDMEMBER!!!
     if(!group->AddMember(GetPlayer()->GetGUID(), GetPlayer()->GetName()))
         return;
+    
+    group->BroadcastGroupUpdate(); // 2sided groups FG/NetSky
 
 }
 
