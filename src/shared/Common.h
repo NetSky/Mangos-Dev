@@ -166,7 +166,7 @@ enum AccountTypes
     SEC_TEAMLEAD       = 5,
     SEC_ADMINISTRATOR  = 6,
     SEC_OPERATOR       = 7,
-    SEC_CONSOLE        = 4                                  // must be always last in list, accounts must have less security level always also
+    SEC_CONSOLE        = 8                                  // must be always last in list, accounts must have less security level always also
 };
 
 enum LocaleConstant
