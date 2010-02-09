@@ -11579,8 +11579,8 @@ int32 Unit::CalculateSpellDuration(SpellEntry const* spellProto, uint8 effect_in
             duration = int32(int64(duration) * (100+durationMod) /100);
 
         if (duration < 0) duration = 0;
-	
-	if (unitPlayer && target == this)
+
+        if (unitPlayer && target == this)
         {
             switch(spellProto->SpellFamilyName)
             {
