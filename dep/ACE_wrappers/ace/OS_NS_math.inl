@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_math.inl 84091 2009-01-07 07:49:28Z olli $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

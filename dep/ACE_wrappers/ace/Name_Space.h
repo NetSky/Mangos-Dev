@@ -4,7 +4,7 @@
 /**
  *  @file    Name_Space.h
  *
- *  $Id: Name_Space.h 84834 2009-03-16 12:28:51Z johnnyw $
+ *  $Id$
  *
  *  @author Prashant Jain <pjain@cse.wustl.edu>
  */

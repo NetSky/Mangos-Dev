@@ -1,4 +1,4 @@
-// $Id: Local_Memory_Pool.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 // Local_Memory_Pool.cpp
 #include "ace/Local_Memory_Pool.h"
@@ -6,7 +6,7 @@
 #include "ace/OS_Memory.h"
 #include "ace/Log_Msg.h"
 
-ACE_RCSID(ace, Local_Memory_Pool, "$Id: Local_Memory_Pool.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Local_Memory_Pool, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

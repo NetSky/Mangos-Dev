@@ -4,7 +4,7 @@
 /**
  *  @file    Containers_T.h
  *
- *  $Id: Containers_T.h 82588 2008-08-11 13:37:41Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

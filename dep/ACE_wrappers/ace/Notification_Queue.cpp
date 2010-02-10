@@ -1,4 +1,4 @@
-// $Id: Notification_Queue.cpp 85236 2009-05-01 11:43:56Z johnnyw $
+// $Id$
 
 #include "ace/Notification_Queue.h"
 

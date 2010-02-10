@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: FIFO.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/OS_NS_unistd.h"
 

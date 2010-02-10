@@ -1,4 +1,4 @@
-// $Id: ARGV.cpp 81374 2008-04-16 13:07:47Z iliyan $
+// $Id$
 
 #ifndef ACE_ARGV_CPP
 #define ACE_ARGV_CPP
@@ -12,7 +12,7 @@
 #include "ace/ARGV.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, ARGV, "$Id: ARGV.cpp 81374 2008-04-16 13:07:47Z iliyan $")
+ACE_RCSID(ace, ARGV, "$Id$")
 
 // Open versioned namespace, if enabled by the user.
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

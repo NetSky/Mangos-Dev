@@ -4,7 +4,7 @@
 /**
  *  @file   Recyclable.h
  *
- *  $Id: Recyclable.h 82723 2008-09-16 09:35:44Z johnnyw $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

@@ -3,7 +3,7 @@
 /**
  *  @file    Sched_Params.cpp
  *
- *  $Id: Sched_Params.cpp 83624 2008-11-09 11:45:59Z johnnyw $
+ *  $Id$
  *
  *  @author David Levine
  */
@@ -21,7 +21,7 @@
 #  include /**/ <sys/priocntl.h>
 #endif /* ACE_HAS_PRIOCNTL && ACE_HAS_THREADS */
 
-ACE_RCSID(ace, Sched_Params, "$Id: Sched_Params.cpp 83624 2008-11-09 11:45:59Z johnnyw $")
+ACE_RCSID(ace, Sched_Params, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

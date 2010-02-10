@@ -5,7 +5,7 @@
 
 ACE_RCSID (ace,
            PI_Malloc,
-           "$Id: PI_Malloc.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 #if (ACE_HAS_POSITION_INDEPENDENT_POINTERS == 1)
 

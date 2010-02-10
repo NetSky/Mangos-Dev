@@ -9,7 +9,7 @@
 
 ACE_RCSID (ace,
            CDR_Stream,
-           "$Id: CDR_Stream.cpp 84527 2009-02-19 14:01:42Z johnnyw $")
+           "$Id$")
 
 // ****************************************************************
 
@@ -533,7 +533,7 @@ ACE_OutputCDR::write_8 (const ACE_CDR::ULongLong *x)
 
   if (this->adjust (ACE_CDR::LONGLONG_SIZE, buf) == 0)
     {
-#if defined (__arm__)
+#if defined (__arm__) && !defined (ACE_HAS_IPHONE)
       // Convert to Intel format (12345678 => 56781234)
       const char *orig = reinterpret_cast<const char *> (x);
       char *target = buf;
@@ -1612,7 +1612,7 @@ ACE_InputCDR::read_8 (ACE_CDR::ULongLong *x)
   if (this->adjust (ACE_CDR::LONGLONG_SIZE, buf) == 0)
     {
 #if !defined (ACE_DISABLE_SWAP_ON_READ)
-#  if defined (__arm__)
+#  if defined (__arm__) && !defined (ACE_HAS_IPHONE)
       if (!this->do_byte_swap_)
         {
           // Convert from Intel format (12345678 => 56781234)

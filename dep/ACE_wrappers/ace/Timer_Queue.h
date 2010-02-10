@@ -4,7 +4,7 @@
 /**
  *  @file    Timer_Queue.h
  *
- *  $Id: Timer_Queue.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Irfan Pyarali <irfan@cs.wustl.edu>

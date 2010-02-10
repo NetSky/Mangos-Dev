@@ -1,10 +1,10 @@
-// $Id: Registry.cpp 85110 2009-04-20 09:18:43Z msmit $
+// $Id$
 
 #include "ace/Registry.h"
 
 ACE_RCSID (ace,
            Registry,
-           "$Id: Registry.cpp 85110 2009-04-20 09:18:43Z msmit $")
+           "$Id$")
 
 #if defined (ACE_WIN32) && !defined (ACE_LACKS_WIN32_REGISTRY)
 
@@ -1094,6 +1094,7 @@ ACE_Predefined_Naming_Contexts::connect (ACE_Registry::Naming_Context &naming_co
                                    predefined,
                                    &naming_context.key_);
   if (predefined == HKEY_CURRENT_USER || predefined == HKEY_CLASSES_ROOT)
+    {
     // Make sure that for these types, the machine is local
     if (machine_name == 0 ||
         ACE_Predefined_Naming_Contexts::is_local_host (machine_name))
@@ -1103,6 +1104,7 @@ ACE_Predefined_Naming_Contexts::connect (ACE_Registry::Naming_Context &naming_co
       }
     else
       result = -1;
+    }
 
   ACE_REGISTRY_CALL_RETURN (result);
 #endif  // ACE_HAS_WINCE

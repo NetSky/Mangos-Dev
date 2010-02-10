@@ -4,7 +4,7 @@
 /**
  *  @file    Countdown_Time.h
  *
- *  $Id: Countdown_Time.h 85365 2009-05-18 08:27:42Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

@@ -1,4 +1,4 @@
-// $Id: Thread_Manager.cpp 85341 2009-05-14 11:07:37Z johnnyw $
+// $Id$
 
 #include "ace/TSS_T.h"
 #include "ace/Thread_Manager.h"
@@ -17,7 +17,7 @@
 
 ACE_RCSID (ace,
            Thread_Manager,
-           "$Id: Thread_Manager.cpp 85341 2009-05-14 11:07:37Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

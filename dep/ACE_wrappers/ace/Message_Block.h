@@ -4,7 +4,7 @@
 /**
  *  @file    Message_Block.h
  *
- *  $Id: Message_Block.h 86825 2009-09-28 17:45:23Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

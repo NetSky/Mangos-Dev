@@ -4,7 +4,7 @@
 /**
  *  @file    TP_Reactor.h
  *
- *  $Id: TP_Reactor.h 82723 2008-09-16 09:35:44Z johnnyw $
+ *  $Id$
  *
  *  The ACE_TP_Reactor (aka, Thread Pool Reactor) uses the
  *  Leader/Followers pattern to demultiplex events among a pool of

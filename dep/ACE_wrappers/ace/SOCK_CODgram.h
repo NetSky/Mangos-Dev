@@ -4,7 +4,7 @@
 /**
  *  @file    SOCK_CODgram.h
  *
- *  $Id: SOCK_CODgram.h 81509 2008-04-28 22:00:49Z shuston $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

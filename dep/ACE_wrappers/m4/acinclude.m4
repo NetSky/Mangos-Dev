@@ -1,5 +1,5 @@
 dnl -------------------------------------------------------------------------
-dnl       $Id: acinclude.m4 82832 2008-09-25 17:38:39Z jtc $
+dnl       $Id$
 dnl
 dnl       ACE M4 include file which contains general M4 macros
 dnl       to be used by the ACE configure script.

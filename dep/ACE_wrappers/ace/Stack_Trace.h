@@ -3,7 +3,7 @@
 /**
  *  @file   Stack_Trace.h
  *
- *  $Id: Stack_Trace.h 81926 2008-06-12 14:43:09Z mitza $
+ *  $Id$
  *
  *  @author Chris Cleeland (cleeland.ociweb.com)
  */

@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Hash_Cache_Map_Manager_T.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #define ACE_T1 class KEY, class VALUE, class HASH_KEY, class COMPARE_KEYS, class CACHING_STRATEGY, class ATTRIBUTES
 #define ACE_T2 KEY, VALUE, HASH_KEY, COMPARE_KEYS, CACHING_STRATEGY, ATTRIBUTES

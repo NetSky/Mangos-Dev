@@ -1,4 +1,4 @@
-// $Id: Monitor_Base.inl 82328 2008-07-15 17:20:17Z parsons $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

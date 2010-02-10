@@ -4,7 +4,7 @@
 /**
  * @file Encoding_Converter.h
  *
- * $Id: Encoding_Converter.h 80826 2008-03-04 14:51:23Z wotte $
+ * $Id$
  *
  * This class is the base class for all encoding converters that convert
  * to and from UTF-8.

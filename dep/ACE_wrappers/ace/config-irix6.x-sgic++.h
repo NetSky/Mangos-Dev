@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-irix6.x-sgic++.h 81935 2008-06-12 22:01:53Z jtc $
+// $Id$
 
 // Use this file for IRIX 6.[234] if you have the pthreads patches
 // installed.

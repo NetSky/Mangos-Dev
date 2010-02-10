@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Unbounded_Set_Ex.inl 81624 2008-05-06 17:14:57Z wotte $
+// $Id$
 
 #include "ace/Global_Macros.h"
 

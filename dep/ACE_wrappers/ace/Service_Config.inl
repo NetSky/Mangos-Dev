@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Service_Config.inl 83302 2008-10-16 19:28:11Z mesnier_p $
+// $Id$
 
 #include "ace/OS_NS_string.h"
 

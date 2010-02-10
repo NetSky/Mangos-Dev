@@ -4,7 +4,7 @@
 /**
  *  @file    Ping_Socket.h
  *
- *  $Id: Ping_Socket.h 81737 2008-05-20 09:46:39Z johnnyw $
+ *  $Id$
  *
  *  @author Robert S. Iakobashvili <coroberti@gmail.com> <coroberti@walla.co.il>
  *  @author Gonzalo A. Diethelm <gonzalo.diethelm@aditiva.com>

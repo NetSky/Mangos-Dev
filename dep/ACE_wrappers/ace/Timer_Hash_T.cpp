@@ -1,4 +1,4 @@
-// $Id: Timer_Hash_T.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_TIMER_HASH_T_CPP
 #define ACE_TIMER_HASH_T_CPP
@@ -15,7 +15,7 @@
 
 ACE_RCSID(ace,
           Timer_Hash_T,
-          "$Id: Timer_Hash_T.cpp 80826 2008-03-04 14:51:23Z wotte $")
+          "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

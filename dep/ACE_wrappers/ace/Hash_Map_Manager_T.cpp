@@ -3,7 +3,7 @@
 /**
  *  @file    Hash_Map_Manager_T.cpp
  *
- *  $Id: Hash_Map_Manager_T.cpp 84477 2009-02-16 13:30:38Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cse.wustl.edu>
  */

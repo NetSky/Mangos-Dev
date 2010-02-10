@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Atomic_Op_T.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Guard_T.h"
 

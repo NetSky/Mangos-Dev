@@ -6,7 +6,7 @@
  *
  *  format of directory entries
  *
- *  $Id: os_dirent.h 82985 2008-10-08 18:15:30Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

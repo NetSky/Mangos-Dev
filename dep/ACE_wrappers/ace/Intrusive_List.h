@@ -4,7 +4,7 @@
 /**
  *  @file Intrusive_List.h
  *
- *  $Id: Intrusive_List.h 83968 2008-12-04 08:11:41Z johnnyw $
+ *  $Id$
  *
  *  @author Carlos O'Ryan <coryan@uci.edu>
  */

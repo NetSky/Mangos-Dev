@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_time.inl 87270 2009-10-29 21:47:47Z olli $
+// $Id$
 
 #include "ace/OS_NS_string.h"
 #include "ace/OS_NS_errno.h"

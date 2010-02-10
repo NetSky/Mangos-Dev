@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Strategies_T.inl 81503 2008-04-28 18:28:15Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

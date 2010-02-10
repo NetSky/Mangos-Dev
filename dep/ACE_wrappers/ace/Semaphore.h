@@ -4,7 +4,7 @@
 /**
  *  @file    Semaphore.h
  *
- *  $Id: Semaphore.h 81014 2008-03-19 11:41:31Z johnnyw $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

@@ -1,4 +1,4 @@
-// $Id: Sock_Connect.cpp 87160 2009-10-19 14:01:10Z olli $
+// $Id$
 
 #include "ace/Sock_Connect.h"
 #include "ace/INET_Addr.h"
@@ -162,7 +162,7 @@ static ACE_Auto_Array_Ptr<sockaddr> force_compiler_to_include_socket_h;
 
 ACE_RCSID (ace,
            Sock_Connect,
-           "$Id: Sock_Connect.cpp 87160 2009-10-19 14:01:10Z olli $")
+           "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

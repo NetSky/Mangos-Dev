@@ -1,4 +1,4 @@
-// $Id: Svc_Conf_Lexer.cpp 81312 2008-04-09 21:01:34Z iliyan $
+// $Id$
 #include "ace/Svc_Conf_Lexer.h"
 
 #if (ACE_USES_CLASSIC_SVC_CONF == 1)

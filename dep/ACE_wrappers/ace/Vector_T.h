@@ -4,7 +4,7 @@
 /**
  *  @file    Vector_T.h
  *
- *  $Id: Vector_T.h 84477 2009-02-16 13:30:38Z johnnyw $
+ *  $Id$
  *
  *  @author Craig L. Ching <cching@mqsoftware.com>
  *  @author Gonzalo Diethelm <gonzalo.diethelm@aditiva.com>

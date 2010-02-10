@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Metrics_Cache_T.inl 83735 2008-11-14 09:41:52Z johnnyw $
+// $Id$
 
 #ifndef ACE_METRICS_CACHE_T_INL
 #define ACE_METRICS_CACHE_T_INL

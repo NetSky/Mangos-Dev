@@ -1,4 +1,4 @@
-// $Id: POSIX_CB_Proactor.cpp 84455 2009-02-13 13:31:02Z johnnyw $
+// $Id$
 
 #include "ace/POSIX_CB_Proactor.h"
 
@@ -11,7 +11,7 @@
 
 ACE_RCSID (ace,
            POSIX_CB_Proactor,
-           "$Id: POSIX_CB_Proactor.cpp 84455 2009-02-13 13:31:02Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

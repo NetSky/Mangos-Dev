@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_strings.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if defined (ACE_HAS_WCHAR)
 #  include "ace/OS_NS_wchar.h"

@@ -6,7 +6,7 @@
  *
  *  data returned by the stat() function
  *
- *  $Id: os_stat.h 85057 2009-04-08 10:59:58Z msmit $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

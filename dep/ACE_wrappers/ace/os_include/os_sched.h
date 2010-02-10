@@ -6,7 +6,7 @@
  *
  *  execution scheduling (REALTIME)
  *
- *  $Id: os_sched.h 85102 2009-04-17 14:04:36Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

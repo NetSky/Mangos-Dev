@@ -1,8 +1,8 @@
-// $Id: Msg_WFMO_Reactor.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Msg_WFMO_Reactor.h"
 
-ACE_RCSID(ace, Msg_WFMO_Reactor, "$Id: Msg_WFMO_Reactor.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Msg_WFMO_Reactor, "$Id$")
 
 #if defined (ACE_WIN32) && !defined (ACE_LACKS_MSG_WFMO)
 

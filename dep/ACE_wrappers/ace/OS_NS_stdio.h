@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_stdio.h
  *
- *  $Id: OS_NS_stdio.h 87143 2009-10-17 10:29:01Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

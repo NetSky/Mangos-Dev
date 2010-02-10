@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-tru64.h 87270 2009-10-29 21:47:47Z olli $
+// $Id$
 
 // The following configuration file is designed to work for the
 // Digital UNIX V4.0a and later platforms.  It relies on

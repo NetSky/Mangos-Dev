@@ -3,7 +3,7 @@
 /**
  *  @file   Service_Templates.h
  *
- *  $Id: Service_Templates.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Priyanka Gontla <pgontla@ece.uci.edu>
  */

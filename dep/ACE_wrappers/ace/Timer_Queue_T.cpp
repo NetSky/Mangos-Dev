@@ -1,4 +1,4 @@
-// $Id: Timer_Queue_T.cpp 84405 2009-02-11 14:54:53Z schmidt $
+// $Id$
 
 #ifndef ACE_TIMER_QUEUE_T_CPP
 #define ACE_TIMER_QUEUE_T_CPP

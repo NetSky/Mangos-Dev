@@ -6,7 +6,7 @@
  *
  *  STREAMS interface (STREAMS)
  *
- *  $Id: os_stropts.h 84660 2009-03-01 20:22:37Z olli $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

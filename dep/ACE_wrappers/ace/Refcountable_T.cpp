@@ -1,4 +1,4 @@
-// $Id: Refcountable_T.cpp 81407 2008-04-24 05:59:30Z johnnyw $
+// $Id$
 
 #ifndef ACE_REFCOUNTABLE_T_CPP
 #define ACE_REFCOUNTABLE_T_CPP
@@ -7,7 +7,7 @@
 
 ACE_RCSID (ace,
            Refcountable_T,
-           "$Id: Refcountable_T.cpp 81407 2008-04-24 05:59:30Z johnnyw $")
+           "$Id$")
 
 #if !defined (__ACE_INLINE__)
 #include "ace/Refcountable_T.inl"

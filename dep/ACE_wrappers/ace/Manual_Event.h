@@ -4,7 +4,7 @@
 /**
  *  @file    Manual_Event.h
  *
- *  $Id: Manual_Event.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

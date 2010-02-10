@@ -1,4 +1,4 @@
-// $Id: MEM_Stream.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/MEM_Stream.h"
 
@@ -8,7 +8,7 @@
 #include "ace/MEM_Stream.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, MEM_Stream, "$Id: MEM_Stream.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, MEM_Stream, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

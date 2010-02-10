@@ -1,4 +1,4 @@
-// $Id: Local_Name_Space_T.cpp 83170 2008-10-13 07:21:38Z johnnyw $
+// $Id$
 
 #ifndef ACE_LOCAL_NAME_SPACE_T_CPP
 #define ACE_LOCAL_NAME_SPACE_T_CPP

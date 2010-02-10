@@ -1,4 +1,4 @@
-// $Id: Select_Reactor_T.cpp 85505 2009-06-04 10:14:56Z johnnyw $
+// $Id$
 
 #ifndef ACE_SELECT_REACTOR_T_CPP
 #define ACE_SELECT_REACTOR_T_CPP
@@ -34,7 +34,7 @@
 
 ACE_RCSID (ace,
            Select_Reactor_T,
-           "$Id: Select_Reactor_T.cpp 85505 2009-06-04 10:14:56Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -10,7 +10,7 @@
 
 ACE_RCSID (ace,
            CDR_Base,
-           "$Id: CDR_Base.cpp 86825 2009-09-28 17:45:23Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

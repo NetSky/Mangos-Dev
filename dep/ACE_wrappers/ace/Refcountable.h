@@ -4,7 +4,7 @@
 /**
  *  @file   Refcountable.h
  *
- *  $Id: Refcountable.h 81402 2008-04-23 18:30:54Z johnnyw $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

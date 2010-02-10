@@ -4,7 +4,7 @@
 /**
  *  @file    RW_Mutex.h
  *
- *  $Id: RW_Mutex.h 83934 2008-12-01 13:47:06Z johnnyw $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

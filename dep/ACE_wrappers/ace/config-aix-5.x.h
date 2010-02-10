@@ -1,4 +1,4 @@
-// $Id: config-aix-5.x.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 //
 // Config file for AIX 5.1 and higher.
 

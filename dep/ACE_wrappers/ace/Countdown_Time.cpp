@@ -3,7 +3,7 @@
 
 ACE_RCSID (ace,
            Countdown_Time,
-           "$Id: Countdown_Time.cpp 85382 2009-05-19 06:52:56Z johnnyw $")
+           "$Id$")
 
 #if !defined (__ACE_INLINE__)
 #include "ace/Countdown_Time.inl"

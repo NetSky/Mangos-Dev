@@ -6,7 +6,7 @@
  *
  *  standard symbolic constants and types
  *
- *  $Id: os_unistd.h 87125 2009-10-15 17:34:25Z wotte $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

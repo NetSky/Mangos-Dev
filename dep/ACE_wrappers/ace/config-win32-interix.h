@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// $Id: config-win32-interix.h 87578 2009-11-16 14:41:47Z olli $
+// $Id$
 
 // The following configuration file is designed to work for Interix
 // platforms using GNU g++ (Interix == Microsoft's Services for Unix)

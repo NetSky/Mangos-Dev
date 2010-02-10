@@ -4,7 +4,7 @@
 /**
  *  @file    Sig_Handler.h
  *
- *  $Id: Sig_Handler.h 84727 2009-03-05 19:22:29Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

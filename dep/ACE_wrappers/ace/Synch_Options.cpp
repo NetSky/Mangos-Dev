@@ -5,7 +5,7 @@
 
 ACE_RCSID (ace,
            Synch_Options,
-           "$Id: Synch_Options.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

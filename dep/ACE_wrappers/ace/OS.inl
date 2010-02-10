@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// $Id: OS.inl 87244 2009-10-27 20:15:48Z olli $
+// $Id$
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # undef ACE_INLINE

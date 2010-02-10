@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_Thread.inl 87220 2009-10-24 12:20:03Z olli $
+// $Id$
 
 #include "ace/OS_NS_macros.h"
 // for timespec_t, perhaps move it to os_time.h

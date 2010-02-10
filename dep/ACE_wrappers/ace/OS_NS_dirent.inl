@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_dirent.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/OS_Memory.h"
 

@@ -1,5 +1,5 @@
 // -*- MPC -*-
-// $Id: filecache.mpb 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 feature(ace_filecache) {
   Source_Files(ACE_COMPONENTS) {

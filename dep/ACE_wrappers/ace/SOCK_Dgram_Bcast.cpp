@@ -1,4 +1,4 @@
-// $Id: SOCK_Dgram_Bcast.cpp 84455 2009-02-13 13:31:02Z johnnyw $
+// $Id$
 
 #include "ace/SOCK_Dgram_Bcast.h"
 
@@ -13,7 +13,7 @@
 #include "ace/SOCK_Dgram_Bcast.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, SOCK_Dgram_Bcast, "$Id: SOCK_Dgram_Bcast.cpp 84455 2009-02-13 13:31:02Z johnnyw $")
+ACE_RCSID(ace, SOCK_Dgram_Bcast, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

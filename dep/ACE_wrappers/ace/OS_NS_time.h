@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_time.h
  *
- *  $Id: OS_NS_time.h 87260 2009-10-29 14:00:43Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

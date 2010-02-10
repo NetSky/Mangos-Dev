@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: config-g++-common.h 86496 2009-08-13 20:45:24Z olli $
+// $Id$
 
 // This configuration file is designed to be included by another,
 // specific configuration file.  It provides config information common

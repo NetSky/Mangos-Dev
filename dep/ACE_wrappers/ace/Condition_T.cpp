@@ -1,4 +1,4 @@
-// $Id: Condition_T.cpp 86893 2009-10-02 15:32:35Z schmidt $
+// $Id$
 
 #ifndef ACE_CONDITION_T_CPP
 #define ACE_CONDITION_T_CPP

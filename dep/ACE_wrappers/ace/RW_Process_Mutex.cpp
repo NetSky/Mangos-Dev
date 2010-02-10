@@ -1,10 +1,10 @@
-// $Id: RW_Process_Mutex.cpp 81509 2008-04-28 22:00:49Z shuston $
+// $Id$
 
 #include "ace/RW_Process_Mutex.h"
 #include "ace/Log_Msg.h"
 #include "ace/ACE.h"
 
-ACE_RCSID(ace, RW_Process_Mutex, "$Id: RW_Process_Mutex.cpp 81509 2008-04-28 22:00:49Z shuston $")
+ACE_RCSID(ace, RW_Process_Mutex, "$Id$")
 
 #if !defined (__ACE_INLINE__)
 #include "ace/RW_Process_Mutex.inl"

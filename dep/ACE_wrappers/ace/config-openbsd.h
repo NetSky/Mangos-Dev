@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-openbsd.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 
 // The following configuration file is designed to work for OpenBSD
 // platforms using GNU g++.
@@ -139,7 +139,6 @@
 #define ACE_HAS_XPG4_MULTIBYTE_CHAR
 
 #define ACE_LACKS_CONDATTR_PSHARED
-#define ACE_LACKS_EXECINFO_H
 #define ACE_LACKS_GETIPNODEBYADDR
 #define ACE_LACKS_GETIPNODEBYNAME
 #define ACE_LACKS_GETPGID
@@ -165,7 +164,6 @@
 #define ACE_LACKS_SETSCHED
 #define ACE_LACKS_SIGINFO_H
 #define ACE_LACKS_STDINT_H
-#define ACE_LACKS_STRFTIME
 #define ACE_LACKS_STROPTS_H
 #define ACE_LACKS_STRRECVFD
 #define ACE_LACKS_TERMIO_H

@@ -1,4 +1,4 @@
-// $Id: DLL_Manager.cpp 86478 2009-08-13 07:15:05Z johnnyw $
+// $Id$
 
 #include "ace/DLL_Manager.h"
 

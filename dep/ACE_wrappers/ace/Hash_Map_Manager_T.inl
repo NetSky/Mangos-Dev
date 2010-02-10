@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Hash_Map_Manager_T.inl 84477 2009-02-16 13:30:38Z johnnyw $
+// $Id$
 
 #include "ace/Guard_T.h"
 

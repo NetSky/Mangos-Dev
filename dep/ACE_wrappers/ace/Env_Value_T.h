@@ -4,7 +4,7 @@
 /**
  *  @file    Env_Value_T.h
  *
- *  $Id: Env_Value_T.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  Template to encapsulate getting a value from an environment variable
  *  and using a supplied default value if not in the environment.

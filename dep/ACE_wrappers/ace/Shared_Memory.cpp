@@ -1,8 +1,8 @@
-// $Id: Shared_Memory.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Shared_Memory.h"
 
-ACE_RCSID(ace, Shared_Memory, "$Id: Shared_Memory.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Shared_Memory, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -1,11 +1,11 @@
-// $Id: Shared_Memory_Pool.cpp 84455 2009-02-13 13:31:02Z johnnyw $
+// $Id$
 
 // Shared_Memory_Pool.cpp
 #include "ace/Shared_Memory_Pool.h"
 #include "ace/OS_NS_sys_shm.h"
 #include "ace/Log_Msg.h"
 
-ACE_RCSID(ace, Shared_Memory_Pool, "$Id: Shared_Memory_Pool.cpp 84455 2009-02-13 13:31:02Z johnnyw $")
+ACE_RCSID(ace, Shared_Memory_Pool, "$Id$")
 
 #if !defined (ACE_LACKS_SYSV_SHMEM)
 

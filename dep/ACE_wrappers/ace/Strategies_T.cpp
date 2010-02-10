@@ -1,4 +1,4 @@
-// $Id: Strategies_T.cpp 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 #ifndef ACE_STRATEGIES_T_CPP
 #define ACE_STRATEGIES_T_CPP
@@ -439,7 +439,7 @@ ACE_Process_Strategy<SVC_HANDLER>::activate_svc_handler (SVC_HANDLER *svc_handle
     case -1:
       {
         ACE_Errno_Guard error (errno);
-        svc_handler->destroy ();
+        svc_handler->close ();
       }
       ACE_ERROR_RETURN ((LM_ERROR,
                          ACE_TEXT ("%p\n"),
@@ -462,7 +462,7 @@ ACE_Process_Strategy<SVC_HANDLER>::activate_svc_handler (SVC_HANDLER *svc_handle
     default: // In parent process.
       // We need to close down the <SVC_HANDLER> here because it's
       // running in the child.
-      svc_handler->destroy ();
+      svc_handler->close ();
       return 0;
     }
 }

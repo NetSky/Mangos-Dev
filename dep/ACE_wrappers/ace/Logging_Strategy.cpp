@@ -1,4 +1,4 @@
-// $Id: Logging_Strategy.cpp 87536 2009-11-13 00:37:58Z dai_y $
+// $Id$
 
 #include "ace/Logging_Strategy.h"
 #include "ace/Service_Config.h"
@@ -17,7 +17,7 @@
 
 ACE_RCSID (ace,
            Logging_Strategy,
-           "$Id: Logging_Strategy.cpp 87536 2009-11-13 00:37:58Z dai_y $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

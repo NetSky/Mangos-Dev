@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Msg_WFMO_Reactor.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if defined (ACE_WIN32) && !defined (ACE_LACKS_MSG_WFMO)
 

@@ -15,7 +15,7 @@
 
 ACE_RCSID (ace,
            Parse_Node,
-           "$Id: Parse_Node.cpp 86389 2009-08-05 23:35:46Z shuston $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

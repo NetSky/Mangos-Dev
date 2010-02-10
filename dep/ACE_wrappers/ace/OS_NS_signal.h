@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_signal.h
  *
- *  $Id: OS_NS_signal.h 87097 2009-10-14 14:42:24Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

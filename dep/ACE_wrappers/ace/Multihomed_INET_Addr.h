@@ -4,7 +4,7 @@
 /**
  *  @file    Multihomed_INET_Addr.h
  *
- *  $Id: Multihomed_INET_Addr.h 84325 2009-02-04 22:46:30Z shuston $
+ *  $Id$
  *
  *  @author Edward R. Mulholland <emulholl@atl.lmco.com>
  */

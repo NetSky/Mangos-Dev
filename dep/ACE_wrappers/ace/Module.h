@@ -4,7 +4,7 @@
 /**
  *  @file    Module.h
  *
- *  $Id: Module.h 85417 2009-05-22 08:31:42Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

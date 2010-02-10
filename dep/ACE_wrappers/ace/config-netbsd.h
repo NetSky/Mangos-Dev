@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-netbsd.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 
 #ifndef ACE_CONFIG_H
 #define ACE_CONFIG_H
@@ -120,8 +120,6 @@
 #define ACE_LACKS_WCSICMP 1
 #define ACE_LACKS_WCSNICMP 1
 #define ACE_SCANDIR_CMP_USES_CONST_VOIDPTR 1
-#define ACE_LACKS_WSCANF
-#define ACE_LACKS_SWSCANF
 #define ACE_LACKS_ISCTYPE
 
 #if defined(__x86_64__)

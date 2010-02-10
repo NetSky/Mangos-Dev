@@ -4,7 +4,7 @@
 /**
  *  @file    Cleanup_Strategies_T.h
  *
- *  $Id: Cleanup_Strategies_T.h 81388 2008-04-23 14:02:05Z johnnyw $
+ *  $Id$
  *
  *  @author Kirthika Parameswaran <kirthika@cs.wustl.edu>
  */

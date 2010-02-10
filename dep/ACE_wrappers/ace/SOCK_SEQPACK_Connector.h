@@ -4,7 +4,7 @@
 /**
  *  @file    SOCK_SEQPACK_Connector.h
  *
- *  $Id: SOCK_SEQPACK_Connector.h 84816 2009-03-13 08:16:32Z johnnyw $
+ *  $Id$
  *
  *  @author  Patrick J. Lardieri <plardier@atl.lmco.com>
  *  @author  Gaurav Naik, Lockheed Martin ATL

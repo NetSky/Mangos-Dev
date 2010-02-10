@@ -1,4 +1,4 @@
-// $Id: Service_Config.cpp 84619 2009-02-26 12:26:16Z johnnyw $
+// $Id$
 
 #include "ace/Service_Config.h"
 
@@ -26,7 +26,7 @@
 
 ACE_RCSID (ace,
            Service_Config,
-           "$Id: Service_Config.cpp 84619 2009-02-26 12:26:16Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

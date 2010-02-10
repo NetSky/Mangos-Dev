@@ -1,4 +1,4 @@
-// $Id: SPIPE_Addr.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/SPIPE_Addr.h"
 #include "ace/OS_NS_string.h"
@@ -9,7 +9,7 @@
 #include "ace/SPIPE_Addr.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, SPIPE_Addr, "$Id: SPIPE_Addr.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, SPIPE_Addr, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

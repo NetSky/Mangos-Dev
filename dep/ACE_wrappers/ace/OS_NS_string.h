@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_string.h
  *
- *  $Id: OS_NS_string.h 87481 2009-11-11 11:46:10Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

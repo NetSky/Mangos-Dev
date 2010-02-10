@@ -1,4 +1,4 @@
-// $Id: Configuration.cpp 86348 2009-08-04 14:45:29Z shuston $
+// $Id$
 #include "ace/Configuration.h"
 #include "ace/Auto_Ptr.h"
 #include "ace/SString.h"

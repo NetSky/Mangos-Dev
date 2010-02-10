@@ -4,7 +4,7 @@
 /**
  *  @file  UUID.h
  *
- *  $Id: UUID.h 85351 2009-05-15 12:37:40Z hillj $
+ *  $Id$
  *
  *  @author Andrew T. Finnel <andrew@activesol.net>
  *  @author Yamuna Krishnmaurthy <yamuna@oomworks.com>
@@ -21,6 +21,7 @@
 # pragma once
 #endif /* ACE_LACKS_PRAGMA_ONCE */
 
+#include "ace/Auto_Ptr.h"
 #include "ace/SString.h"
 #include "ace/Singleton.h"
 #include "ace/Synch_Traits.h"

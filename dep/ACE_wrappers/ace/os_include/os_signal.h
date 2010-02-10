@@ -6,7 +6,7 @@
  *
  *  signals
  *
- *  $Id: os_signal.h 87480 2009-11-11 11:38:15Z olli $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

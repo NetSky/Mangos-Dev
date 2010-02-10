@@ -3,7 +3,7 @@
 /**
  *  @file    Basic_Stats.h
  *
- *  $Id: Basic_Stats.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Carlos O'Ryan <coryan@uci.edu>
  */

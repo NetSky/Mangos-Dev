@@ -9,7 +9,7 @@
 
 ACE_RCSID (ace,
            SV_Semaphore_Simple,
-           "$Id: SV_Semaphore_Simple.cpp 85110 2009-04-20 09:18:43Z msmit $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

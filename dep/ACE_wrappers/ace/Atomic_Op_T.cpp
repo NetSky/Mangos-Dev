@@ -20,7 +20,7 @@ ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 ACE_ALLOC_HOOK_DEFINE(ACE_Atomic_Op_Ex)
 ACE_ALLOC_HOOK_DEFINE(ACE_Atomic_Op)
 
-ACE_RCSID(ace, Atomic_Op_T, "$Id: Atomic_Op_T.cpp 85141 2009-04-22 08:48:30Z johnnyw $")
+ACE_RCSID(ace, Atomic_Op_T, "$Id$")
 
 // *************************************************
 template <class ACE_LOCK, class TYPE> ACE_LOCK &

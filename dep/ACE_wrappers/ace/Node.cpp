@@ -1,4 +1,4 @@
-// $Id: Node.cpp 81624 2008-05-06 17:14:57Z wotte $
+// $Id$
 
 #ifndef ACE_NODE_CPP
 #define ACE_NODE_CPP

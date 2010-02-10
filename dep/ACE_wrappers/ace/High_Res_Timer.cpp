@@ -1,4 +1,4 @@
-// $Id: High_Res_Timer.cpp 85367 2009-05-18 10:11:54Z johnnyw $
+// $Id$
 
 // Be very carefull before changing the calculations inside
 // ACE_High_Res_Timer.  The precision matters and we are using integer
@@ -22,7 +22,7 @@
 #include "ace/OS_NS_stdlib.h"
 #include "ace/Truncate.h"
 
-ACE_RCSID(ace, High_Res_Timer, "$Id: High_Res_Timer.cpp 85367 2009-05-18 10:11:54Z johnnyw $")
+ACE_RCSID(ace, High_Res_Timer, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -152,9 +152,12 @@ ACE_High_Res_Timer::get_cpuinfo (void)
             {
               // If the line "cpu MHz : xxx" is present, then it's a
               // reliable measure of the CPU speed - according to the
-              // kernel-source.
-              scale_factor = (ACE_UINT32) (mhertz + 0.5);
-              break;
+              // kernel-source. It's possible to see a 0 value reported.
+              if (mhertz > 0.0)
+                {
+                  scale_factor = (ACE_UINT32) (mhertz + 0.5);
+                  break;
+                }
             }
           else if (::sscanf (buf, "bogomips : %lf\n", &bmips) == 1
                    || ::sscanf (buf, "BogoMIPS : %lf\n", &bmips) == 1)

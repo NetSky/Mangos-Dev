@@ -4,7 +4,7 @@
 /**
  *  @file    Naming_Context.h
  *
- *  $Id: Naming_Context.h 84160 2009-01-14 14:13:58Z johnnyw $
+ *  $Id$
  *
  *  @author Gerhard Lenzer
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>

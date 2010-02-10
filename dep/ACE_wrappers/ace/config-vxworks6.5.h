@@ -1,5 +1,5 @@
 //* -*- C++ -*- */
-// $Id: config-vxworks6.5.h 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 // The following configuration file is designed to work for VxWorks
 // 6.5 platforms using one of these compilers:

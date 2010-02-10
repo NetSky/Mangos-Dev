@@ -3,7 +3,7 @@
 /**
  * @file Condition_Recursive_Thread_Mutex.cpp
  *
- * $Id: Condition_Recursive_Thread_Mutex.cpp 85363 2009-05-18 07:48:11Z johnnyw $
+ * $Id$
  *
  * Originally in Synch.cpp
  *

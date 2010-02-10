@@ -2,7 +2,7 @@
 
 ACE_RCSID (ace,
            Time_Value,
-           "$Id: Time_Value.cpp 85990 2009-07-10 09:21:39Z johnnyw $")
+           "$Id$")
 
 #if !defined (__ACE_INLINE__)
 #include "ace/Time_Value.inl"

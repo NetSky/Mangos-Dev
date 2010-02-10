@@ -1,4 +1,4 @@
-// $Id: Singleton.cpp 84273 2009-01-30 12:55:25Z johnnyw $
+// $Id$
 
 #ifndef ACE_SINGLETON_CPP
 #define ACE_SINGLETON_CPP
@@ -21,7 +21,7 @@
 
 ACE_RCSID (ace,
            Singleton,
-           "$Id: Singleton.cpp 84273 2009-01-30 12:55:25Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

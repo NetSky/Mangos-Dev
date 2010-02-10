@@ -4,7 +4,7 @@
 /**
  *  @file   Codeset_Symbols.h
  *
- *  $Id: Codeset_Symbols.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  * Symbolic names for codeset ids.
  *

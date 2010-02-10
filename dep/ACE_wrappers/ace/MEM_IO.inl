@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: MEM_IO.inl 82559 2008-08-07 20:23:07Z parsons $
+// $Id$
 
 #include "ace/OS_NS_string.h"
 #include "ace/Truncate.h"

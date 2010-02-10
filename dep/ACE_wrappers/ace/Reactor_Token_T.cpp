@@ -1,4 +1,4 @@
-// $Id: Reactor_Token_T.cpp 82917 2008-10-03 19:10:56Z dai_y $
+// $Id$
 
 #include "ace/Log_Msg.h"
 #include "ace/Reactor_Token_T.h"

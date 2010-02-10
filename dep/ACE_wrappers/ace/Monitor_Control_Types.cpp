@@ -1,4 +1,4 @@
-// $Id: Monitor_Control_Types.cpp 84834 2009-03-16 12:28:51Z johnnyw $
+// $Id$
 
 #include "ace/Monitor_Control_Types.h"
 

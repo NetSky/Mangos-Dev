@@ -4,7 +4,7 @@
 /**
  *  @file    Event_Handler.h
  *
- *  $Id: Event_Handler.h 86576 2009-08-29 22:42:51Z shuston $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

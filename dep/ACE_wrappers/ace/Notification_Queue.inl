@@ -1,4 +1,4 @@
-// $Id: Notification_Queue.inl 81315 2008-04-10 07:14:15Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Vector_T.inl 81478 2008-04-28 13:22:26Z schmidt $
+// $Id$
 
 #include <algorithm>
 

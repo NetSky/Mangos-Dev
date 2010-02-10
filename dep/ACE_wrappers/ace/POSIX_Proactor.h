@@ -4,7 +4,7 @@
 /**
  *  @file    POSIX_Proactor.h
  *
- *  $Id: POSIX_Proactor.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Irfan Pyarali <irfan@cs.wustl.edu>
  *  @author Tim Harrison <harrison@cs.wustl.edu>

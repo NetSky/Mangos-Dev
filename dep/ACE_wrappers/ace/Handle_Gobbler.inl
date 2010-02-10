@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Handle_Gobbler.inl 85911 2009-07-07 05:45:14Z olli $
+// $Id$
 
 // Since this is only included in Handle_Gobbler.h, these should be
 // inline, not ACE_INLINE.

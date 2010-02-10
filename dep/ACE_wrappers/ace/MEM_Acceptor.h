@@ -4,7 +4,7 @@
 /**
  *  @file    MEM_Acceptor.h
  *
- *  $Id: MEM_Acceptor.h 84834 2009-03-16 12:28:51Z johnnyw $
+ *  $Id$
  *
  *  @author Nanbor Wang <nanbor@cs.wustl.edu>
  */

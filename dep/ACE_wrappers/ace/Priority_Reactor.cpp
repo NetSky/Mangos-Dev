@@ -1,9 +1,9 @@
-// $Id: Priority_Reactor.cpp 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 #include "ace/Priority_Reactor.h"
 #include "ace/Malloc_T.h"
 
-ACE_RCSID(ace, Priority_Reactor, "$Id: Priority_Reactor.cpp 82723 2008-09-16 09:35:44Z johnnyw $")
+ACE_RCSID(ace, Priority_Reactor, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

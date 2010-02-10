@@ -7,7 +7,7 @@
 
 ACE_RCSID (ace,
            Basic_Types,
-           "$Id: Basic_Types.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 
 #if defined (ACE_LACKS_LONGLONG_T) && !defined (ACE_LACKS_UNSIGNEDLONGLONG_T)

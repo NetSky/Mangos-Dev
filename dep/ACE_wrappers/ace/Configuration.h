@@ -4,7 +4,7 @@
 /**
  *  @file    Configuration.h
  *
- *  $Id: Configuration.h 86348 2009-08-04 14:45:29Z shuston $
+ *  $Id$
  *
  *  @author Chris Hafey <chafey@stentor.com>
  *

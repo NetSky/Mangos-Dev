@@ -4,7 +4,7 @@
 /**
  *  @file    Base_Thread_Adapter.h
  *
- *  $Id: Base_Thread_Adapter.h 81239 2008-04-04 22:28:48Z iliyan $
+ *  $Id$
  *
  *  @author Nanbor Wang <nanbor@cs.wustl.edu>
  */

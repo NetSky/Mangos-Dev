@@ -1,10 +1,10 @@
-// $Id: Sbrk_Memory_Pool.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/OS_NS_unistd.h"
 #include "ace/Sbrk_Memory_Pool.h"
 #include "ace/Log_Msg.h"
 
-ACE_RCSID(ace, Sbrk_Memory_Pool, "$Id: Sbrk_Memory_Pool.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Sbrk_Memory_Pool, "$Id$")
 
 #if !defined (ACE_LACKS_SBRK)
 

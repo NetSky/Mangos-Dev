@@ -1,4 +1,4 @@
-// $Id: RB_Tree.cpp 81768 2008-05-23 12:45:54Z sma $
+// $Id$
 
 #ifndef ACE_RB_TREE_CPP
 #define ACE_RB_TREE_CPP

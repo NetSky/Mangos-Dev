@@ -1,4 +1,4 @@
-// $Id: Argv_Type_Converter.cpp 85772 2009-06-23 20:14:18Z mitza $
+// $Id$
 
 #include "ace/Argv_Type_Converter.h"
 
@@ -8,7 +8,7 @@
 
 ACE_RCSID (ace,
            Argv_Type_Converter,
-           "$Id: Argv_Type_Converter.cpp 85772 2009-06-23 20:14:18Z mitza $")
+           "$Id$")
 
 #include "ace/OS_NS_string.h"
 #include "ace/OS_Errno.h"

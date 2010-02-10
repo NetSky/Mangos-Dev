@@ -4,7 +4,7 @@
 /**
  *  @file   CDR_Size.h
  *
- *  $Id: CDR_Size.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *
  * ACE Common Data Representation (CDR) size-calculating stream.

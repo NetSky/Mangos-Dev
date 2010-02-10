@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Types.h
  *
- *  $Id: Service_Types.h 84068 2008-12-24 18:32:05Z shuston $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

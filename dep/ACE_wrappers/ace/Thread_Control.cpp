@@ -1,4 +1,4 @@
-// $Id: Thread_Control.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 // <HACK ON>
 #include "ace/config-all.h"
@@ -12,7 +12,7 @@
 #include "ace/Thread_Control.h"
 #include "ace/Thread_Manager.h"
 
-ACE_RCSID(ace, Thread_Control, "$Id: Thread_Control.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Thread_Control, "$Id$")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/Thread_Control.inl"

@@ -17,7 +17,7 @@
 
 ACE_RCSID (ace,
            Acceptor,
-           "$Id: Acceptor.cpp 84935 2009-03-22 19:21:58Z schmidt $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

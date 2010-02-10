@@ -4,7 +4,7 @@
 /**
  *  @file    SString.h
  *
- *  $Id: SString.h 86289 2009-07-30 03:40:46Z hillj $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt (schmidt@cs.wustl.edu)
  */

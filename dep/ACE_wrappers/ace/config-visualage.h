@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-visualage.h 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 // This configuration file automatically includes the proper
 // configurations for IBM's VisualAge C++ compiler on Win32 and AIX.

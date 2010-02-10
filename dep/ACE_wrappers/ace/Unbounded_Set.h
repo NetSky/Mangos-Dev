@@ -4,7 +4,7 @@
 /**
  *  @file Unbounded_Set.h
  *
- *  $Id: Unbounded_Set.h 81642 2008-05-07 19:30:35Z shuston $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

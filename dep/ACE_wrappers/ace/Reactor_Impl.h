@@ -4,7 +4,7 @@
 /**
  *  @file    Reactor_Impl.h
  *
- *  $Id: Reactor_Impl.h 84316 2009-02-03 19:46:05Z johnnyw $
+ *  $Id$
  *
  *  @author Irfan Pyarali
  */

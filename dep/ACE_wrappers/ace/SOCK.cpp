@@ -1,4 +1,4 @@
-// $Id: SOCK.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/SOCK.h"
 #include "ace/Log_Msg.h"
@@ -7,7 +7,7 @@
 #include "ace/SOCK.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, SOCK, "$Id: SOCK.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, SOCK, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

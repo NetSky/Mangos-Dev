@@ -4,7 +4,7 @@
 /**
  *  @file    Hash_Map_Manager_T.h
  *
- *  $Id: Hash_Map_Manager_T.h 84477 2009-02-16 13:30:38Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

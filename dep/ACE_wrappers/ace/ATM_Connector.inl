@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: ATM_Connector.inl 84565 2009-02-23 08:20:39Z johnnyw $
+// $Id$
 
 // Open versioned namespace, if enabled by the user.
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

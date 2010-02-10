@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Service_Gestalt.inl 83780 2008-11-17 08:37:37Z johnnyw $
+// $Id$
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

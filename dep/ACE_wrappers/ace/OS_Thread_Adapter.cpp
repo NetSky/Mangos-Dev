@@ -1,10 +1,10 @@
-// $Id: OS_Thread_Adapter.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/OS_Thread_Adapter.h"
 
 ACE_RCSID (ace,
            OS_Thread_Adapter,
-           "$Id: OS_Thread_Adapter.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 #include "ace/Thread_Hook.h"
 #include "ace/Object_Manager_Base.h"

@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Message_Block.inl 84527 2009-02-19 14:01:42Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -6,7 +6,7 @@
  *
  * @file config-doxygen.h
  *
- * $Id: config-doxygen.h 84610 2009-02-26 10:26:09Z johnnyw $
+ * $Id$
  *
  * @author Carlos O'Ryan <coryan@uci.edu>
  * @author Darrell Brunsch <brunsch@uci.edu>

@@ -1,4 +1,4 @@
-// $Id: Hash_Cache_Map_Manager_T.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_HASH_CACHE_MAP_MANAGER_T_CPP
 #define ACE_HASH_CACHE_MAP_MANAGER_T_CPP

@@ -1,4 +1,4 @@
-// $Id: Monitor_Admin.cpp 81753 2008-05-21 19:02:47Z parsons $
+// $Id$
 
 #include "ace/Monitor_Admin.h"
 

@@ -1,4 +1,4 @@
-// $Id: Shared_Object.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Shared_Object.h"
 #include "ace/Global_Macros.h"
@@ -13,7 +13,7 @@
 
 ACE_RCSID (ace,
            Shared_Object,
-           "$Id: Shared_Object.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
   ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -1,4 +1,4 @@
-// $Id: Lock.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Lock.h"
 
@@ -6,7 +6,7 @@
 #include "ace/Lock.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, Lock, "$Id: Lock.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Lock, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

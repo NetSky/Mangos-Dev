@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: ACE.inl 87366 2009-11-05 20:16:30Z olli $
+// $Id$
 
 #include "ace/OS_NS_unistd.h"
 #include "ace/OS_NS_Thread.h"

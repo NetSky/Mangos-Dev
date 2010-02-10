@@ -1,5 +1,5 @@
 // SV_Message.cpp
-// $Id: SV_Message.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/SV_Message.h"
 
@@ -7,7 +7,7 @@
 #include "ace/SV_Message.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, SV_Message, "$Id: SV_Message.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, SV_Message, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

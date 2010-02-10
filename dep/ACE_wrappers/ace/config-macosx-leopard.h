@@ -1,10 +1,13 @@
 /* -*- C++ -*- */
-// $Id: config-macosx-leopard.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 // This configuration file is designed to work with the MacOS X operating system.
 
 #ifndef ACE_CONFIG_MACOSX_LEOPARD_H
 #define ACE_CONFIG_MACOSX_LEOPARD_H
+
+#define ACE_HAS_MAC_OSX
+#define ACE_HAS_NET_IF_DL_H
 
 #if ! defined (__ACE_INLINE__)
 #define __ACE_INLINE__

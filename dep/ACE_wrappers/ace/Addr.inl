@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Addr.inl 87295 2009-11-02 14:45:59Z johnnyw $
+// $Id$
 
 // Return the address of the address.
 

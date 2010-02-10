@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_sys_sendfile.inl 84216 2009-01-22 18:34:40Z johnnyw $
+// $Id$
 
 #if defined ACE_HAS_SENDFILE && ACE_HAS_SENDFILE == 1
 # include <sys/sendfile.h>

@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// $Id: config-qnx-rtp.h 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 // The following configuration file is designed to work for QNX RTP
 // GNU C++ and the POSIX (pthread) threads package. You can get QNX
 // RTP at http://get.qnx.com. 

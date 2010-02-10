@@ -2,7 +2,7 @@
 /**
  *  @file   Stack_Trace.cpp
  *
- *  $Id: Stack_Trace.cpp 84075 2008-12-31 15:40:56Z mitza $
+ *  $Id$
  *
  *  @brief  Encapsulate string representation of stack trace.
  *
@@ -17,7 +17,7 @@
 #include "ace/OS_NS_string.h"
 #include "ace/OS_NS_stdio.h"
 
-ACE_RCSID (ace, Stack_Trace, "$Id: Stack_Trace.cpp 84075 2008-12-31 15:40:56Z mitza $")
+ACE_RCSID (ace, Stack_Trace, "$Id$")
 
 /*
   This is ugly, simply because it's very platform-specific.

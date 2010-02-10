@@ -4,7 +4,7 @@
 /**
  *  @file   Flag_Manip.h
  *
- *  $Id: Flag_Manip.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  This class includes the functions used for the Flag Manipulation.
  *

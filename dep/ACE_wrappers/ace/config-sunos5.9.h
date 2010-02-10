@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-sunos5.9.h 84213 2009-01-22 15:45:13Z johnnyw $
+// $Id$
 
 // The following configuration file is designed to work for SunOS 5.9
 // (Solaris 9) platforms using the SunC++ 5.x (Forte 6 and 7), or g++

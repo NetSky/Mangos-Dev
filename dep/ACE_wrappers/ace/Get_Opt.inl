@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Get_Opt.inl 81840 2008-06-05 13:46:45Z sma $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

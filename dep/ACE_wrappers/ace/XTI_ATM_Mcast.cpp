@@ -1,8 +1,8 @@
-// $Id: XTI_ATM_Mcast.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/XTI_ATM_Mcast.h"
 
-ACE_RCSID(ace, XTI_ATM_Mcast, "$Id: XTI_ATM_Mcast.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, XTI_ATM_Mcast, "$Id$")
 
 #if defined (ACE_HAS_XTI_ATM)
 

@@ -4,7 +4,7 @@
 /**
  *  @file    Timer_Wheel_T.h
  *
- *  $Id: Timer_Wheel_T.h 84619 2009-02-26 12:26:16Z johnnyw $
+ *  $Id$
  *
  *  @author Darrell Brunsch <brunsch@cs.wustl.edu>
  */

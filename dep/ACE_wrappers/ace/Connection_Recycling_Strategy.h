@@ -4,7 +4,7 @@
 /**
  *  @file   Connection_Recycling_Strategy.h
  *
- *  $Id: Connection_Recycling_Strategy.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

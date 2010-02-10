@@ -4,7 +4,7 @@
 /**
  *  @file    streams.h
  *
- *  $Id: streams.h 82445 2008-07-28 13:40:01Z johnnyw $
+ *  $Id$
  *
  *  @author Irfan Pyarali
  *

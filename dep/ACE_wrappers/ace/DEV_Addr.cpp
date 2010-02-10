@@ -1,4 +1,4 @@
-// $Id: DEV_Addr.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/DEV_Addr.h"
 #if !defined (__ACE_INLINE__)
@@ -10,7 +10,7 @@
 
 ACE_RCSID (ace,
            DEV_Addr,
-           "$Id: DEV_Addr.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

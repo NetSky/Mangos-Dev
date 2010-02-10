@@ -4,7 +4,7 @@
 /**
  *  @file    Active_Map_Manager_T.h
  *
- *  $Id: Active_Map_Manager_T.h 84316 2009-02-03 19:46:05Z johnnyw $
+ *  $Id$
  *
  *  @author Irfan Pyarali
  */

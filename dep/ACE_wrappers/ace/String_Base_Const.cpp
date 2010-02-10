@@ -1,4 +1,4 @@
-// $Id: String_Base_Const.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/String_Base_Const.h"
 #include "ace/Numeric_Limits.h"

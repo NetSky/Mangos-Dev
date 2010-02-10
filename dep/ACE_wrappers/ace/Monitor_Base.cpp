@@ -1,4 +1,4 @@
-// $Id: Monitor_Base.cpp 82328 2008-07-15 17:20:17Z parsons $
+// $Id$
 
 #include "ace/Monitor_Base.h"
 

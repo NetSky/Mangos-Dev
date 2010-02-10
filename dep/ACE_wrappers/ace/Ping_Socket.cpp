@@ -1,4 +1,4 @@
-// $Id: Ping_Socket.cpp 83247 2008-10-14 22:29:45Z pollockt $
+// $Id$
 
 #include "ace/Ping_Socket.h"
 
@@ -18,7 +18,7 @@
 
 ACE_RCSID (ace,
            Ping_Socket,
-           "$Id: Ping_Socket.cpp 83247 2008-10-14 22:29:45Z pollockt $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: FIFO_Recv_Msg.inl 82559 2008-08-07 20:23:07Z parsons $
+// $Id$
 
 #include "ace/Min_Max.h"
 #include "ace/OS_NS_stropts.h"

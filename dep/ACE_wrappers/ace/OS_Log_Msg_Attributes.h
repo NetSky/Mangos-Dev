@@ -4,7 +4,7 @@
 /**
  *  @file    OS_Log_Msg_Attributes.h
  *
- *  $Id: OS_Log_Msg_Attributes.h 83729 2008-11-13 15:32:36Z mitza $
+ *  $Id$
  *
  *  @author Carlos O'Ryan
  */

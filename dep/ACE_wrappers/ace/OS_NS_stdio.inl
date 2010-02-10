@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_stdio.inl 87232 2009-10-26 13:25:55Z johnnyw $
+// $Id$
 
 #include "ace/OS_NS_unistd.h"
 #include "ace/OS_NS_stdlib.h"

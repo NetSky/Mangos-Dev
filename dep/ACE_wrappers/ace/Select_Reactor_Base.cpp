@@ -1,4 +1,4 @@
-// $Id: Select_Reactor_Base.cpp 87255 2009-10-29 08:09:29Z olli $
+// $Id$
 
 #include "ace/Select_Reactor_Base.h"
 #include "ace/Reactor.h"
@@ -20,7 +20,7 @@
 
 ACE_RCSID (ace,
            Select_Reactor_Base,
-           "$Id: Select_Reactor_Base.cpp 87255 2009-10-29 08:09:29Z olli $")
+           "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
@@ -691,7 +691,9 @@ ACE_Select_Reactor_Notify::notify (ACE_Event_Handler *event_handler,
   ACE_Event_Handler_var safe_handler (event_handler);
 
   if (event_handler)
-    event_handler->add_reference ();
+    {
+      event_handler->add_reference ();
+    }
 
   ACE_Notification_Buffer buffer (event_handler, mask);
 
@@ -718,7 +720,9 @@ ACE_Select_Reactor_Notify::notify (ACE_Event_Handler *event_handler,
                                sizeof buffer,
                                timeout);
   if (n == -1)
-    return -1;
+    {
+      return -1;
+    }
 
   // No failures.
   safe_handler.release ();

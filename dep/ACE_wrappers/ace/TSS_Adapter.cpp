@@ -1,7 +1,7 @@
 /**
  * @file TSS_Adapter.cpp
  *
- * $Id: TSS_Adapter.cpp 80826 2008-03-04 14:51:23Z wotte $
+ * $Id$
  *
  * Originally in Synch.cpp
  *
@@ -10,7 +10,7 @@
 
 #include "ace/TSS_Adapter.h"
 
-ACE_RCSID(ace, TSS_Adapter, "$Id: TSS_Adapter.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, TSS_Adapter, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

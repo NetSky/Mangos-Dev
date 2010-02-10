@@ -4,7 +4,7 @@
 /**
  *  @file   CDR_Base.h
  *
- *  $Id: CDR_Base.h 86825 2009-09-28 17:45:23Z johnnyw $
+ *  $Id$
  *
  * ACE Common Data Representation (CDR) basic types.
  *
@@ -220,7 +220,6 @@ public:
               // complain about no ANSI C++ long long.
               typedef   longlong_t LongLong;
 #     else
-              // LynxOS 2.5.0   and Linux don't have u_longlong_t.
               typedef   long long LongLong;
 #     endif /* sun */
 #   else  /* no native 64 bit integer type */

@@ -4,7 +4,7 @@
 /**
  *  @file   Default_Constants.h
  *
- *  $Id: Default_Constants.h 87487 2009-11-12 07:54:39Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

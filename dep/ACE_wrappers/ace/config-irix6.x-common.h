@@ -1,6 +1,6 @@
 /* -*- C++ -*- */
 //
-// $Id: config-irix6.x-common.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 //
 // This file contains the common configuration options for both
 // SGI/MIPSPro C++ and g++ under IRIX 6.X

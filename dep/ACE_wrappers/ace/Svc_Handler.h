@@ -4,7 +4,7 @@
 /**
  *  @file   Svc_Handler.h
  *
- *  $Id: Svc_Handler.h 81740 2008-05-20 17:56:02Z elliott_c $
+ *  $Id$
  *
  *  @author Douglas Schmidt <schmidt@uci.edu>
  *  @author Irfan Pyarali <irfan@cs.wustl.edu>

@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-irix6.x-g++.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 
 // The following configuration file is designed to work for the SGI
 // Indigo2EX running Irix 6.2 platform using the GNU C++ Compiler

@@ -1,4 +1,4 @@
-// $Id: MEM_Acceptor.cpp 84455 2009-02-13 13:31:02Z johnnyw $
+// $Id$
 
 #include "ace/MEM_Acceptor.h"
 
@@ -13,7 +13,7 @@
 #include "ace/MEM_Acceptor.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, MEM_Acceptor, "$Id: MEM_Acceptor.cpp 84455 2009-02-13 13:31:02Z johnnyw $")
+ACE_RCSID(ace, MEM_Acceptor, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

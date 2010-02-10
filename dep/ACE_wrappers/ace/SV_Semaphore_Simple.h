@@ -4,7 +4,7 @@
 /**
  *  @file    SV_Semaphore_Simple.h
  *
- *  $Id: SV_Semaphore_Simple.h 86494 2009-08-13 19:09:03Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

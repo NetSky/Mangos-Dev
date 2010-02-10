@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Manager.h
  *
- *  $Id: Service_Manager.h 81388 2008-04-23 14:02:05Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

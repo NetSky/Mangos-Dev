@@ -1,4 +1,4 @@
-// $Id: Handle_Ops.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Handle_Ops.h"
 
@@ -8,7 +8,7 @@
 
 ACE_RCSID (ace,
            Handle_Ops,
-           "$Id: Handle_Ops.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

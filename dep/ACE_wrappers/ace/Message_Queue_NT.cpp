@@ -1,5 +1,6 @@
-// $Id: Message_Queue_NT.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
+#include "ace/Message_Queue.h"
 #include "ace/Message_Queue_NT.h"
 #include "ace/Log_Msg.h"
 
@@ -9,8 +10,7 @@
 
 ACE_RCSID (ace,
            Message_Queue_NT,
-           "$Id: Message_Queue_NT.cpp 80826 2008-03-04 14:51:23Z wotte $")
-
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

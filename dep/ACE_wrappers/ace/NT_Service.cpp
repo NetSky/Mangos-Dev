@@ -1,4 +1,4 @@
-// $Id: NT_Service.cpp 81862 2008-06-09 10:41:41Z sma $
+// $Id$
 
 #include "ace/config-all.h"
 #if defined (ACE_WIN32) && !defined (ACE_LACKS_WIN32_SERVICES)

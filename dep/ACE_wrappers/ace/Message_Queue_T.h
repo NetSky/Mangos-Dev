@@ -4,7 +4,7 @@
 /**
  *  @file    Message_Queue_T.h
  *
- *  $Id: Message_Queue_T.h 82289 2008-07-11 08:12:09Z hillj $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

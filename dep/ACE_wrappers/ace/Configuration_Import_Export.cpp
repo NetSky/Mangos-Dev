@@ -1,4 +1,4 @@
-// $Id: Configuration_Import_Export.cpp 84565 2009-02-23 08:20:39Z johnnyw $
+// $Id$
 
 #include "ace/Configuration_Import_Export.h"
 #include "ace/OS_Errno.h"

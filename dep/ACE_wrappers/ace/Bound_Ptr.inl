@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: Bound_Ptr.inl 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 // Bound_Ptr.i
 

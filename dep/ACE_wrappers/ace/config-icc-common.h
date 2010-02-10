@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: config-icc-common.h 81935 2008-06-12 22:01:53Z jtc $
+// $Id$
 
 #ifndef ACE_LINUX_ICC_COMMON_H
 #define ACE_LINUX_ICC_COMMON_H

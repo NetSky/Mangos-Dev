@@ -4,7 +4,7 @@
 /**
  *  @file    Log_Record.h
  *
- *  $Id: Log_Record.h 85236 2009-05-01 11:43:56Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

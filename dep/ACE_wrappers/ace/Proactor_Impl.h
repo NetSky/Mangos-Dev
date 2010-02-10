@@ -4,7 +4,7 @@
 /**
  *  @file    Proactor_Impl.h
  *
- *  $Id: Proactor_Impl.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Alexander Babu Arulanthu <alex@cs.wustl.edu>
  *  @author Alexander Libman <alibman@ihug.com.au>

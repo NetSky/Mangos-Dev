@@ -1,4 +1,4 @@
-// $Id: Message_Queue_T.cpp 87425 2009-11-10 01:37:08Z shuston $
+// $Id$
 
 #ifndef ACE_MESSAGE_QUEUE_T_CPP
 #define ACE_MESSAGE_QUEUE_T_CPP
@@ -8,6 +8,10 @@
 #include "ace/Message_Queue.h"
 #include "ace/Log_Msg.h"
 #include "ace/OS_NS_sys_time.h"
+
+#if defined (ACE_HAS_WIN32_OVERLAPPED_IO)
+#include "ace/Message_Queue_NT.h"
+#endif /* ACE_HAS_WIN32_OVERLAPPED_IO */
 
 #if !defined (ACE_LACKS_PRAGMA_ONCE)
 # pragma once

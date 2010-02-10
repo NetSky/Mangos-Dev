@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: WFMO_Reactor.inl 82949 2008-10-06 22:32:10Z shuston $
+// $Id$
 
 #include "ace/Handle_Set.h"
 #include "ace/Reactor.h"

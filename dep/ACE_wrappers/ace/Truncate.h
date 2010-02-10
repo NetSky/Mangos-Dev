@@ -4,7 +4,7 @@
 /**
  * @file Truncate.h
  *
- * $Id: Truncate.h 83306 2008-10-17 12:19:53Z johnnyw $
+ * $Id$
  *
  * @author Steve Huston  <shuston@riverace.com>
  * @author Ossama Othman <ossama_othman@symantec.com>

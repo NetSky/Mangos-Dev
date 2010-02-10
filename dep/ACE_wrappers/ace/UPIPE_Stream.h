@@ -4,7 +4,7 @@
 /**
  *  @file    UPIPE_Stream.h
  *
- *  $Id: UPIPE_Stream.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Gerhard Lenzer
  *  @author Douglas C. Schmidt

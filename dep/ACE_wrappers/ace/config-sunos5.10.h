@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-sunos5.10.h 83891 2008-11-28 11:01:50Z johnnyw $
+// $Id$
 
 // The following configuration file is designed to work for SunOS 5.10
 // (Solaris 10) platforms using the SunC++ 5.x (Sun Studio 8-10), or g++

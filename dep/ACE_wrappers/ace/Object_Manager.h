@@ -4,7 +4,7 @@
 /**
  *  @file    Object_Manager.h
  *
- *  $Id: Object_Manager.h 84163 2009-01-15 07:57:27Z johnnyw $
+ *  $Id$
  *
  *  @author David L. Levine <levine@cs.wustl.edu>
  *  @author Matthias Kerkhoff

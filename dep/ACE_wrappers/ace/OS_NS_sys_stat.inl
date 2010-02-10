@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_sys_stat.inl 84373 2009-02-10 18:21:50Z johnnyw $
+// $Id$
 
 #include "ace/OS_NS_unistd.h"
 #include "ace/OS_NS_fcntl.h"

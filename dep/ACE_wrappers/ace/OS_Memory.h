@@ -4,7 +4,7 @@
 /**
  *  @file   OS_Memory.h
  *
- *  $Id: OS_Memory.h 86400 2009-08-06 13:52:28Z schmidt $
+ *  $Id$
  *
  *  @author Doug Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

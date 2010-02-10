@@ -4,7 +4,7 @@
 /**
  *  @file    Thread_Semaphore.h
  *
- *  $Id: Thread_Semaphore.h 86731 2009-09-17 12:23:48Z johnnyw $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

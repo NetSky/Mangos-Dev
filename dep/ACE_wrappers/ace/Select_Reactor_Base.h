@@ -4,7 +4,7 @@
 /**
  *  @file    Select_Reactor_Base.h
  *
- *  $Id: Select_Reactor_Base.h 87252 2009-10-28 20:03:48Z cleeland $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

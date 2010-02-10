@@ -6,7 +6,7 @@
  *
  *  system error numbers
  *
- *  $Id: os_errno.h 85122 2009-04-20 16:34:19Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

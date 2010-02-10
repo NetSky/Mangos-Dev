@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Config.h
  *
- *  $Id: Service_Config.h 81673 2008-05-09 19:09:43Z iliyan $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

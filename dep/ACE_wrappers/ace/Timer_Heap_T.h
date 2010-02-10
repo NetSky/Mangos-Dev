@@ -4,7 +4,7 @@
 /**
  *  @file    Timer_Heap_T.h
  *
- *  $Id: Timer_Heap_T.h 84619 2009-02-26 12:26:16Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

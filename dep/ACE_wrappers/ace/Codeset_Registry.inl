@@ -3,7 +3,7 @@
 /**
  *  @file   Codeset_Registry.inl
  *
- *  $Id: Codeset_Registry.inl 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  * ACE wrapper around access functions for the OSF's DCE codeset registry
  * access functions - the inline functions either call the system supplied

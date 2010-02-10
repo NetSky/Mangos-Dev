@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: config-tandem-nsk-mips-v2.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 #ifndef ACE_CONFIG_NSK_H
 #define ACE_CONFIG_NSK_H

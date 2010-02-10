@@ -4,7 +4,7 @@
 /**
  * @file Monitor_Point_Registry.h
  *
- * $Id: Monitor_Point_Registry.h 81691 2008-05-14 11:09:21Z johnnyw $
+ * $Id$
  *
  * @author Jeff Parsons <j.parsons@vanderbilt.edu>
  */

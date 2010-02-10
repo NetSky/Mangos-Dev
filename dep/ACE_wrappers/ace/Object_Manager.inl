@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Object_Manager.inl 84163 2009-01-15 07:57:27Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

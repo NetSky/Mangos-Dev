@@ -1,4 +1,4 @@
-// $Id: Malloc_T.cpp 84282 2009-01-30 15:04:29Z msmit $
+// $Id$
 
 #ifndef ACE_MALLOC_T_CPP
 #define ACE_MALLOC_T_CPP

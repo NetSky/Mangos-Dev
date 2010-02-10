@@ -4,7 +4,7 @@
 /**
  *  @file    Intrusive_Auto_Ptr.h
  *
- *  $Id: Intrusive_Auto_Ptr.h 81388 2008-04-23 14:02:05Z johnnyw $
+ *  $Id$
  *
  *  @author Iliyan Jeliazkov <iliyan@ociweb.com>
  *

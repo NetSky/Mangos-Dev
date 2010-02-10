@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: FILE_Connector.inl 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 // Creates a Local ACE_FILE.
 

@@ -1,4 +1,4 @@
-// $Id: POSIX_Asynch_IO.cpp 84565 2009-02-23 08:20:39Z johnnyw $
+// $Id$
 
 #include "ace/POSIX_Asynch_IO.h"
 
@@ -16,7 +16,7 @@
 
 ACE_RCSID (ace,
            POSIX_Asynch_IO,
-           "$Id: POSIX_Asynch_IO.cpp 84565 2009-02-23 08:20:39Z johnnyw $")
+           "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

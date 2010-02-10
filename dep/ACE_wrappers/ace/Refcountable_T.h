@@ -4,7 +4,7 @@
 /**
  *  @file   Refcountable_T.h
  *
- *  $Id: Refcountable_T.h 81409 2008-04-24 08:30:48Z johnnyw $
+ *  $Id$
  *
  * @author Doug Schmidt
  * @author Johnny Willemsen

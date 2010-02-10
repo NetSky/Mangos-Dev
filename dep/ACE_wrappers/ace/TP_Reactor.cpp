@@ -1,4 +1,4 @@
-// $Id: TP_Reactor.cpp 85604 2009-06-11 13:26:00Z johnnyw $
+// $Id$
 
 #include "ace/TP_Reactor.h"
 #include "ace/Thread.h"
@@ -13,7 +13,7 @@
 
 ACE_RCSID (ace,
            TP_Reactor,
-           "$Id: TP_Reactor.cpp 85604 2009-06-11 13:26:00Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

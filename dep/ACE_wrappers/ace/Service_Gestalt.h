@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Gestalt.h
  *
- *  $Id: Service_Gestalt.h 84619 2009-02-26 12:26:16Z johnnyw $
+ *  $Id$
  *
  *  @author Iliyan Jeliazkov <iliyan@ociweb.com>
  */

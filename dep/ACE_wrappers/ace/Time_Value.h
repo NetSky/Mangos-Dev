@@ -4,7 +4,7 @@
 /**
  *  @file    Time_Value.h
  *
- *  $Id: Time_Value.h 85990 2009-07-10 09:21:39Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

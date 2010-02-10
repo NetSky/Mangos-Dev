@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_unistd.inl 85501 2009-06-04 08:55:32Z johnnyw $
+// $Id$
 
 #include "ace/OS_NS_sys_utsname.h"
 #include "ace/OS_NS_string.h"
@@ -23,7 +23,7 @@
 #  include "ace/os_include/os_unistd.h"
 #endif /* ACE_HAS_ACCESS_EMULATION */
 
-#if defined (ACE_VXWORKS) && (((ACE_VXWORKS >= 0x620) && (ACE_VXWORKS <= 0x670)) || defined (ACE_HAS_VXWORKS551_MEDUSA))
+#if defined (ACE_VXWORKS) && (((ACE_VXWORKS >= 0x620) && (ACE_VXWORKS <= 0x680)) || defined (ACE_HAS_VXWORKS551_MEDUSA))
 #  if defined (__RTP__)
 #    include "ace/os_include/os_strings.h"
 #  else

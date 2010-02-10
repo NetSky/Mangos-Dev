@@ -1,4 +1,4 @@
-// $Id: Sample_History.cpp 83891 2008-11-28 11:01:50Z johnnyw $
+// $Id$
 
 #include "ace/Sample_History.h"
 
@@ -10,7 +10,7 @@
 #include "ace/Log_Msg.h"
 #include "ace/OS_Memory.h"
 
-ACE_RCSID(ace, Sample_History, "$Id: Sample_History.cpp 83891 2008-11-28 11:01:50Z johnnyw $")
+ACE_RCSID(ace, Sample_History, "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

@@ -1,10 +1,10 @@
-// $Id: ACE_crc32.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/ACE.h"
 
 ACE_RCSID (ace,
            ACE_crc32,
-           "$Id: ACE_crc32.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 
 namespace

@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_unistd.h
  *
- *  $Id: OS_NS_unistd.h 84918 2009-03-20 08:07:01Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

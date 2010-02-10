@@ -1,4 +1,4 @@
-// $Id: LOCK_SOCK_Acceptor.cpp 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 #ifndef ACE_LOCK_SOCK_ACCEPTOR_CPP
 #define ACE_LOCK_SOCK_ACCEPTOR_CPP

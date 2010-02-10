@@ -6,7 +6,7 @@
  *
  *  wide-character handling
  *
- *  $Id: os_wchar.h 83948 2008-12-02 13:55:34Z jtc $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

@@ -1,4 +1,4 @@
-// $Id: Intrusive_List.cpp 84273 2009-01-30 12:55:25Z johnnyw $
+// $Id$
 
 #ifndef ACE_INTRUSIVE_LIST_CPP
 #define ACE_INTRUSIVE_LIST_CPP

@@ -1,4 +1,4 @@
-// $Id: Get_Opt.cpp 81840 2008-06-05 13:46:45Z sma $
+// $Id$
 
 #include "ace/Get_Opt.h"
 
@@ -16,7 +16,7 @@
 
 ACE_RCSID (ace,
            Get_Opt,
-           "$Id: Get_Opt.cpp 81840 2008-06-05 13:46:45Z sma $")
+           "$Id$")
 
 /*
  * Copyright (c) 1987, 1993, 1994

@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_Thread.h
  *
- *  $Id: OS_NS_Thread.h 85547 2009-06-07 17:57:11Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

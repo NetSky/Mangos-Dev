@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Log_Record.inl 84183 2009-01-19 08:50:16Z johnnyw $
+// $Id$
 
 #include "ace/Global_Macros.h"
 #include "ace/os_include/arpa/os_inet.h"

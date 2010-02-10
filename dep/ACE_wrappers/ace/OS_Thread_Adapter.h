@@ -4,7 +4,7 @@
 /**
  *  @file OS_Thread_Adapter.h
  *
- *  $Id: OS_Thread_Adapter.h 85341 2009-05-14 11:07:37Z johnnyw $
+ *  $Id$
  *
  *  @author Carlos O'Ryan <coryan@uci.edu>
  */

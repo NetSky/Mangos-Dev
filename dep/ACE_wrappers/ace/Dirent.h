@@ -4,7 +4,7 @@
 /**
  *  @file    Dirent.h
  *
- *  $Id: Dirent.h 84316 2009-02-03 19:46:05Z johnnyw $
+ *  $Id$
  *
  *  Define a portable C++ interface to ACE_OS_Dirent directory-entry
  *  manipulation.

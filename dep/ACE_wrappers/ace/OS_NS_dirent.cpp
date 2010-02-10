@@ -1,8 +1,8 @@
-// $Id: OS_NS_dirent.cpp 85405 2009-05-20 07:38:52Z johnnyw $
+// $Id$
 
 #include "ace/OS_NS_dirent.h"
 
-ACE_RCSID(ace, OS_NS_dirent, "$Id: OS_NS_dirent.cpp 85405 2009-05-20 07:38:52Z johnnyw $")
+ACE_RCSID(ace, OS_NS_dirent, "$Id$")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/OS_NS_dirent.inl"

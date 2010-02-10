@@ -4,7 +4,7 @@
 /**
  *  @file    Object_Manager_Base.h
  *
- *  $Id: Object_Manager_Base.h 84163 2009-01-15 07:57:27Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

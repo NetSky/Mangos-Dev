@@ -4,7 +4,7 @@
 /**
  *  @file   OS_Dirent.h
  *
- *  $Id: OS_Dirent.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Doug Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

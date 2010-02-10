@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Intrusive_List.inl 83952 2008-12-02 20:01:24Z johnnyw $
+// $Id$
 
 #include <algorithm>
 

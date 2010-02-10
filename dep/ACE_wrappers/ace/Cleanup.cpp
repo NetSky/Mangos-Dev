@@ -1,10 +1,10 @@
-// $Id: Cleanup.cpp 84201 2009-01-20 06:26:02Z johnnyw $
+// $Id$
 
 #include "ace/Cleanup.h"
 
 ACE_RCSID (ace,
            Cleanup,
-           "$Id: Cleanup.cpp 84201 2009-01-20 06:26:02Z johnnyw $")
+           "$Id$")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/Cleanup.inl"

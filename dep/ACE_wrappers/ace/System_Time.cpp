@@ -1,4 +1,4 @@
-// $Id: System_Time.cpp 84834 2009-03-16 12:28:51Z johnnyw $
+// $Id$
 
 #include "ace/System_Time.h"
 #include "ace/MMAP_Memory_Pool.h"
@@ -8,7 +8,7 @@
 #include "ace/OS_NS_string.h"
 #include "ace/OS_NS_time.h"
 
-ACE_RCSID(ace, System_Time, "$Id: System_Time.cpp 84834 2009-03-16 12:28:51Z johnnyw $")
+ACE_RCSID(ace, System_Time, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

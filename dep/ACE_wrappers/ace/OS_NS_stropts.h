@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_stropts.h
  *
- *  $Id: OS_NS_stropts.h 85110 2009-04-20 09:18:43Z msmit $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

@@ -4,7 +4,7 @@
 /**
  *  @file    WFMO_Reactor.h
  *
- *  $Id: WFMO_Reactor.h 84727 2009-03-05 19:22:29Z johnnyw $
+ *  $Id$
  *
  *  @author Irfan Pyarali <irfan@cs.wustl.edu>
  *  @author Tim Harrison <harrison@cs.wustl.edu>

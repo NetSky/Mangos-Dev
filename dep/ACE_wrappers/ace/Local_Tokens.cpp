@@ -1,4 +1,4 @@
-// $Id: Local_Tokens.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Local_Tokens.h"
 
@@ -15,7 +15,7 @@
 
 ACE_RCSID (ace,
            Local_Tokens,
-           "$Id: Local_Tokens.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

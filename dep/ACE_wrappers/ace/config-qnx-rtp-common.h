@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// $Id: config-qnx-rtp-common.h 85074 2009-04-10 03:17:24Z mesnier_p $
+// $Id$
 // several macros common to various qnx neutrino version.
 
 #ifndef ACE_CONFIG_QNX_RTP_COMMON_H

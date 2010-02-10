@@ -4,7 +4,7 @@
 /**
  *  @file    Local_Name_Space_T.h
  *
- *  $Id: Local_Name_Space_T.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Prashant Jain <pjain@cs.wustl.edu>
  *  @author Irfan Pyarali <irfan@wuerl.wustl.edu> and

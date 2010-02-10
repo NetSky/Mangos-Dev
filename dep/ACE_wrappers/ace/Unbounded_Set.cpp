@@ -1,4 +1,4 @@
-// $Id: Unbounded_Set.cpp 81624 2008-05-06 17:14:57Z wotte $
+// $Id$
 
 #ifndef ACE_UNBOUNDED_SET_CPP
 #define ACE_UNBOUNDED_SET_CPP

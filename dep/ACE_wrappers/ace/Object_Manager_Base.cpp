@@ -1,8 +1,8 @@
-// $Id: Object_Manager_Base.cpp 84163 2009-01-15 07:57:27Z johnnyw $
+// $Id$
 
 #include "ace/Object_Manager_Base.h"
 
-ACE_RCSID(ace, Object_Manager_Base, "$Id: Object_Manager_Base.cpp 84163 2009-01-15 07:57:27Z johnnyw $")
+ACE_RCSID(ace, Object_Manager_Base, "$Id$")
 
 #include "ace/OS_Memory.h"
 #include "ace/OS_NS_Thread.h"

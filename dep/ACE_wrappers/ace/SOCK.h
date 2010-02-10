@@ -4,7 +4,7 @@
 /**
  *  @file    SOCK.h
  *
- *  $Id: SOCK.h 84834 2009-03-16 12:28:51Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

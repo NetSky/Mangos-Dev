@@ -1,4 +1,4 @@
-// $Id: Refcounted_Auto_Ptr.cpp 81179 2008-03-31 19:00:29Z iliyan $
+// $Id$
 
 #ifndef ACE_REFCOUNTED_AUTO_PTR_CPP
 #define ACE_REFCOUNTED_AUTO_PTR_CPP

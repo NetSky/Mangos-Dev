@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Time_Value.inl 85990 2009-07-10 09:21:39Z johnnyw $
+// $Id$
 
 #include "ace/Truncate.h"
 
@@ -211,7 +211,7 @@ ACE_Time_Value::to_usec (ACE_UINT64 & usec) const
   usec = ACE_U_LongLong (this->tv_.tv_sec);
 #else
   usec = static_cast<ACE_UINT64> (this->tv_.tv_sec);
-#endif  /* ACE_LACKS_LONG_LONG_T */
+#endif  /* ACE_LACKS_LONGLONG_T */
   usec *= 1000000;
   usec += this->tv_.tv_usec;
 }

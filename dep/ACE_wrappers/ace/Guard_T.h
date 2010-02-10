@@ -4,7 +4,7 @@
 /**
  *  @file    Guard_T.h
  *
- *  $Id: Guard_T.h 83306 2008-10-17 12:19:53Z johnnyw $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

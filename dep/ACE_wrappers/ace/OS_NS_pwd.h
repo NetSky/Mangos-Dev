@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_pwd.h
  *
- *  $Id: OS_NS_pwd.h 87270 2009-10-29 21:47:47Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

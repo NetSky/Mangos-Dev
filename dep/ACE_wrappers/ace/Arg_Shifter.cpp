@@ -9,7 +9,7 @@
 
 ACE_RCSID (ace,
            Arg_Shifter,
-           "$Id: Arg_Shifter.cpp 83749 2008-11-14 18:39:10Z johnnyw $")
+           "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

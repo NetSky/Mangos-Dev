@@ -1,4 +1,4 @@
-// $Id: Module.cpp 84068 2008-12-24 18:32:05Z shuston $
+// $Id$
 
 #ifndef ACE_MODULE_CPP
 #define ACE_MODULE_CPP

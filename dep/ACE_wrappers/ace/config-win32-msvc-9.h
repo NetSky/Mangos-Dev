@@ -3,7 +3,7 @@
 /**
  *  @file   config-win32-msvc-9.h
  *
- *  $Id: config-win32-msvc-9.h 87224 2009-10-26 07:49:31Z olli $
+ *  $Id$
  *
  *  @brief  Microsoft Visual C++ 9.0 configuration file.
  *

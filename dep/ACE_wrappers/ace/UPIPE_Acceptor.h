@@ -4,7 +4,7 @@
 /**
  *  @file    UPIPE_Acceptor.h
  *
- *  $Id: UPIPE_Acceptor.h 82723 2008-09-16 09:35:44Z johnnyw $
+ *  $Id$
  *
  *  @author Gerhard Lenzer
  *  @author Douglas C. Schmidt

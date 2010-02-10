@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-mvs.h 87270 2009-10-29 21:47:47Z olli $
+// $Id$
 
 // Config file for MVS with OpenEdition
 
@@ -82,7 +82,6 @@
 
 #define ACE_LACKS_CONDATTR_PSHARED
 #define ACE_LACKS_INET_ATON
-#define ACE_LACKS_MSGBUF_T
 #define ACE_LACKS_MUTEXATTR_PSHARED
 #define ACE_LACKS_IOSTREAM_FX
 #define ACE_LACKS_LINEBUFFERED_STREAMBUF
@@ -99,7 +98,6 @@
 #define ACE_LACKS_SEMAPHORE_H
 #define ACE_LACKS_SIGINFO_H
 #define ACE_LACKS_STDINT_H
-#define ACE_LACKS_SYS_NERR
 #define ACE_LACKS_SYS_SELECT_H
 #define ACE_LACKS_SYS_SYSCTL_H
 #define ACE_LACKS_SYSTIME_H

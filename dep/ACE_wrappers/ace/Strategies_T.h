@@ -4,7 +4,7 @@
 /**
  *  @file   Strategies_T.h
  *
- *  $Id: Strategies_T.h 84316 2009-02-03 19:46:05Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

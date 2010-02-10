@@ -2,7 +2,7 @@
 /**
  *  @file   Codeset_Registry.cpp
  *
- *  $Id: Codeset_Registry.cpp 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  emulated codset regstry functions
  *
@@ -15,7 +15,7 @@
 #include "ace/OS_Memory.h"
 #include "ace/OS_NS_string.h"
 
-// $Id: Codeset_Registry.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if !defined (__ACE_INLINE__)
 #include "ace/Codeset_Registry.inl"
@@ -23,7 +23,7 @@
 
 ACE_RCSID (ace,
            Codeset_Registry,
-           "$Id: Codeset_Registry.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

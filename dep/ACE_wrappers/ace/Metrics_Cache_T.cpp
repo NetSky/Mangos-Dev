@@ -1,4 +1,4 @@
-// $Id: Metrics_Cache_T.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_METRICS_CACHE_CPP
 #define ACE_METRICS_CACHE_CPP

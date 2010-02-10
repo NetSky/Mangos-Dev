@@ -1,10 +1,10 @@
-// $Id: Addr.cpp 84619 2009-02-26 12:26:16Z johnnyw $
+// $Id$
 
 #include "ace/Addr.h"
 
 ACE_RCSID (ace,
            Addr,
-           "$Id: Addr.cpp 84619 2009-02-26 12:26:16Z johnnyw $")
+           "$Id$")
 
 #if !defined (__ACE_INLINE__)
 #include "ace/Addr.inl"

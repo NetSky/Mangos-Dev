@@ -1,4 +1,4 @@
-// $Id: Timer_Heap_T.cpp 84962 2009-03-24 15:16:25Z johnnyw $
+// $Id$
 
 #ifndef ACE_TIMER_HEAP_T_CPP
 #define ACE_TIMER_HEAP_T_CPP

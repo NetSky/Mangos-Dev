@@ -4,7 +4,7 @@
 /**
  *  @file    Atomic_Op.h
  *
- *  $Id: Atomic_Op.h 86731 2009-09-17 12:23:48Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@uci.edu>
  */

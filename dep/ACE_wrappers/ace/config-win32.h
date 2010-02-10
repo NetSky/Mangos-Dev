@@ -3,7 +3,7 @@
 /**
  *  @file   config-win32.h
  *
- *  $Id: config-win32.h 85057 2009-04-08 10:59:58Z msmit $
+ *  $Id$
  *
  *  @brief  Microsoft Windows configuration file.
  *

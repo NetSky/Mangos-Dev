@@ -7,7 +7,7 @@
  *  All the static function calls needed to search and open shared
  *  libraries.
  *
- *  $Id: Lib_Find.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  */
 //=============================================================================
 

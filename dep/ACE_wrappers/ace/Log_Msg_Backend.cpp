@@ -1,8 +1,8 @@
-// $Id: Log_Msg_Backend.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Log_Msg_Backend.h"
 
-ACE_RCSID(ace, Log_Msg_Backend, "$Id: Log_Msg_Backend.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Log_Msg_Backend, "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

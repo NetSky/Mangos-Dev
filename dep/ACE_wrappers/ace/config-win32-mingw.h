@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// $Id: config-win32-mingw.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 //
 // The following configuration file is designed to work for win32

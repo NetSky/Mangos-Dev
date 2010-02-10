@@ -1,4 +1,4 @@
-// $Id: Process_Semaphore.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Process_Semaphore.h"
 #include "ace/Log_Msg.h"
@@ -10,7 +10,7 @@
 
 #include "ace/ACE.h"
 
-ACE_RCSID(ace, Process_Semaphore, "$Id: Process_Semaphore.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, Process_Semaphore, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Repository.h
  *
- *  $Id: Service_Repository.h 85007 2009-04-01 14:11:03Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

@@ -6,7 +6,7 @@
  *
  *  definitions for the windows pdh API
  *
- *  $Id: os_pdhmsg.h 81693 2008-05-14 12:35:01Z johnnyw $
+ *  $Id$
  *
  *  @author Johnny Willemsen  <jwillemsen@remedy.nl>
  */

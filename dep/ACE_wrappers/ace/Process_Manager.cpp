@@ -1,4 +1,4 @@
-// $Id: Process_Manager.cpp 84387 2009-02-10 20:18:21Z johnnyw $
+// $Id$
 
 // Process_Manager.cpp
 #include "ace/Process_Manager.h"
@@ -24,7 +24,7 @@
 
 ACE_RCSID (ace,
            Process_Manager,
-           "$Id: Process_Manager.cpp 84387 2009-02-10 20:18:21Z johnnyw $")
+           "$Id$")
 
 #if defined (ACE_HAS_SIG_C_FUNC)
 extern "C" void

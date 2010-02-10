@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-cray.h 87169 2009-10-19 20:26:55Z olli $
+// $Id$
 
 #ifndef ACE_CONFIG_CRAY_H
 #define ACE_CONFIG_CRAY_H

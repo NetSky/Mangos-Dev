@@ -4,7 +4,7 @@
 /**
  *  @file   Global_Macros.h
  *
- *  $Id: Global_Macros.h 82442 2008-07-28 13:11:29Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

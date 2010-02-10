@@ -1,4 +1,4 @@
-// $Id: Unbounded_Queue.cpp 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 #ifndef ACE_UNBOUNDED_QUEUE_CPP
 #define ACE_UNBOUNDED_QUEUE_CPP

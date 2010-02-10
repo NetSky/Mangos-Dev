@@ -4,7 +4,7 @@
 /**
  *  @file    Framework_Component_T.h
  *
- *  $Id: Framework_Component_T.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@ieee.org>
  */

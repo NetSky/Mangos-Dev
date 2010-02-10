@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: CDR_Base.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if defined (ACE_HAS_INTRINSIC_BYTESWAP)
 // Take advantage of MSVC++ byte swapping compiler intrinsics (found

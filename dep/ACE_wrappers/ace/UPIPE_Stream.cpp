@@ -1,8 +1,8 @@
-// $Id: UPIPE_Stream.cpp 82559 2008-08-07 20:23:07Z parsons $
+// $Id$
 
 #include "ace/UPIPE_Stream.h"
 
-ACE_RCSID(ace, UPIPE_Stream, "$Id: UPIPE_Stream.cpp 82559 2008-08-07 20:23:07Z parsons $")
+ACE_RCSID(ace, UPIPE_Stream, "$Id$")
 
 #if defined (ACE_HAS_THREADS)
 

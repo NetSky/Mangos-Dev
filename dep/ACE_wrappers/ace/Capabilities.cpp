@@ -11,7 +11,7 @@
 
 ACE_RCSID (ace,
            Capabilities,
-           "$Id: Capabilities.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 
 #define ACE_ESC ((ACE_TCHAR)0x1b)

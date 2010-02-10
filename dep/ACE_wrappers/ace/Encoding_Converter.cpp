@@ -1,4 +1,4 @@
-// $Id: Encoding_Converter.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 #include "ace/Encoding_Converter.h"
 
 #if defined (ACE_USES_WCHAR)

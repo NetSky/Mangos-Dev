@@ -6,7 +6,7 @@
  *
  *  time types
  *
- *  $Id: os_time.h 87270 2009-10-29 21:47:47Z olli $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

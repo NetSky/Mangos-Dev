@@ -1,4 +1,4 @@
-// $Id: Guard_T.cpp 85141 2009-04-22 08:48:30Z johnnyw $
+// $Id$
 
 #ifndef ACE_GUARD_T_CPP
 #define ACE_GUARD_T_CPP

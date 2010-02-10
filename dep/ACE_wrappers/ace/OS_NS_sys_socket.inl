@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_sys_socket.inl 85632 2009-06-12 19:28:00Z mitza $
+// $Id$
 
 #include "ace/OS_NS_errno.h"
 #include "ace/OS_NS_macros.h"

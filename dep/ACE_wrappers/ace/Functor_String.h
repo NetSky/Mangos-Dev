@@ -4,7 +4,7 @@
 /**
  *  @file    Functor_String.h
  *
- *  $Id: Functor_String.h 86698 2009-09-13 15:58:17Z johnnyw $
+ *  $Id$
  *
  *   Class template specializations for ACE_*String types implementing
  *   function objects that are used in  various places in ATC. They

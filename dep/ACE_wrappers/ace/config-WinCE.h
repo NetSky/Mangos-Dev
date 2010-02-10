@@ -1,4 +1,4 @@
-// $Id: config-WinCE.h 87629 2009-11-19 09:45:36Z johnnyw $
+// $Id$
 
 // Note: For WinCE build, simply use: #include "ace/config-win32.h"
 //       It is same as config.h for Windows NT/2k so that you can

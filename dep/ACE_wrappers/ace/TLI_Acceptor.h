@@ -4,7 +4,7 @@
 /**
  *  @file    TLI_Acceptor.h
  *
- *  $Id: TLI_Acceptor.h 82723 2008-09-16 09:35:44Z johnnyw $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

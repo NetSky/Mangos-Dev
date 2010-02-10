@@ -1,4 +1,4 @@
-// $Id: SString.cpp 85547 2009-06-07 17:57:11Z johnnyw $
+// $Id$
 
 #include "ace/Malloc_T.h"
 #include "ace/OS_Memory.h"

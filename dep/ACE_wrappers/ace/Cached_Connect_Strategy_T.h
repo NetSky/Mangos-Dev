@@ -4,7 +4,7 @@
 /**
  *  @file    Cached_Connect_Strategy_T.h
  *
- *  $Id: Cached_Connect_Strategy_T.h 82771 2008-09-17 18:47:48Z johnnyw $
+ *  $Id$
  *
  *  @author Kirthika Parameswaran <kirthika@cs.wustl.edu>
  */

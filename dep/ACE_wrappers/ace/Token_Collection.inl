@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Token_Collection.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if defined (ACE_HAS_TOKENS_LIBRARY)
 

@@ -1,4 +1,4 @@
-// $Id: Monitor_Point_Registry.cpp 81833 2008-06-04 14:44:53Z parsons $
+// $Id$
 
 #include "ace/Monitor_Point_Registry.h"
 

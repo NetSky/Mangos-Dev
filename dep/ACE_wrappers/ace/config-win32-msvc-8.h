@@ -3,7 +3,7 @@
 /**
  *  @file   config-win32-msvc-8.h
  *
- *  $Id: config-win32-msvc-8.h 87224 2009-10-26 07:49:31Z olli $
+ *  $Id$
  *
  *  @brief  Microsoft Visual C++ 8.0 configuration file.
  *

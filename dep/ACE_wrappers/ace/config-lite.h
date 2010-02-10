@@ -4,7 +4,7 @@
 /**
  *  @file   config-lite.h
  *
- *  $Id: config-lite.h 85832 2009-06-28 16:14:59Z johnnyw $
+ *  $Id$
  *
  *  @author (Originally in OS.h)Doug Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>

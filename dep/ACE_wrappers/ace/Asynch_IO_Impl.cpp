@@ -1,4 +1,4 @@
-// $Id: Asynch_IO_Impl.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Asynch_IO_Impl.h"
 

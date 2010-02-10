@@ -7,7 +7,7 @@
 
 ACE_RCSID (ace,
            Token_Invariants,
-           "$Id: Token_Invariants.cpp 84179 2009-01-16 07:26:45Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

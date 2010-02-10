@@ -1,4 +1,4 @@
-// $Id: Barrier.cpp 84282 2009-01-30 15:04:29Z msmit $
+// $Id$
 
 #include "ace/Barrier.h"
 
@@ -17,7 +17,7 @@
 
 ACE_RCSID (ace,
            Barrier,
-           "$Id: Barrier.cpp 84282 2009-01-30 15:04:29Z msmit $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

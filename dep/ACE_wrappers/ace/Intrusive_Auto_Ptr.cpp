@@ -1,4 +1,4 @@
-// $Id: Intrusive_Auto_Ptr.cpp 81166 2008-03-31 15:00:23Z iliyan $
+// $Id$
 
 #ifndef ACE_INTRUSIVE_AUTO_PTR_CPP
 #define ACE_INTRUSIVE_AUTO_PTR_CPP

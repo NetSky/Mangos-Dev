@@ -4,7 +4,7 @@
 /**
  *  @file    Based_Pointer_Repository.h
  *
- *  $Id: Based_Pointer_Repository.h 84837 2009-03-16 13:01:15Z johnnyw $
+ *  $Id$
  *
  *  @author Dietrich Quehl <Dietrich.Quehl@med.siemens.de>
  *  @author Douglas C. Schmidt <schmidt@.cs.wustl.edu>

@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-hpux-11.00.h 87169 2009-10-19 20:26:55Z olli $
+// $Id$
 
 // The following configuration file is designed to work for HP
 // platforms running HP-UX 11.00 using aC++ or gcc (2.95 and up).

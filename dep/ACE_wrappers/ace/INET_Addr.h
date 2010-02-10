@@ -4,7 +4,7 @@
 /**
  *  @file    INET_Addr.h
  *
- *  $Id: INET_Addr.h 82789 2008-09-19 14:47:28Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

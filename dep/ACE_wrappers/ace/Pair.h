@@ -4,7 +4,7 @@
 /**
  *  @file    Pair.h
  *
- *  $Id: Pair.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  ACE_Pair<> convenience header.
  *

@@ -1,4 +1,4 @@
-// $Id: Mutex.cpp 84282 2009-01-30 15:04:29Z msmit $
+// $Id$
 
 #include "ace/Mutex.h"
 
@@ -13,7 +13,7 @@
 
 ACE_RCSID (ace,
            Mutex,
-           "$Id: Mutex.cpp 84282 2009-01-30 15:04:29Z msmit $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

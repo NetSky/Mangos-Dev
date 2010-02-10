@@ -1,4 +1,4 @@
-// $Id: MMAP_Memory_Pool.cpp 87295 2009-11-02 14:45:59Z johnnyw $
+// $Id$
 
 // MMAP_Memory_Pool.cpp
 #include "ace/MMAP_Memory_Pool.h"
@@ -20,7 +20,7 @@
 
 ACE_RCSID(ace,
           MMAP_Memory_Pool,
-          "$Id: MMAP_Memory_Pool.cpp 87295 2009-11-02 14:45:59Z johnnyw $")
+          "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 
@@ -44,7 +44,7 @@ ACE_MMAP_Memory_Pool::release (int destroy)
 #endif /* ACE_HAS_POSITION_INDEPENDENT_POINTERS == 1 */
 
   if (destroy)
-  this->mmap_.remove ();
+    this->mmap_.remove ();
   else
     this->mmap_.close ();
   return 0;

@@ -1,11 +1,11 @@
-// $Id: IOStream.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_IOSTREAM_CPP
 #define ACE_IOSTREAM_CPP
 
 #include "ace/IOStream.h"
 
-ACE_RCSID(ace, IOStream, "$Id: IOStream.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, IOStream, "$Id$")
 
 #if !defined (ACE_LACKS_ACE_IOSTREAM)
 

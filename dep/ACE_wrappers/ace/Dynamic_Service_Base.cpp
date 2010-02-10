@@ -8,7 +8,7 @@
 
 ACE_RCSID (ace,
            Dynamic_Service_Base,
-           "$Id: Dynamic_Service_Base.cpp 84282 2009-01-30 15:04:29Z msmit $")
+           "$Id$")
 
   ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

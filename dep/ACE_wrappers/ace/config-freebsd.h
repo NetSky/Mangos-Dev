@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-freebsd.h 87483 2009-11-11 13:50:04Z olli $
+// $Id$
 
 // The following configuration file is designed to work for FreeBSD
 

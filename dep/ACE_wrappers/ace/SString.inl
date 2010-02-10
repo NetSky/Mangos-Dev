@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: SString.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 // Include ACE.h only if it hasn't already been included, e.g., if
 // ACE_TEMPLATES_REQUIRE_SOURCE, ACE.h won't have been pulled in by

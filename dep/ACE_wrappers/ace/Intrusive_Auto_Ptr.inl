@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Intrusive_Auto_Ptr.inl 81219 2008-04-02 20:23:32Z iliyan $
+// $Id$
 
 #include "ace/Guard_T.h"
 #include "ace/Log_Msg.h"

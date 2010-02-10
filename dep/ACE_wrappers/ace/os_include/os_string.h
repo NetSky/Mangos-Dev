@@ -6,7 +6,7 @@
  *
  *  string operations
  *
- *  $Id: os_string.h 87216 2009-10-23 20:26:16Z olli $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

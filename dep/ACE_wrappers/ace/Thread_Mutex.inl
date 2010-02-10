@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Thread_Mutex.inl 83934 2008-12-01 13:47:06Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

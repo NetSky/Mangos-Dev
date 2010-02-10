@@ -4,7 +4,7 @@
 /**
  *  @file   config-macros.h
  *
- *  $Id: config-macros.h 86519 2009-08-18 19:09:11Z shuston $
+ *  $Id$
  *
  *  @author (Originally in OS.h)Doug Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>
@@ -455,7 +455,8 @@
 #if defined (ACE_WIN32)
 # define ACE_WIN32CALL_RETURN(X,TYPE,FAILVALUE) \
   do { \
-    TYPE ace_result_ = (TYPE) X; \
+    TYPE ace_result_; \
+    ace_result_ = (TYPE) X; \
     if (ace_result_ == FAILVALUE) \
       ACE_OS::set_errno_to_last_error (); \
     return ace_result_; \

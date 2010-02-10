@@ -1,11 +1,11 @@
-// $Id: Log_Msg_IPC.cpp 84527 2009-02-19 14:01:42Z johnnyw $
+// $Id$
 
 #include "ace/Log_Msg_IPC.h"
 #include "ace/Log_Record.h"
 #include "ace/CDR_Stream.h"
 #include "ace/Truncate.h"
 
-ACE_RCSID(ace, Log_Msg_IPC, "$Id: Log_Msg_IPC.cpp 84527 2009-02-19 14:01:42Z johnnyw $")
+ACE_RCSID(ace, Log_Msg_IPC, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -6,7 +6,7 @@
 
 ACE_RCSID (ace,
            Dynamic_Service_Dependency,
-           "$Id: Dynamic_Service_Dependency.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 
   ACE_BEGIN_VERSIONED_NAMESPACE_DECL

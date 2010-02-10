@@ -4,7 +4,7 @@
 /**
  *  @file    Addr.h
  *
- *  $Id: Addr.h 81030 2008-03-20 12:43:29Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

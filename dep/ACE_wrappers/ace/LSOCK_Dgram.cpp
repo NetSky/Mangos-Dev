@@ -1,11 +1,11 @@
-// $Id: LSOCK_Dgram.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/LSOCK_Dgram.h"
 #if !defined (ACE_LACKS_UNIX_DOMAIN_SOCKETS)
 
 #include "ace/Log_Msg.h"
 
-ACE_RCSID(ace, LSOCK_Dgram, "$Id: LSOCK_Dgram.cpp 80826 2008-03-04 14:51:23Z wotte $")
+ACE_RCSID(ace, LSOCK_Dgram, "$Id$")
 
 #if !defined (__ACE_INLINE__)
 #include "ace/LSOCK_Dgram.inl"

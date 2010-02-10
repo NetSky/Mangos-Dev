@@ -1,4 +1,4 @@
-// $Id: Test_and_Set.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_TEST_AND_SET_CPP
 #define ACE_TEST_AND_SET_CPP

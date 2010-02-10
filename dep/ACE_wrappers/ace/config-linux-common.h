@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-linux-common.h 87250 2009-10-28 11:57:17Z olli $
+// $Id$
 
 // Do not use this configuration file directly since it's designed to
 // be included by another, specific configuration file, such as
@@ -382,6 +382,11 @@
 #endif /* __ia64 */
 
 #define ACE_SIZEOF_WCHAR 4
+
+#if defined (__powerpc__) && !defined (ACE_SIZEOF_LONG_DOUBLE)
+// 32bit PowerPC Linux uses 128bit long double
+# define ACE_SIZEOF_LONG_DOUBLE 16
+#endif
 
 #define ACE_LACKS_GETIPNODEBYADDR
 #define ACE_LACKS_GETIPNODEBYNAME

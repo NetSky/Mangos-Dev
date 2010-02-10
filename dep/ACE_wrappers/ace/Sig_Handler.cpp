@@ -1,4 +1,4 @@
-// $Id: Sig_Handler.cpp 87653 2009-11-20 07:09:58Z olli $
+// $Id$
 
 #include "ace/Sig_Handler.h"
 #include "ace/Sig_Adapter.h"
@@ -12,7 +12,7 @@
 #include "ace/Sig_Handler.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, Sig_Handler, "$Id: Sig_Handler.cpp 87653 2009-11-20 07:09:58Z olli $")
+ACE_RCSID(ace, Sig_Handler, "$Id$")
 
 #if defined (ACE_HAS_SIG_C_FUNC)
 
@@ -431,7 +431,9 @@ ACE_Sig_Handlers::register_handler (int signum,
 
           // Default is to restart signal handlers.
           new_disp->flags (new_disp->flags () | SA_RESTART);
+#if !defined (ACE_HAS_LYNXOS4_SIGNALS)
           new_disp->flags (new_disp->flags () | SA_SIGINFO);
+#endif /* ACE_HAS_LYNXOS4_SIGNALS */
 
           // Finally install (possibly reinstall) the ACE signal
           // handler disposition with the SA_RESTART mode enabled.

@@ -1,4 +1,4 @@
-// $Id: Proactor.cpp 81535 2008-04-29 20:08:52Z shuston $
+// $Id$
 
 #include "ace/config-lite.h"
 #include "ace/Proactor.h"
@@ -19,7 +19,7 @@
 
 ACE_RCSID (ace,
            Proactor,
-           "$Id: Proactor.cpp 81535 2008-04-29 20:08:52Z shuston $")
+           "$Id$")
 
 
 #include "ace/Task_T.h"

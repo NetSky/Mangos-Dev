@@ -6,7 +6,7 @@
  *
  *  VFS File System information structure
  *
- *  $Id: os_statvfs.h 81692 2008-05-14 12:25:02Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-//$Id: UUID.inl 85331 2009-05-14 00:04:12Z hillj $
+//$Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

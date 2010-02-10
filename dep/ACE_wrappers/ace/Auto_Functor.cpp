@@ -1,4 +1,4 @@
-// $Id: Auto_Functor.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_AUTO_FUNCTOR_CPP
 #define ACE_AUTO_FUNCTOR_CPP

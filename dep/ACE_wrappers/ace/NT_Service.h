@@ -4,7 +4,7 @@
 /**
  *  @file    NT_Service.h
  *
- *  $Id: NT_Service.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Steve Huston <shuston@riverace.com>
  */

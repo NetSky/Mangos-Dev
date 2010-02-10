@@ -1,4 +1,4 @@
-// $Id: SOCK_SEQPACK_Acceptor.cpp 82723 2008-09-16 09:35:44Z johnnyw $
+// $Id$
 
 #include "ace/SOCK_SEQPACK_Acceptor.h"
 

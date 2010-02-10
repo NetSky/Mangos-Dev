@@ -4,7 +4,7 @@
 /**
  *  @file    Svc_Conf.h
  *
- *  $Id: Svc_Conf.h 81332 2008-04-10 22:47:04Z iliyan $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

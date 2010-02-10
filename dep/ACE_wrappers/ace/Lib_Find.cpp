@@ -1,4 +1,4 @@
-// $Id: Lib_Find.cpp 85473 2009-06-01 08:09:31Z johnnyw $
+// $Id$
 
 #include "ace/Lib_Find.h"
 #include "ace/Log_Msg.h"
@@ -110,7 +110,7 @@ template ACE_Singleton<ACE_LD_Symbol_Registry, ACE_Thread_Mutex> *
 #endif /* ACE_HAS_EXPLICIT_STATIC_TEMPLATE_MEMBER_INSTANTIATION */
 #endif
 
-ACE_RCSID(ace, Lib_Find, "$Id: Lib_Find.cpp 85473 2009-06-01 08:09:31Z johnnyw $")
+ACE_RCSID(ace, Lib_Find, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

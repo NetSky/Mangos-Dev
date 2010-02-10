@@ -3,7 +3,7 @@
 /**
  *  @file    Codeset_IBM1047.cpp
  *
- *  $Id: Codeset_IBM1047.cpp 81661 2008-05-09 12:05:34Z johnnyw $
+ *  $Id$
  *
  *  Defines the arrays required to convert between ISO8859 (aka
  *  Latin/1) and IBM1047 (aka EBCDIC).
@@ -20,7 +20,7 @@
 
 ACE_RCSID (ace,
            Codeset_IBM1047,
-           "$Id: Codeset_IBM1047.cpp 81661 2008-05-09 12:05:34Z johnnyw $")
+           "$Id$")
 
 #include "ace/OS_Memory.h"
 #include "ace/OS_NS_string.h"

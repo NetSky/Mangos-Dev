@@ -36,6 +36,8 @@ software.
 Please see the file `COPYING' in the top level ACE directory for
 additional details.])
 
+# Delete Windows config.h if exists
+rm -f ace/config.h
 
 dnl Require GNU Autoconf 2.58 or better.  Previous versions did not
 dnl correctly support HP-UX.
@@ -7211,37 +7213,11 @@ dnl created first.
 
 dnl   Makefile
 dnl   ace/Makefile
-dnl   apps/Makefile
-dnl   apps/gperf/Makefile
-dnl   apps/gperf/src/Makefile
-dnl   man/Makefile
-dnl   man/man3/Makefile
-dnl   netsvcs/Makefile
-dnl   netsvcs/clients/Makefile
-dnl   netsvcs/clients/Logger/Makefile
-dnl   netsvcs/clients/Naming/Makefile
-dnl   netsvcs/clients/Naming/Client/Makefile
-dnl   netsvcs/clients/Naming/Dump_Restore/Makefile
-dnl   netsvcs/clients/Tokens/Makefile
-dnl   netsvcs/clients/Tokens/collection/Makefile
-dnl   netsvcs/clients/Tokens/deadlock/Makefile
-dnl   netsvcs/clients/Tokens/invariant/Makefile
-dnl   netsvcs/clients/Tokens/manual/Makefile
-dnl   netsvcs/clients/Tokens/mutex/Makefile
-dnl   netsvcs/clients/Tokens/rw_lock/Makefile
-dnl   netsvcs/lib/Makefile
-dnl   netsvcs/servers/Makefile
-dnl   tests/Makefile
 
 AC_CONFIG_FILES([
   Makefile
   ace/Makefile
 ])
-
-if test -d $srcdir/TAO -a X$ace_user_with_tao = Xyes; then
-  AC_CONFIG_SUBDIRS([TAO])
-  AC_SUBST([TAO],[TAO])
-fi
 
 dnl Note that the "ACE_VERSION" in the message below is an M4 macro
 dnl that expands to the version of ACE being configured.

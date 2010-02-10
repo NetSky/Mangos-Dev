@@ -4,7 +4,7 @@
 /**
  *  @file    FIFO_Recv_Msg.h
  *
- *  $Id: FIFO_Recv_Msg.h 84480 2009-02-16 18:58:16Z johnnyw $
+ *  $Id$
  *
  *  @author Doug Schmidt
  */

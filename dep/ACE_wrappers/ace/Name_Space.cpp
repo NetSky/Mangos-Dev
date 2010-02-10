@@ -1,11 +1,11 @@
 // Name_Space.cpp
-// $Id: Name_Space.cpp 84834 2009-03-16 12:28:51Z johnnyw $
+// $Id$
 
 #include "ace/Name_Space.h"
 #include "ace/OS_NS_string.h"
 #include "ace/OS_NS_stdlib.h"
 
-ACE_RCSID(ace, Name_Space, "$Id: Name_Space.cpp 84834 2009-03-16 12:28:51Z johnnyw $")
+ACE_RCSID(ace, Name_Space, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

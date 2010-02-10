@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-win32-common.h 87145 2009-10-17 20:06:21Z olli $
+// $Id$
 
 
 #ifndef ACE_CONFIG_WIN32_COMMON_H
@@ -159,8 +159,6 @@
 // using static object managers.
 #if !defined (ACE_HAS_NONSTATIC_OBJECT_MANAGER)
 # define ACE_HAS_NONSTATIC_OBJECT_MANAGER
-#elif (ACE_HAS_NONSTATIC_OBJECT_MANAGER == 0)
-# undef ACE_HAS_NONSTATIC_OBJECT_MANAGER
 #endif /* ACE_HAS_NONSTATIC_OBJECT_MANAGER */
 
 #define ACE_HAS_GPERF

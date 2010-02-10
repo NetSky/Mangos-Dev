@@ -4,7 +4,7 @@
 /**
  *  @file    Remote_Tokens.h
  *
- *  $Id: Remote_Tokens.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt (schmidt@cs.wustl.edu)
  *  @author Tim Harrison (harrison@cs.wustl.edu)

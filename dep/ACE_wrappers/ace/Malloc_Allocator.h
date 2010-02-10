@@ -4,7 +4,7 @@
 /**
  *  @file   Malloc_Allocator.h
  *
- *  $Id: Malloc_Allocator.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Based on code that formerly existed in another ACE file.
  */

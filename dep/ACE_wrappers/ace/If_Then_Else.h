@@ -8,7 +8,7 @@
  *  template described in the book "C++ Templates" by Vandevoorde and
  *  Josuttis.
  *
- *  $Id: If_Then_Else.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Ossama Othman <ossama@dre.vanderbilt.edu>
  */

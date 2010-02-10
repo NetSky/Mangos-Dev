@@ -4,7 +4,7 @@
 /**
  *  @file    os_kstat.h
  *
- *  $Id: os_kstat.h 81692 2008-05-14 12:25:02Z johnnyw $
+ *  $Id$
  *
  *  @author Johnny Willemsen  <jwillemsen@remedy.nl>
  */

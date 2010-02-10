@@ -6,7 +6,7 @@
  *
  *  additional definitions for date and time
  *
- *  $Id: os_timeb.h 83306 2008-10-17 12:19:53Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

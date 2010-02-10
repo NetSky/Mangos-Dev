@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Unbounded_Queue.inl 84316 2009-02-03 19:46:05Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

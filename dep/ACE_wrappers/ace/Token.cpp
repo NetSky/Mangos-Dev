@@ -1,4 +1,4 @@
-// $Id: Token.cpp 83735 2008-11-14 09:41:52Z johnnyw $
+// $Id$
 
 #include "ace/Token.h"
 
@@ -6,7 +6,7 @@
 # include "ace/Token.inl"
 #endif /* __ACE_INLINE__ */
 
-ACE_RCSID(ace, Token, "$Id: Token.cpp 83735 2008-11-14 09:41:52Z johnnyw $")
+ACE_RCSID(ace, Token, "$Id$")
 
 #if defined (ACE_HAS_THREADS)
 

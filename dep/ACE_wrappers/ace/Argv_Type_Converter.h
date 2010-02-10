@@ -4,7 +4,7 @@
 /**
  *  @file    Argv_Type_Converter.h
  *
- *  $Id: Argv_Type_Converter.h 83891 2008-11-28 11:01:50Z johnnyw $
+ *  $Id$
  *
  *  @author Si Mong Park <spark@ociweb.com>
  */

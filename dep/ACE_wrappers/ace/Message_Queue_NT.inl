@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Message_Queue_NT.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if defined (ACE_HAS_WIN32_OVERLAPPED_IO)
 #  include "ace/Guard_T.h"

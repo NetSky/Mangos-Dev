@@ -1,4 +1,4 @@
-// $Id: Flag_Manip.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Flag_Manip.h"
 
@@ -17,7 +17,7 @@
 
 ACE_RCSID (ace,
            Flag_Manip,
-           "$Id: Flag_Manip.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-sco-5.0.0.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 #ifndef ACE_CONFIG_SCO_5_0_0_H
 #define ACE_CONFIG_SCO_5_0_0_H

@@ -6,7 +6,7 @@
  *
  *  definitions for internet operations
  *
- *  $Id: os_inet.h 85015 2009-04-03 12:27:59Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

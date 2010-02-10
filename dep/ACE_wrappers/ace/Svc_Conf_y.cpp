@@ -104,7 +104,7 @@
 /* Copy the first part of user declarations.  */
 
 
-// $Id: Svc_Conf_y.cpp 82137 2008-06-23 15:30:20Z sma $
+// $Id$
 
 #include "ace/Svc_Conf.h"
 
@@ -117,7 +117,7 @@
 
 ACE_RCSID (ace,
            Svc_Conf_y,
-           "$Id: Svc_Conf_y.cpp 82137 2008-06-23 15:30:20Z sma $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

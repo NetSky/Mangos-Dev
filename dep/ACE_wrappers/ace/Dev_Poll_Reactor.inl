@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Dev_Poll_Reactor.inl 85615 2009-06-12 01:21:57Z shuston $
+// $Id$
 
 #include "ace/Log_Msg.h"
 

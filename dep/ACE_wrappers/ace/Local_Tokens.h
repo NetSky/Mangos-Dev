@@ -4,7 +4,7 @@
 /**
  *  @file    Local_Tokens.h
  *
- *  $Id: Local_Tokens.h 84477 2009-02-16 13:30:38Z johnnyw $
+ *  $Id$
  *
  *  @author Karl-Heinz Dorn <kdorn@erlh.siemens.de>
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>

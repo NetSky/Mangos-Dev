@@ -2,7 +2,7 @@
 /**
  *  @file   config-win32-msvc.h
  *
- *  $Id: config-win32-msvc.h 85785 2009-06-24 18:20:42Z mitza $
+ *  $Id$
  *
  *  @brief  Microsoft Visual C++ configuration file.
  *

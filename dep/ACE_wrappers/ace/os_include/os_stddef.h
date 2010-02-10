@@ -6,7 +6,7 @@
  *
  *  standard type definitions
  *
- *  $Id: os_stddef.h 84499 2009-02-17 20:23:18Z olli $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

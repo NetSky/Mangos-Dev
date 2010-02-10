@@ -1,8 +1,8 @@
-// $Id: ATM_QoS.cpp 84262 2009-01-29 10:34:33Z johnnyw $
+// $Id$
 
 #include "ace/ATM_QoS.h"
 
-ACE_RCSID(ace, ATM_QoS, "$Id: ATM_QoS.cpp 84262 2009-01-29 10:34:33Z johnnyw $")
+ACE_RCSID(ace, ATM_QoS, "$Id$")
 
 #if defined (ACE_HAS_ATM)
 

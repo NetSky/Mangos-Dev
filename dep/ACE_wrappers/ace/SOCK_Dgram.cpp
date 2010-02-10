@@ -21,7 +21,7 @@
 
 ACE_RCSID (ace,
            SOCK_Dgram,
-           "$Id: SOCK_Dgram.cpp 85421 2009-05-22 11:12:30Z johnnyw $")
+           "$Id$")
 
 // This is a workaround for platforms with non-standard
 // definitions of the ip_mreq structure

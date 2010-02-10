@@ -4,7 +4,7 @@
 /**
  *  @file    Service_Object.h
  *
- *  $Id: Service_Object.h 84170 2009-01-15 13:31:50Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

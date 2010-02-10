@@ -1,3 +1,571 @@
+Wed Feb 10 10:53:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tests/run_test.lst:
+          Marked 2610 as not fixed
+
+        * tests/Process_Strategy_Test.cpp:
+          Use prefix increment
+
+Wed Feb 10 10:45:00 UTC 2010  Simon Massey  <sma at prismtech dot com>
+
+        * tests/NonBlocking_Conn_Test.h:
+        * tests/NonBlocking_Conn_Test.cpp:
+          Fixed a VC9 compilation error (IGNORE is a vc9 #define).
+
+Tue Feb  9 15:03:35 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * tests/NonBlocking_Conn_Test.cpp (hosts): Updated the list of hosts to
+          check to include news.bbc.co.uk.
+
+Tue Feb  9 09:14:48 UTC 2010  Vladimir Zykov  <vladimir.zykov@prismtech.com>
+
+        * tests/NonBlocking_Conn_Test.h:
+          Fixed a compilation error.
+
+Mon Feb  8 18:53:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tests/run_test.lst:
+          Enabled 2609 and 2610 again, let us see how they run with the recent
+          changes from Vladimir
+
+Mon Feb  8 16:21:06 UTC 2010  Vladimir Zykov  <vladimir.zykov@prismtech.com>
+
+        * ace/Strategies_T.cpp:
+          Changed the code so that close() is called in case of failure
+          instead of destroy().
+
+        * ace/Connector.cpp:
+          Changed a bit the code added by me on 'Wed Sep  2 14:45:27 UTC 2009'
+          as a fix for bug#3731. After some more thinking it turned out that
+          the original code could result in a crash when reference counting is
+          not enabled and thus svc_handler could be destroyed at the time
+          when there was an attempt to do remove_reference().
+
+        * ace/Svc_Handler.cpp:
+          Moved the code added by me on 'Thu Feb  4 11:15:57 UTC 2010'
+          from destroy() to handle_close().
+
+        * tests/NonBlocking_Conn_Test.h:
+        * tests/NonBlocking_Conn_Test.cpp:
+          Extended the test for using Svc_Handler with and without
+          reference counting.
+
+Mon Feb  8 11:35:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * bin/ACETAOCIAO.style:
+          Updated with version 1.17 of Profactor Sylemanager
+
+Mon Feb  8 10:33:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * ace/ETCL/ETCL_l.cpp:
+          Fixed new GCC 4.4.x warning about ignoring return values of
+          function marked by the new warn_unused_result attribute.
+
+Sat Feb  6 18:58:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * include/makeinclude/wrapper_macros.GNU:
+          Fixed missing definitions for Icecream support.
+
+Sat Feb  6 15:03:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * include/makeinclude/wrapper_macros.GNU:
+          Added support for Icecream distributed compile system.
+
+Sat Feb  6 12:58:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * tests/Reactor_Performance_Test.cpp:
+        * tests/Reactor_Fairness_Test.cpp:
+        * ASNMP/asnmp/address.cpp:
+        * examples/Reactor/Misc/pingpong.cpp:
+          More fixes for strict-aliasing warnings.
+
+Sat Feb  6 11:28:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * ace/LSOCK.cpp:
+          Fixes for strict-aliasing warnings.
+
+Thu Feb  4 20:29:52 UTC 2010  Steve Huston  <shuston@riverace.com>
+
+        * tests/Reactor_Fairness_Test.cpp: Don't try ACE_Dev_Poll_Reactor on
+          platforms without that capability; also added ACE_WFMO_Reactor to
+          the test (which triggered a crash shutting down WFMO_Reactor... I'm
+          looking into it).
+
+Thu Feb  4 15:32:24 UTC 2010  Steve Huston  <shuston@riverace.com>
+
+        * tests/Reactor_Fairness_Test.cpp:
+        * tests/Reactor_Fairness_Test.h:
+        * tests/Makefile.am:
+        * tests/tests.mpc:
+        * tests/run_test.lst: New test to verify reactor fairness across a
+          set of registered I/O sockets. Tests Select, TP, Dev_Poll now.
+          TP fails fairness tests per Bugzilla 1031. Since the TP fairness
+          failure is a known issue, the new test is marked !FIXED_BUGS_ONLY.
+
+        * ace/Dev_Poll_Reactor.cpp:
+        * ace/Dev_Poll_Reactor.h: Two performance improvements to resolve
+          Bugzilla #3714:
+            1. The notify handler is no longer suspended/resumed around
+               notify processing. This removes the biggest source of CPU
+               consumption introduced at ACE 5.7 - simply acquiring/releasing
+               the token to handle notifies, each of which triggered another
+               token acquire/notify cycle.
+            2. As I/O handlers are suspended before callback, they are not
+               immediately resumed on callback return. Instead, they are added
+               to a "to be resumed" list that is examined just prior to the
+               next epoll_wait() call; any to-be-resumed handles are added
+               back to the epoll set just before waiting. This removes another
+               need to acquire the token just to resume a handler.
+
+Thu Feb  4 11:15:57 UTC 2010  Vladimir Zykov  <vladimir.zykov@prismtech.com>
+
+        * ace/Svc_Handler.cpp:
+          Fixed an unconditional delete of Svc_Handler in destroy(). If
+          reference counting is enabled then it has to do remove_reference().
+          This completes the fix for bug#3731.
+
+        * tests/NonBlocking_Conn_Test.cpp:
+          Changed www.pakarmy.gov.pk to www.pakistanarmy.gov.pk. The first
+          URL seems to be dead.
+
+Thu Feb  4 10:53:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * bin/PerlACE/Process_Unix.pm:
+
+          Fixed problems concerning correct retrievel of process list.
+
+Thu Feb  3 09:57:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * ace/Atomic_Op.inl:
+          Added support for the GCC Atomic Builtins, if you want to
+          use these, add ACE_HAS_GCC_ATOMIC_BUILTINS defined as 1 in
+          your config file
+
+        * ace/Reactor.cpp:
+        * ace/Select_Reactor_Base.cpp:
+          Layout changes
+
+        * ace/Reactor.h:
+          Doxygen change
+
+Tue Feb  2 19:57:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * bin/PerlACE/TestTarget_WinCE.pm:
+        * bin/PerlACE/Process_Unix.pm:
+        * bin/PerlACE/ProcessLVRT.pm:
+        * bin/PerlACE/TestTarget.pm:
+        * bin/PerlACE/TestTarget_VxWorks.pm:
+        * bin/PerlACE/ProcessVX.pm:
+        * bin/PerlACE/TestTarget_LVRT.pm:
+        * bin/PerlACE/Process_Win32.pm:
+        * bin/PerlACE/Process_VMS.pm:
+
+          Added killall methods to the Process and Target frameworks.
+          Currently only full implementation on Win32 and *nix platforms
+          (empty on others).
+
+Tue Feb  2 19:52:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * html/Stats/index.shtml:
+          Updated link to Cell results
+
+Mon Feb  1 23:16:24  2010  Steve Huston  <shuston@riverace.com>
+
+        * ace/Acceptor.h: Fixed up doxygen for ACE_Oneshot_Acceptor.
+
+Tue Jan 26 03:56:45 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/Init_ACE.h: Updated the documentation of ACE::init() and
+          ACE::fini() so it reflects what ACE actually does.  Thanks to
+          Steve Huston, Andrew Kaplan <alexande dot kaplan at tafcorp dot
+          com>, and Alexander Mintz <alexande dot mintz at tafcorp dot
+          com> for motivating this update.
+
+Mon Feb  1 17:35:08 UTC 2010  Chris Cleeland  <cleeland_c@local>
+
+        * ace/Obstack_T.h:
+        * ace/Obstack_T.inl:
+        * ace/Obstack_T.cpp:
+        * ace/SStringfwd.h:
+        * ace/String_Base.h:
+        * ace/String_Base.inl:
+        * ace/String_Base.cpp:
+        * ace/Tokenizer_T.h:
+        * ace/Tokenizer_T.cpp:
+
+          Integrated changes originally done in OCITAO 1.4a by Steve Totten
+          to fulfill [RT 13868].
+
+          Wed Feb  1 10:40:35 2006  Steve Totten  <totten_s@ociweb.com>
+
+          Changed the use of "CHAR" as a template parameter to "ACE_CHAR_T" to
+          avoid possible clash with "CHAR" used as a preprocessor macro.
+          Thanks to Jennifer Kahng <jennifer dot kahng at lmco dot com> for
+          reporting the problem.  This change resolves [RT 8287].
+
+Mon Feb  1 11:21:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * ace/Connector.cpp:
+          Const change
+
+        * bin/diff-builds-and-group-fixed-tests-only.sh:
+        * etc/index.html:
+        * docs/Download.html:
+          Updated because of recent release
+
+        * tests/NonBlocking_Conn_Test.cpp:
+          Improved this test so that it really tests the connections
+
+        * tests/tests.mpc:
+          Bug_3709_Regression itselfs checks now for vc71
+
+        * ace/Reactor.h:
+          Doxygen fixes
+
+Sun Jan 31 01:04:43 CST 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * ACE version 5.7.6 released.
+
+Fri Jan 29 14:24:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * docs/bczar/bczar.html:
+          Extended release steps
+
+Thu Jan 28 16:26:28 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * include/makeinclude/platform_macosx_iphone.GNU:
+
+          When building for the Simulator, there is no need to
+          set things as a cross-build and set HOST_ROOT environment
+          variable.
+
+Thu Jan 28 15:11:18 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * ACE-INSTALL.html:
+
+          Updated with information on how to build ACE for
+          iPhone/iPod Touch/iPad Simulator and Hardware.
+
+Thu Jan 28 12:49:45 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * NEWS:
+
+          ACE/TAO now supports the new iPad ;-).
+
+Thu Jan 28 10:21:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * include/makeinclude/platform_linux.GNU:
+          Corrected fix for cross compilation on powerpc64.
+          Now also allows for non-standard named crosscompilers (like ppu-xx)
+          and cross compilation of non-powerpc target on powerpc host.
+
+Thu Jan 28 08:21:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * include/makeinclude/platform_linux.GNU:
+          Fix for cross compilation to powerpc64
+
+Wed Jan 27 22:36:36 UTC 2010  Adam Mitz  <mitza@ociweb.com>
+
+        * include/makeinclude/platform_win32_msvc.GNU:
+
+          Trim trailing slashes from libpath entries.
+
+        * tests/Bug_3709_Regression_Test.cpp:
+
+          This test doesn't compile on MSVC 7.1.
+
+Wed Jan 27 05:33:56 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * ace/config-macosx-iphone-hardware.h:
+
+          undefined ACE_HAS_SYSV_IPC, it doesn't seem that the
+          iphone-hardware platform supports it.
+
+Tue Jan 26 22:55:18 UTC 2010  Adam Mitz  <mitza@ociweb.com>
+
+        * bin/MakeProjectCreator/config/ace_mc.mpb:
+
+          Assign to LDLIBS along with ACE_SHLIBS.  ACE_SHLIBS is only used
+          when building a shared library, LDLIBS is used for an executable.
+
+Tue Jan 26 19:53:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tests/Process_Test.cpp:
+          Log some more details to get an insight why this test fails on
+          some systems
+
+Tue Jan 26 18:04:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * bin/generate_rel_manpages:
+          Doxygen is upgraded to 1.6.2
+
+Tue Jan 26 17:02:51 UTC 2010  Steve Huston  <shuston@riverace.com>
+
+        * ace/Dev_Poll_Reactor.cpp (unbind_all): When shutting down, call
+          handle_close() on all registered handlers. Fixes Bugzilla 2750.
+
+Tue Jan 26 13:27:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * include/makeinclude/platform_linux_common.GNU:
+          tao_idl3_to_idl2 is located in HOST_ROOT/TAO/CIAO/bin with
+          cross compilation
+
+Tue Jan 26 12:52:57 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * ace/config-macosx-leopard.h:
+
+          Added ACE_HAS_NET_IF_DL_H macro.
+
+        * ace/os_include/net/os_if.h:
+
+          Removed hardcoding of ACE_HAS_IPHONE and ACE_HAS_MAC_OSX
+          checks. If the platform defines ACE_HAS_NET_IF_DL_H macro,
+          then <net/if_dl.h> will be included.
+
+Tue Jan 26 04:35:17 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * ace/config-macosx-leopard.h:
+
+          Added ACE_HAS_MAC_OSX macro.
+
+        * ace/OS_NS_netdb.cpp:
+        * ace/os_include/net/os_if.h:
+
+          Enabled ACE_OS::getmacaddress() for Mac OSX as well.
+          It uses exactly the same code as the iPhone's addition below.
+
+Tue Jan 26 04:18:54 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * ace/OS_NS_netdb.cpp:
+
+          Implement ACE_OS::getmacaddress() for iPhone. The same implementation
+          will probably work on Mac OS X as well. I will verify this in the
+          future.
+
+        * ace/os_include/net/os_if.h:
+
+          Added "#include <net/if_dl.h>" to this file if ACE_HAS_IPHONE
+          is defined. The ACE_OS::getmacaddress() depends on this include
+          include file.
+
+Mon Jan 25 18:58:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * ace/MEM_IO.cpp
+          Added casts to fix CB2010 warnings
+
+Mon Jan 25 18:49:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * ace/SPIPE_Stream.inl:
+          Added casts to fix CB2010 warnings
+
+Mon Jan 25 14:51:09 UTC 2010  Chad Elliott  <elliott_c@ociweb.com>
+
+        * bin/MakeProjectCreator/templates/gnu.mpd:
+
+          Modified to best handle dependencies with a space or $(...) in
+          them.   A GNU make substitute function call is used to escape
+          spaces.
+
+Mon Jan 25 09:24:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * include/makeinclude/platform_macosx_iphone.GNU:
+          iPhone lacks rwho
+
+Sat Jan 23 18:48:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tests/Bug_2434_Regression_Test.cpp:
+        * tests/Time_Value_Test.cpp:
+          Moved another failing test to the bug_2434 file
+
+Sat Jan 23 13:53:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * tests/Thread_Attrs_Test.cpp:
+
+          Changed test to check only if resulting stack size is
+          *at least* as large as requested.
+          As the Posix docs say that the size set for the threads stack
+          will be the *minimum* size allocated (the actual size may f.i. be
+          bigger because of a) pagesize rounding, b) guardsize addition)
+          this is the best we can do without konowing the exact algorithm
+          used by the pthread implementation.
+          Also see this https://bugzilla.redhat.com/show_bug.cgi?id=435337
+          for more information.
+
+Fri Jan 22 10:38:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * config-linux-common.h:
+
+          Added fix for mismatch of ACE_SIZEOF_LONG_DOUBLE on Linux ppc
+          32bit platforms (sizeof(long double) = 128 bit).
+
+Fri Jan 22 08:48:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tests/Time_Value_Test.cpp:
+          Removed not used variable
+
+Thu Jan 21 23:16:27 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * ace/CDR_Stream.cpp:
+
+          Fixed the read_8 and write_8 methods for the iPhone Hardware.
+          The iPhone Hardware (ARM architecture) has the same memory
+          layout as Intel targets, and no conversion or swapping is
+          necessary. Double values sent from Windows to iPhone Hardware
+          were messed up before this fix due to unnecessary conversion.
+
+        * ace/config-macosx-iphone-hardware.h:
+        * ace/config-macosx-iphone-simulator.h:
+
+          Added ACE_HAS_IPHONE macro.
+
+Thu Jan 21 16:33:37 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * include/makeinclude/platform_macosx_iphone.GNU:
+
+          Removed the hardcoding of -DACE_AS_STATIC_LIBS and
+          -DTAO_AS_STATIC_LIBS to CFLAGS and CXXFLAGS and instead
+          added static_libs_only=1. That fixes the problem. Thanks
+          to Johnny Willemsen for the tip.
+
+Thu Jan 21 15:25:30 UTC 2010  Martin Corino  <mcorino@remedy.nl>
+
+        * tests/Multicast_Test.cpp:
+          Fixed a Linux specific problem where certain Linux flavors use
+          VERY strict rules concerning multicast communications and where
+          using the (system defined) defaults for the network interface
+          used for multicast sending/receiving does not provide a
+          matching setup (i.e. resulting if used for sending does not
+          match the if used for receiving -> nothing received).
+          The fix simply forces a fixed 'lo' interface to be used for
+          sending and receiving.
+
+Thu Jan 21 14:57:57 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * include/makeinclude/platform_macosx_iphone.GNU:
+
+          Added -DACE_AS_STATIC_LIBS and -DTAO_AS_STATIC_LIBS to the CFLAGS
+          and CXXFLAGS variables to allow more tests to pass on the iPhone
+          Simulator. This hardcoding is obviously the wrong thing to do,
+          and needs to be fixed in the future. For some reason, when building
+          a static executable those macros are missing.
+
+Thu Jan 21 08:13:30 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
+
+        * tests/Time_Value_Test.cpp:
+        * tests/tests.mpc:
+        * tests/run_test.lst:
+        * tests/Bug_2434_Regression_Test.cpp:
+          Moved the 64bit overflow test which fails on 64bit systems to
+          its own file and marked that as not fixed
+
+        * tests/Multicast_Test.cpp:
+          Const changes
+
+Tue Jan 19 13:24:02 UTC 2010  Olli Savia  <ops@iki.fi>
+
+        * tests/Bug_2980_Regression_Test.cpp:
+          Added missing #include <string.h>.
+
+Mon Jan 18 17:57:47 UTC 2010  James H. Hill  <hillj at cs dot iupui dot edu>
+
+        * ace/UUID.h:
+
+          Included Auto_Ptr.h since it is not included by other included
+          header files and in breaking builds if UUID.h is included before
+          including another file that does include Auto_Ptr.h
+
+Mon Jan 18 13:47:53 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/ace_for_tao.mpc: Added Message_Queue_NT.cpp in this file since
+          it seems to be needed for the ACE_FOR_TAO subset.
+
+Fri Jan 15 10:27:30 UTC 2010  Olli Savia  <ops@iki.fi>
+
+        * ace/config-lynxos.h:
+          Define __NO_INCLUDE_WARN__ before including param.h.
+          Fixes compile warnings.
+
+Fri Jan 15 10:22:06 UTC 2010  Olli Savia  <ops@iki.fi>
+
+        * ace/Registry.cpp:
+          Fixed g++ 4.x compile warning on MinGW.
+
+Fri Jan 15 10:19:48 UTC 2010  Olli Savia  <ops@iki.fi>
+
+        * ace/config-win32-common.h:
+          Simplified setting of ACE_HAS_NONSTATIC_OBJECT_MANAGER.
+
+Fri Jan 15 04:19:45 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/Message_Queue_T.cpp: Readded
+
+          #if defined (ACE_HAS_WIN32_OVERLAPPED_IO)
+          #include "ace/Message_Queue_NT.h"
+          #endif /* ACE_HAS_WIN32_OVERLAPPED_IO */
+
+          to fix a compile error on MinGW.  Thanks to Olli Savia
+          <ops@iki.fi> for this fix.
+
+Fri Jan 15 04:18:17 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/Message_Queue_NT.cpp: Added
+
+          #include "ace/Message_Queue.h"
+
+          to fix a compile error on MinGW.  Thanks to Olli Savia
+          <ops@iki.fi> for this fix.
+
+Fri Jan 15 04:17:06 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/Message_Queue.h: Once again removed
+
+          #if defined (ACE_HAS_WIN32_OVERLAPPED_IO)
+          #include "ace/Message_Queue_NT.h"
+          #endif /* ACE_HAS_WIN32_OVERLAPPED_IO */
+
+          from this file..
+
+Fri Jan 15 04:14:49 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/config-win32-common.h: Changed the definition
+
+          # define ACE_HAS_NONSTATIC_OBJECT_MANAGER
+
+          to
+
+          # define ACE_HAS_NONSTATIC_OBJECT_MANAGER 0
+
+          to fix a compile error on MinGW.  Thanks to Olli Savia
+          <ops@iki.fi> for this fix.
+
+Fri Jan 15 01:01:02 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * tests/Thread_Attrs_Test.cpp:
+
+          Slight modification to allow this test to pass on the iPhone
+          builds. Changed the spanwed thread's size from 42k to 40k.
+
+          According to Apple's Documentation: "The minimum allowed stack
+          size for secondary threads is 16 KB and the stack size must be
+          a multiple of 4 KB." My change make the stack size a multiple
+          of 4k. Below is a reference to the Apple documentation for the
+          iPhone where I got the quote.
+
+          http://developer.apple.com/iphone/library/documentation/Cocoa/Conceptual/Multithreading/CreatingThreads/CreatingThreads.html
+
+Thu Jan 14 20:06:49 UTC 2010  Abdul Sowayan  <sowayan@gmail.com>
+
+        * include/makeinclude/platform_macosx_iphone.GNU:
+
+          Added "CROSS-COMPILE=1" to the top of the file.
+
+Thu Jan 14 20:02:41 UTC 2010  Douglas C. Schmidt  <schmidt@dre.vanderbilt.edu>
+
+        * ace/OS_NS_Thread.cpp (add_to_argv): Replaced a call to strcpy()
+          with memmove() to avoid problems due to overlap with the
+          parameters.  Thanks to Guillaume Lahaye <Guillaume dot Lahaye at
+          nuance dot com> for reporting this.
+
 Thu Jan 14 13:04:19 UTC 2010  Johnny Willemsen  <jwillemsen@remedy.nl>
 
         * tests/OS_Test.cpp:

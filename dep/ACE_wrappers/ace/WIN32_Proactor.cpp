@@ -1,6 +1,6 @@
-// $Id: WIN32_Proactor.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
-// ACE_RCSID(ace, Proactor, "$Id: WIN32_Proactor.cpp 80826 2008-03-04 14:51:23Z wotte $")
+// ACE_RCSID(ace, Proactor, "$Id$")
 
 #include "ace/WIN32_Proactor.h"
 

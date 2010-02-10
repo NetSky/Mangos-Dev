@@ -1,7 +1,7 @@
 /**
  * @file Copy_Disabled.cpp
  *
- * $Id: Copy_Disabled.cpp 80826 2008-03-04 14:51:23Z wotte $
+ * $Id$
  *
  * @author Carlos O'Ryan <coryan@uci.edu>
  */
@@ -11,7 +11,7 @@
 
 ACE_RCSID (ace,
            Copy_Disabled,
-           "$Id: Copy_Disabled.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL

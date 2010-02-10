@@ -4,7 +4,7 @@
 /**
  *  @file    CE_Screen_Output.h
  *
- *  $Id: CE_Screen_Output.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Si Mong Park  <spark@ociweb.com>
  */

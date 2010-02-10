@@ -1,5 +1,5 @@
 // -*- C++ -*-
-// $Id: config-win32-dmc.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 
 // The following configuration file contains defines for Digital Mars compilers.
 

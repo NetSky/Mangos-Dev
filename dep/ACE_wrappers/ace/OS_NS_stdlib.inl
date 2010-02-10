@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_stdlib.inl 87347 2009-11-05 12:00:29Z olli $
+// $Id$
 
 #include "ace/config-all.h"           /* Need ACE_TRACE */
 #include "ace/Object_Manager_Base.h"

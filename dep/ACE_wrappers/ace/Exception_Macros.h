@@ -4,7 +4,7 @@
 /**
  * @file Exception_Macros.h
  *
- * $Id: Exception_Macros.h 80826 2008-03-04 14:51:23Z wotte $
+ * $Id$
  *
  *   Writing code that is portable between platforms with or without
  *   native C++ exceptions is hard.  The following macros offer some

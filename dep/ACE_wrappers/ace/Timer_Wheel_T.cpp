@@ -1,4 +1,4 @@
-// $Id: Timer_Wheel_T.cpp 86753 2009-09-22 17:09:35Z schmidt $
+// $Id$
 
 #ifndef ACE_TIMER_WHEEL_T_CPP
 #define ACE_TIMER_WHEEL_T_CPP

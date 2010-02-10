@@ -1,8 +1,8 @@
-// $Id: OS_main.cpp 85662 2009-06-16 15:17:31Z mitza $
+// $Id$
 
 #include "ace/OS_main.h"
 
-ACE_RCSID(ace, OS_main, "$Id: OS_main.cpp 85662 2009-06-16 15:17:31Z mitza $")
+ACE_RCSID(ace, OS_main, "$Id$")
 
 #if !defined (ACE_DOESNT_DEFINE_MAIN)
 

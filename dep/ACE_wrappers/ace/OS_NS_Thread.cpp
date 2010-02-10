@@ -2,7 +2,7 @@
 
 ACE_RCSID (ace,
            OS_NS_Thread,
-           "$Id: OS_NS_Thread.cpp 85547 2009-06-07 17:57:11Z johnnyw $")
+           "$Id$")
 
 #if !defined (ACE_HAS_INLINED_OSCALLS)
 # include "ace/OS_NS_Thread.inl"
@@ -5164,9 +5164,9 @@ add_to_argv (int& argc, char** argv, int max_args, char* string)
             }
           else if (string[i] == '\\')  // Escape the next character
             {
-              // The next character is automatically
-              // skipped because of the strcpy
-              ACE_OS::strcpy (string + i, string + i + 1);
+              // The next character is automatically skipped because
+              // of the memmove().
+              ACE_OS::memmove (string + i, string + i + 1, length);
               --length;
             }
           else if (!indouble &&

@@ -4,7 +4,7 @@
 /**
  *  @file    Msg_WFMO_Reactor.h
  *
- *  $Id: Msg_WFMO_Reactor.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author Beskrovny Evgeny <evgeny_beskrovny@icomverse.com>
  *  @author Irfan Pyarali <irfan@cs.wustl.edu>

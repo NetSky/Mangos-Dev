@@ -8,7 +8,7 @@
  * Integrity RTOS with SCA from Green Hills Software
  * http://www.ghs.com/products/rtos/integrity.html
  *
- * $Id: config-integritySCA.h 87167 2009-10-19 19:33:53Z olli $
+ * $Id$
  */
 
 #define ghs
@@ -103,12 +103,9 @@
 #define ACE_LACKS_RWLOCK_T
 #define ACE_LACKS_SEMBUF_T
 #define ACE_LACKS_UNIX_DOMAIN_SOCKETS
-#define ACE_LACKS_USER
-#define ACE_LACKS_FILE_FCNTL
 #define ACE_LACKS_FCNTL
 #define ACE_LACKS_UMASK
 #define ACE_LACKS_SEEK
-#define ACE_LACKS_SHARED_MEMORY
 #define ACE_LACKS_MSYNC
 #define ACE_LACKS_PID_STUFF
 #define ACE_LACKS_NETDB_REENTRANT_FUNCTIONS

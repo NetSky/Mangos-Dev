@@ -4,7 +4,7 @@
 /**
  *  @file    Basic_Types.h
  *
- *  $Id: Basic_Types.h 87392 2009-11-07 09:32:06Z johnnyw $
+ *  $Id$
  *
  *  @author David L. Levine
  *

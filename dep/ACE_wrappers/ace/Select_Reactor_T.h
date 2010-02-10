@@ -4,7 +4,7 @@
 /**
  *  @file    Select_Reactor_T.h
  *
- *  $Id: Select_Reactor_T.h 86495 2009-08-13 19:35:25Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

@@ -1,4 +1,4 @@
-// $Id: Hash_Map_With_Allocator_T.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_HASH_MAP_WITH_ALLOCATOR_T_CPP
 #define ACE_HASH_MAP_WITH_ALLOCATOR_T_CPP

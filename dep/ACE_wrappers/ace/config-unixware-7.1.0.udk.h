@@ -2,7 +2,7 @@
 #ifndef ACE_CONFIG_UNIXWARE_UDK_H
 #define ACE_CONFIG_UNIXWARE_UDK_H
 
-// $Id: config-unixware-7.1.0.udk.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 // Configuration for the unixware UDK compiler. derived from the unixware/g++ config
 // which was itself derived from an autoconfig run.

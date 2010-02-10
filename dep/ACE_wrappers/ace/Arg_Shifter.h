@@ -4,7 +4,7 @@
 /**
  *  @file     Arg_Shifter.h
  *
- *  $Id: Arg_Shifter.h 83891 2008-11-28 11:01:50Z johnnyw $
+ *  $Id$
  *
  *  @author Seth Widoff
  */

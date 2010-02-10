@@ -4,7 +4,7 @@
 /**
  *  @file    WIN32_Asynch_IO.h
  *
- *  $Id: WIN32_Asynch_IO.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *
  *  These classes only works on Win32 platforms.

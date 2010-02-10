@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_dlfcn.inl 85341 2009-05-14 11:07:37Z johnnyw $
+// $Id$
 
 #include "ace/OS_NS_macros.h"
 #include "ace/OS_NS_errno.h"

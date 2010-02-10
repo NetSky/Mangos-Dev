@@ -4,7 +4,7 @@
 /**
  *  @file    TTY_IO.h
  *
- *  $Id: TTY_IO.h 82271 2008-07-09 09:23:03Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@uci.edu>
  */

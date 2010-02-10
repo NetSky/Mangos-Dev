@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: PI_Malloc.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #if (ACE_HAS_POSITION_INDEPENDENT_POINTERS == 1)
 

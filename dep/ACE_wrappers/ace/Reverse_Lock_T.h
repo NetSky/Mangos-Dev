@@ -4,7 +4,7 @@
 /**
  *  @file    Reverse_Lock_T.h
  *
- *  $Id: Reverse_Lock_T.h 84481 2009-02-17 10:58:31Z johnnyw $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

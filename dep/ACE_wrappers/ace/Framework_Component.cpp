@@ -1,5 +1,5 @@
 // Framework_Component.cpp
-// $Id: Framework_Component.cpp 84128 2009-01-09 15:07:40Z johnnyw $
+// $Id$
 
 #include "ace/Framework_Component.h"
 
@@ -13,7 +13,7 @@
 #include "ace/Recursive_Thread_Mutex.h"
 #include "ace/OS_NS_string.h"
 
-ACE_RCSID(ace, Framework_Component, "$Id: Framework_Component.cpp 84128 2009-01-09 15:07:40Z johnnyw $")
+ACE_RCSID(ace, Framework_Component, "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

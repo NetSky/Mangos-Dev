@@ -1,4 +1,4 @@
-// $Id: Service_Gestalt.cpp 84854 2009-03-16 19:38:57Z msmit $
+// $Id$
 
 #include "ace/Svc_Conf.h"
 #include "ace/Get_Opt.h"
@@ -31,7 +31,7 @@
 
 ACE_RCSID (ace,
            Service_Gestalt,
-           "$Id: Service_Gestalt.cpp 84854 2009-03-16 19:38:57Z msmit $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

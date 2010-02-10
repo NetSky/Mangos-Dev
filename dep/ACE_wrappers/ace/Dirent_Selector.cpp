@@ -1,4 +1,4 @@
-// $Id: Dirent_Selector.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/Dirent_Selector.h"
 
@@ -11,7 +11,7 @@
 
 ACE_RCSID (ace,
            Dirent_Selector,
-           "$Id: Dirent_Selector.cpp 80826 2008-03-04 14:51:23Z wotte $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

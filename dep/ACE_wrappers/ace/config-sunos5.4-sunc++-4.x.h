@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-sunos5.4-sunc++-4.x.h 87250 2009-10-28 11:57:17Z olli $
+// $Id$
 
 // The following configuration file is designed to work for SunOS 5.4
 // platforms using the SunC++ 4.0.x compiler.

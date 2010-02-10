@@ -1,6 +1,6 @@
 /* -*- C++ -*- */
 // Testing TANDEM
-// $Id: config-tandem.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 // The following configuration file is designed to work for Tandems NonStop-UX
 // 4.2MP  platforms using the NCC 3.20 compiler.

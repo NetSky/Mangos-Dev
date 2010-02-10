@@ -1,5 +1,5 @@
 // Stream.cpp
-// $Id: Stream.cpp 82513 2008-08-05 18:52:53Z parsons $
+// $Id$
 
 #ifndef ACE_STREAM_CPP
 #define ACE_STREAM_CPP

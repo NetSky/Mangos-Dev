@@ -1,4 +1,4 @@
-// $Id: POSIX_Proactor.cpp 86102 2009-07-18 04:15:48Z wotte $
+// $Id$
 
 #include "ace/POSIX_Proactor.h"
 

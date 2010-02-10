@@ -4,7 +4,7 @@
 /**
  *  @file   OS_NS_stdlib.h
  *
- *  $Id: OS_NS_stdlib.h 87355 2009-11-05 13:59:42Z olli $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  *  @author Jesper S. M|ller<stophph@diku.dk>
@@ -242,7 +242,7 @@ namespace ACE_OS {
 #else
   extern ACE_Export
   ACE_TCHAR *mktemp (ACE_TCHAR *s);
-#endif /* !ACE_LACKS_MSTEMP */
+#endif /* !ACE_LACKS_MKTEMP */
 
   ACE_NAMESPACE_INLINE_FUNCTION
   int putenv (const char *string);

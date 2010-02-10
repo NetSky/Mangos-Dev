@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: config-cxx-common.h 81935 2008-06-12 22:01:53Z jtc $
+// $Id$
 
 #ifndef ACE_CXX_COMMON_H
 #define ACE_CXX_COMMON_H

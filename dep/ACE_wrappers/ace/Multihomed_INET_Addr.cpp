@@ -1,4 +1,4 @@
-// $Id: Multihomed_INET_Addr.cpp 83170 2008-10-13 07:21:38Z johnnyw $
+// $Id$
 
 // Extends ACE_INET_Addr with support for multi-homed addresses.
 
@@ -11,7 +11,7 @@
 
 ACE_RCSID (ace,
            Multihomed_INET_Addr,
-           "$Id: Multihomed_INET_Addr.cpp 83170 2008-10-13 07:21:38Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

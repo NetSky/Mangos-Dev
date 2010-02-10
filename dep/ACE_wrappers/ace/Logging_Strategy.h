@@ -4,7 +4,7 @@
 /**
  *  @file    Logging_Strategy.h
  *
- *  $Id: Logging_Strategy.h 87536 2009-11-13 00:37:58Z dai_y $
+ *  $Id$
  *
  *  @author Prashant Jain <pjain@cs.wustl.edu>
  *  @author Orlando Ribeiro <oribeiro@inescporto.pt>

@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Basic_Types.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 # if !defined (ACE_LACKS_LONGLONG_T) && defined (ACE_LACKS_UNSIGNEDLONGLONG_T)
 

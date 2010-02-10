@@ -1,5 +1,5 @@
 //* -*- C++ -*- */
-// $Id: config-vxworks.h 87036 2009-10-10 18:21:39Z johnnyw $
+// $Id$
 
 // The following configuration file is designed to work for VxWorks
 // Based on ACE_VXWORKS it will select the correct config file

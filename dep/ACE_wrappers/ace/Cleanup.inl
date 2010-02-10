@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Cleanup.inl 83956 2008-12-03 07:57:38Z johnnyw $
+// $Id$
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

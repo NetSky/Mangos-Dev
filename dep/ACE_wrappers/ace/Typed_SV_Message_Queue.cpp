@@ -1,4 +1,4 @@
-// $Id: Typed_SV_Message_Queue.cpp 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #ifndef ACE_TYPED_SV_MESSAGE_QUEUE_CPP
 #define ACE_TYPED_SV_MESSAGE_QUEUE_CPP

@@ -11,7 +11,7 @@
 
 ACE_RCSID (ace,
            Dynamic_Message_Strategy,
-           "$Id: Dynamic_Message_Strategy.cpp 84565 2009-02-23 08:20:39Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

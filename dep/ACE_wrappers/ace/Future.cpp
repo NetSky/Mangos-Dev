@@ -1,4 +1,4 @@
- // $Id: Future.cpp 85358 2009-05-17 10:34:33Z johnnyw $
+ // $Id$
 
 #ifndef ACE_FUTURE_CPP
 #define ACE_FUTURE_CPP
@@ -9,7 +9,7 @@
 # pragma once
 #endif /* ACE_LACKS_PRAGMA_ONCE */
 
-ACE_RCSID (ace, Future, "$Id: Future.cpp 85358 2009-05-17 10:34:33Z johnnyw $")
+ACE_RCSID (ace, Future, "$Id$")
 
 #if defined (ACE_HAS_THREADS)
 

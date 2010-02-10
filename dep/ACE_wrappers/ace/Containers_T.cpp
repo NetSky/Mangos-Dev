@@ -1,4 +1,4 @@
-// $Id: Containers_T.cpp 82588 2008-08-11 13:37:41Z johnnyw $
+// $Id$
 
 #ifndef ACE_CONTAINERS_T_CPP
 #define ACE_CONTAINERS_T_CPP

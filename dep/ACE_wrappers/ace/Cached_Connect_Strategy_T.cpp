@@ -1,4 +1,4 @@
-//$Id: Cached_Connect_Strategy_T.cpp 82771 2008-09-17 18:47:48Z johnnyw $
+//$Id$
 
 #ifndef ACE_CACHED_CONNECT_STRATEGY_T_CPP
 #define ACE_CACHED_CONNECT_STRATEGY_T_CPP

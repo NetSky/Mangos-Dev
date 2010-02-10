@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-sunos5.5.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 
 // This configuration file is designed to work for SunOS 5.5 platforms
 // using the following compilers:

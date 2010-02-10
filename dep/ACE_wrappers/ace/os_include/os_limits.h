@@ -6,7 +6,7 @@
  *
  *  implementation-defined constants
  *
- *  $Id: os_limits.h 84972 2009-03-25 19:09:06Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

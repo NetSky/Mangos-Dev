@@ -9,7 +9,7 @@
 
 ACE_RCSID (ace,
            CDR_Size,
-           "$Id: CDR_Size.cpp 82559 2008-08-07 20:23:07Z parsons $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

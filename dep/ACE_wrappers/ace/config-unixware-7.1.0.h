@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-unixware-7.1.0.h 87268 2009-10-29 21:06:06Z olli $
+// $Id$
 
 #ifndef ACE_CONFIG_H
 #define ACE_CONFIG_H

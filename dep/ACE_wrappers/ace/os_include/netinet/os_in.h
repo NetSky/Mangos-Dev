@@ -7,7 +7,7 @@
  *
  *  Internet address family
  *
- *  $Id: os_in.h 85438 2009-05-26 06:56:46Z johnnyw $
+ *  $Id$
  *
  *  @author Don Hinton <dhinton@dresystems.com>
  *  @author This code was originally in various places including ace/OS.h.

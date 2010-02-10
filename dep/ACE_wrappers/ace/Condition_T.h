@@ -4,7 +4,7 @@
 /**
  *  @file    Condition_T.h
  *
- *  $Id: Condition_T.h 81462 2008-04-28 11:39:40Z johnnyw $
+ *  $Id$
  *
  *   Moved from Synch.h.
  *

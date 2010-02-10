@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: OS_NS_sys_resource.inl 80826 2008-03-04 14:51:23Z wotte $
+// $Id$
 
 #include "ace/OS_NS_errno.h"
 #include "ace/OS_NS_macros.h"

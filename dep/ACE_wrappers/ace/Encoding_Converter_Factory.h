@@ -4,7 +4,7 @@
 /**
  * @file Encoding_Converter_Factory.h
  *
- * $Id: Encoding_Converter_Factory.h 80826 2008-03-04 14:51:23Z wotte $
+ * $Id$
  *
  * This class can be used to create encoding converters of various types.
  *

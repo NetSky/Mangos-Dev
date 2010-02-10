@@ -4,7 +4,7 @@
 /**
  *  @file    Static_Object_Lock.h
  *
- *  $Id: Static_Object_Lock.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  @author David L. Levine <levine@cs.wustl.edu>
  *  @author Matthias Kerkhoff

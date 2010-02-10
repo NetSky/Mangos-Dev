@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: CDR_Stream.inl 84206 2009-01-21 02:49:26Z schmidt $
+// $Id$
 
 #include "ace/OS_NS_string.h"
 #include "ace/OS_Memory.h"

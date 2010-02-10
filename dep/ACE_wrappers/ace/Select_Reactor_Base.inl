@@ -1,6 +1,6 @@
 // -*- C++ -*-
 //
-// $Id: Select_Reactor_Base.inl 81138 2008-03-28 09:18:15Z johnnyw $
+// $Id$
 
 #include "ace/Reactor.h"
 

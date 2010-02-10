@@ -1,4 +1,4 @@
-// $Id: INET_Addr.cpp 84183 2009-01-19 08:50:16Z johnnyw $
+// $Id$
 
 // Defines the Internet domain address family address format.
 
@@ -20,7 +20,7 @@
 
 ACE_RCSID (ace,
            INET_Addr,
-           "$Id: INET_Addr.cpp 84183 2009-01-19 08:50:16Z johnnyw $")
+           "$Id$")
 
 ACE_BEGIN_VERSIONED_NAMESPACE_DECL
 

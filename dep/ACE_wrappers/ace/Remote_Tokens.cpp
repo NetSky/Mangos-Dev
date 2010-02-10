@@ -1,4 +1,4 @@
-// $Id: Remote_Tokens.cpp 84455 2009-02-13 13:31:02Z johnnyw $
+// $Id$
 
 #include "ace/Remote_Tokens.h"
 
@@ -13,7 +13,7 @@
 
 ACE_RCSID (ace,
            Remote_Tokens,
-           "$Id: Remote_Tokens.cpp 84455 2009-02-13 13:31:02Z johnnyw $")
+           "$Id$")
 
 
 #if defined (ACE_MT_SAFE) && (ACE_MT_SAFE != 0)

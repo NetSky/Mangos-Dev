@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-// $Id: config-macosx.h 87167 2009-10-19 19:33:53Z olli $
+// $Id$
 
 // This configuration file is designed to work with the MacOS X operating system, version 10.2 (Jaguar).
 

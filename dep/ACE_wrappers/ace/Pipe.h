@@ -4,7 +4,7 @@
 /**
  *  @file    Pipe.h
  *
- *  $Id: Pipe.h 87240 2009-10-27 15:54:10Z schmidt $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

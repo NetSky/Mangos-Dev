@@ -4,7 +4,7 @@
 /**
  *  @file    Message_Queue_Vx.h
  *
- *  $Id: Message_Queue_Vx.h 85579 2009-06-08 18:46:54Z mitza $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

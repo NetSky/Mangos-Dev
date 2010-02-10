@@ -4,7 +4,7 @@
 /**
  *  @file    Thread_Manager.h
  *
- *  $Id: Thread_Manager.h 83956 2008-12-03 07:57:38Z johnnyw $
+ *  $Id$
  *
  *  @author Douglas C. Schmidt <schmidt@cs.wustl.edu>
  */

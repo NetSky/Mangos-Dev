@@ -1,4 +1,4 @@
-// $Id: TTY_IO.cpp 86739 2009-09-21 07:33:22Z olli $
+// $Id$
 
 #include "ace/TTY_IO.h"
 #include "ace/OS_NS_errno.h"
@@ -13,7 +13,7 @@
 
 ACE_RCSID (ace,
            TTY_IO,
-           "$Id: TTY_IO.cpp 86739 2009-09-21 07:33:22Z olli $")
+           "$Id$")
 
 namespace
 {

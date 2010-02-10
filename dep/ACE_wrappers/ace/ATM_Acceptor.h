@@ -4,7 +4,7 @@
 /**
  *  @file    ATM_Acceptor.h
  *
- *  $Id: ATM_Acceptor.h 82723 2008-09-16 09:35:44Z johnnyw $
+ *  $Id$
  *
  *  @author Joe Hoffert
  */

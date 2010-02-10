@@ -4,7 +4,7 @@
 /**
  *  @file Value_Ptr.h
  *
- *  $Id: Value_Ptr.h 80826 2008-03-04 14:51:23Z wotte $
+ *  $Id$
  *
  *  Value_Ptr implementation based on code in Herb Sutter's book "More
  *  Exceptional C++".
