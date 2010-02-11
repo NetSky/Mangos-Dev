@@ -4077,6 +4077,30 @@ void Spell::EffectSummonGuardian(uint32 i, uint32 forceFaction)
         spawnCreature->InitStatsForLevel(level, m_caster);
         spawnCreature->GetCharmInfo()->SetPetNumber(pet_number, false);
 
+        // add spells for guardian ai
+        switch(pet_entry)
+        {
+            case 19921:
+                spawnCreature->addSpell(25810, ACT_ENABLED);
+                break;
+            case 19833:
+                spawnCreature->addSpell(30981, ACT_ENABLED);
+                break;
+            case 15352:
+                spawnCreature->addSpell(36213, ACT_ENABLED);
+                break;
+            case 29264:
+                spawnCreature->addSpell(58861, ACT_ENABLED);
+                spawnCreature->addSpell(58875, ACT_ENABLED);
+                spawnCreature->addSpell(58857, ACT_ENABLED);
+                break;
+            case 27829:
+                spawnCreature->addSpell(31664, ACT_ENABLED);
+                break;
+            default
+                break;
+        }
+        
         spawnCreature->AIM_Initialize();
 
         m_caster->AddGuardian(spawnCreature);
