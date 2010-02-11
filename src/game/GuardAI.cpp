@@ -37,6 +37,9 @@ GuardAI::GuardAI(Creature *c) : CreatureAI(c), i_victimGuid(0), i_state(STATE_NO
 
 void GuardAI::MoveInLineOfSight(Unit *u)
 {
+    //Dalaran Guards should not attack enemy faction
+    if(m_creature->isCivilian())
+        return;  
     // Ignore Z for flying creatures
     if (!m_creature->canFly() && m_creature->GetDistanceZ(u) > CREATURE_Z_ATTACK_RANGE)
         return;
