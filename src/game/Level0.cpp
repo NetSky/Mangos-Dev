@@ -29,6 +29,7 @@
 #include "revision.h"
 #include "revision_nr.h"
 #include "Util.h"
+#include "GameEventMgr.h"
 
 bool ChatHandler::HandleHelpCommand(const char* args)
 {
@@ -103,7 +104,7 @@ bool ChatHandler::HandleServerInfoCommand(const char* /*args*/)
     PSendSysMessage(LANG_USING_EVENT_AI,sWorld.GetCreatureEventAIVersion());
     PSendSysMessage(LANG_CONNECTED_USERS, activeClientsNum, maxActiveClientsNum, queuedClientsNum, maxQueuedClientsNum);
     PSendSysMessage(LANG_UPTIME, str.c_str());
-    SendSysMessage("Mangos Netsky Dev. Branch");
+    SendSysMessage("Mangos Netsky Dev. Branch"); 
     return true;
 }
 
@@ -259,5 +260,11 @@ bool ChatHandler::HandleAccountLockCommand(const char* args)
 bool ChatHandler::HandleServerMotdCommand(const char* /*args*/)
 {
     PSendSysMessage(LANG_MOTD_CURRENT, sWorld.GetMotd());
+    if(sGameEventMgr.IsActiveEvent(41))
+        SendSysMessage("Bonusehre Schlachtfeld: Arathibecken!");
+    if(sGameEventMgr.IsActiveEvent(42))
+        SendSysMessage("Bonusehre Schlachtfeld: Auge des Sturms!");
+    if(sGameEventMgr.IsActiveEvent(43))
+        SendSysMessage("Bonusehre Schlachtfeld: Kriegshymnenschluch!");     
     return true;
 }
