@@ -1800,14 +1800,17 @@ class MANGOS_DLL_SPEC Unit : public WorldObject
         // Movement info
         MovementInfo m_movementInfo;
         uint32 GetModelForForm(ShapeshiftForm form);
-         // vehicle system
-         void EnterVehicle(Vehicle *vehicle, int8 seat_id, bool force = false);
-         void ExitVehicle();
-         uint64 GetVehicleGUID() { return m_vehicleGUID; }
-         void SetVehicleGUID(uint64 guid) { m_vehicleGUID = guid; }
-         // using extra variables to avoid problems with transports
-         SeatData m_SeatData;
-         void BuildVehicleInfo(Unit *target = NULL);
+        // vehicle system
+        void EnterVehicle(Vehicle *vehicle, int8 seat_id, bool force = false);
+        void ExitVehicle();
+        uint64 GetVehicleGUID() { return m_vehicleGUID; }
+        void SetVehicleGUID(uint64 guid) { m_vehicleGUID = guid; }
+        // using extra variables to avoid problems with transports
+        SeatData m_SeatData;
+        void BuildVehicleInfo(Unit *target = NULL);
+        
+        inline void SetSpoofSamePlayerFaction(bool b) { m_spoofSamePlayerFaction = b; }
+        inline bool IsSpoofSamePlayerFaction(void) {return m_spoofSamePlayerFaction; }
 
     protected:
         explicit Unit ();
@@ -1861,6 +1864,7 @@ class MANGOS_DLL_SPEC Unit : public WorldObject
         float m_lastAuraProcRoll;
         uint64  m_auraUpdateMask;
         uint64 m_vehicleGUID;
+        bool m_spoofSamePlayerFaction : 1;
 
     private:
         void CleanupDeletedAuras();
