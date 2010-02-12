@@ -82,7 +82,7 @@ int32 World::m_visibility_notify_periodOnContinents = DEFAULT_VISIBILITY_NOTIFY_
 int32 World::m_visibility_notify_periodInInstances  = DEFAULT_VISIBILITY_NOTIFY_PERIOD;
 int32 World::m_visibility_notify_periodInBGArenas   = DEFAULT_VISIBILITY_NOTIFY_PERIOD;
 
-const float BGEvent[2] = {41, 42, 43};
+const int8 BGEvent[3] = {41, 42, 43};
 
 /// World constructor
 World::World()
