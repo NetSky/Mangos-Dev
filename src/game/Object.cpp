@@ -2043,3 +2043,20 @@ void WorldObject::BuildUpdateData( UpdateDataMapType & update_players)
 
     ClearUpdateMask(false);
 }
+
+void Object::ForceValuesUpdateAtIndex(uint32 i)
+{
+    if(i >= m_valuesCount)
+        return;
+    
+    m_uint32Values_mirror[i] = GetUInt32Value(i) + 1; // makes server think the field changed
+    if(m_inWorld && m_uint32Values_mirror[i])
+    {
+        if(!m_objectUpdated)
+        {
+            //ObjectAccessor::Instance().AddUpdateObject(this);
+            AddToClientUpdateList();
+            m_objectUpdated = true;
+        }
+    }
+}
