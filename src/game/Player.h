@@ -2250,8 +2250,8 @@ class MANGOS_DLL_SPEC Player : public Unit
         bool canSeeSpellClickOn(Creature const* creature) const;
         uint32 GetActionButtonSpell(uint8 button) const
         {
-            ActionButtonList::const_iterator ab = m_actionButtons.find(button);
-            return ab != m_actionButtons.end() && ab->second.uState != ACTIONBUTTON_DELETED && ab->second.GetType() == ACTION_BUTTON_SPELL ? ab->second.GetAction() : 0;
+            ActionButtonList::const_iterator ab = m_actionButtons.[m_activeSpec]find(button);
+            return ab != m_actionButtons[m_activeSpec].end() && ab->second.uState != ACTIONBUTTON_DELETED && ab->second.GetType() == ACTION_BUTTON_SPELL ? ab->second.GetAction() : 0;
         }
     protected:
 
