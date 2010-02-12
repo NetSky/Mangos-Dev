@@ -4950,6 +4950,12 @@ bool ChatHandler::HandleBanHelper(BanMode mode, const char* args)
     if(!duration || !atoi(duration))
         return false;
 
+    if(m_session->GetSecurity() < SEC_GAMEADMIN && (TimeStringToSecs(duration) > 172800 || TimeStringToSecs(duration) <= 0))
+    {
+        SendSysMessage("mit Deinem GM Level darfst Du maximal 48h Bans verhaengen");
+        return false;
+    }
+    
     char* reason = strtok (NULL,"");
     if(!reason)
         return false;
@@ -5004,7 +5010,8 @@ bool ChatHandler::HandleBanHelper(BanMode mode, const char* args)
             SetSentErrorMessage(true);
             return false;
     }
-
+    sWorld.SendWorldText(LANG_BANANNOUNCE,nameOrIP.c_str(),reason);
+    
     return true;
 }
 

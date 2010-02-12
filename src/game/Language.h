@@ -830,10 +830,14 @@ enum MangosStrings
 
     // Broadcaster
     LANG_AUTO_BROADCAST                 = 1300,
-    LANG_SYSTEMMESSAGE_GAMEADMIN        = 1301,
-    LANG_SYSTEMMESSAGE_TEAMLEAD         = 1302,
-    LANG_SYSTEMMESSAGE_ADMINISTRATOR    = 1303,
-    LANG_SYSTEMMESSAGE_OPERATOR         = 1304
+    LANG_SYSTEMMESSAGE_MODERATOR        = 1301,
+    LANG_SYSTEMMESSAGE_GAMEMASTER       = 1302,
+    LANG_SYSTEMMESSAGE_GAMEADMIN        = 1303,
+    LANG_SYSTEMMESSAGE_TEAMLEAD         = 1304,
+    LANG_SYSTEMMESSAGE_ADMINISTRATOR    = 1305,
+    LANG_SYSTEMMESSAGE_OPERATOR         = 1306,
+    LANG_BANANNOUNCE                    = 1307,
+    LANG_MUTEANNOUNCE                   = 1308
 
     // Use for not-in-offcial-sources patches
     //                                    10000-10999
