@@ -3820,6 +3820,13 @@ bool Unit::AddAura(Aura *Aur)
 {
     SpellEntry const* aurSpellInfo = Aur->GetSpellProto();
 
+    // hack to prevent might of mograin beeing applied at creatures causing extreme lagg
+    if(Aur->GetId() == 53642)
+    {
+        if(GetTypeId() != TYPEID_PLAYER && GetEntry() != 29173)
+            return false;
+    }
+    
     // ghost spell check, allow apply any auras at player loading in ghost mode (will be cleanup after load)
     if( !isAlive() && !IsDeathPersistentSpell(aurSpellInfo) &&
         !IsDeathOnlySpell(aurSpellInfo) &&
