@@ -3576,6 +3576,7 @@ bool IsDiminishingReturnsGroupDurationLimited(DiminishingGroup group)
         case DIMINISHING_LIMITONLY:
         case DIMINISHING_MIND_CONTROL:
         case DIMINISHING_HIBERNATE:
+        case DIMINISHING_FREEZE_SLEEP:
             return true;
         default:
             return false;

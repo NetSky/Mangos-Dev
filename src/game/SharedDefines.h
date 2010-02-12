@@ -2444,6 +2444,7 @@ enum DiminishingGroup
     DIMINISHING_ENTRAPMENT,
     DIMINISHING_SCATTER_SHOT,
     DIMINISHING_MIND_CONTROL,
+    DIMINISHING_FREEZE_SLEEP,
     // Other
     // Don't Diminish, but limit duration to 10s
     DIMINISHING_LIMITONLY
