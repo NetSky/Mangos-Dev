@@ -3605,7 +3605,6 @@ DiminishingReturnsType GetDiminishingReturnsGroupType(DiminishingGroup group)
         case DIMINISHING_SCATTER_SHOT:
         case DIMINISHING_MIND_CONTROL:
         case DIMINISHING_FREEZE_SLEEP:
-        case DIMINISHING_BANISH:
         case DIMINISHING_CHEAPSHOT_POUNCE:
             return DRTYPE_PLAYER;
         default:
