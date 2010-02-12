@@ -4095,7 +4095,7 @@ void Spell::EffectSummonGuardian(uint32 i, uint32 forceFaction)
             case 27829:
                 spawnCreature->addSpell(31664, ACT_ENABLED);
                 break;
-            default
+            default:
                 break;
         }
         
@@ -4784,21 +4784,6 @@ void Spell::EffectWeaponDmg(uint32 i)
                     spell_bonus += m_spellInfo->EffectBasePoints[0];
             }
             break;
-        }
-        case SPELLFAMILY_HUNTER:
-        {
-            switch(m_spellInfo->Id)
-            {
-                case 53351:    // Kill Shot Rank 1
-                case 61005:    // Kill Shot Rank 2
-                case 61006:    // Kill Shot Rank 3
-                {
-                    spellBonusNeedWeaponDamagePercentMod = true;
-                    spell_bonus += m_spellInfo->EffectBasePoints[0];
-                    spell_bonus += int32( 0.2f * m_caster->GetTotalAttackPowerValue(RANGED_ATTACK) );
-                    break;
-                }
-            }
         }
         case SPELLFAMILY_PALADIN:
         {
