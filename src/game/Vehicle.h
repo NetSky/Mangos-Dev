@@ -100,6 +100,7 @@ class Vehicle : public Creature
         void BuildVehicleActionBar(Player *plr) const;
         void InstallAllAccessories();
         Unit *GetPassenger(int8 seatId) const;
+        bool AllSeatsEmpty() { if(GetEmptySeatsCount() == GetTotalSeatsCount()) return true; else return false;}
     protected:
         uint32 m_vehicleId;
         VehicleEntry const *m_vehicleInfo;
