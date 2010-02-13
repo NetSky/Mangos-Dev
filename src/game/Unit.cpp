@@ -6617,6 +6617,13 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                     triggered_spell_id = 64930;            // Electrified
                     break;
                 }
+                // Shaman T9 Elemental 4P Bonus
+                case 67228:
+                {
+                    basepoints0 = int32( triggerAmount * damage / 100 );
+                    triggered_spell_id = 71824;
+                    break;
+                }
             }
             // Storm, Earth and Fire
             if (dummySpell->SpellIconID == 3063)
@@ -9437,13 +9444,13 @@ uint32 Unit::SpellHealingBonus(Unit *pVictim, SpellEntry const *spellProto, uint
             {
                 int32 stepPercent = (*i)->GetModifier()->m_amount;
 
-                int ownHotCount = 0;
+                int ownHotCount = 0;                        // counted HoT types amount, not stacks
 
                 Unit::AuraList const& RejorRegr = pVictim->GetAurasByType(SPELL_AURA_PERIODIC_HEAL);
                 for(Unit::AuraList::const_iterator i = RejorRegr.begin(); i != RejorRegr.end(); ++i)
                     if ((*i)->GetSpellProto()->SpellFamilyName == SPELLFAMILY_DRUID &&
                         (*i)->GetCasterGUID() == GetGUID())
-                        ownHotCount += (*i)->GetStackAmount();
+                        ++ownHotCount;
 
                 if (ownHotCount)
                     TakenTotalMod *= (stepPercent * ownHotCount + 100.0f) / 100.0f;
@@ -9539,12 +9546,12 @@ uint32 Unit::SpellHealingBonus(Unit *pVictim, SpellEntry const *spellProto, uint
     // Nourish 20% of heal increase if target is affected by Druids HOTs
     else if (spellProto->SpellFamilyName == SPELLFAMILY_DRUID && (spellProto->SpellFamilyFlags & UI64LIT(0x0200000000000000)))
     {
-        int ownHotCount = 0;
+        int ownHotCount = 0;                        // counted HoT types amount, not stacks
         Unit::AuraList const& RejorRegr = pVictim->GetAurasByType(SPELL_AURA_PERIODIC_HEAL);
         for(Unit::AuraList::const_iterator i = RejorRegr.begin(); i != RejorRegr.end(); ++i)
             if ((*i)->GetSpellProto()->SpellFamilyName == SPELLFAMILY_DRUID &&
                 (*i)->GetCasterGUID() == GetGUID())
-                ownHotCount += (*i)->GetStackAmount();
+                ++ownHotCount;
 
         if (ownHotCount)
         {

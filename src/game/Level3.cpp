@@ -112,6 +112,7 @@ bool ChatHandler::HandleReloadAllNpcCommand(const char* /*args*/)
 bool ChatHandler::HandleReloadAllQuestCommand(const char* /*args*/)
 {
     HandleReloadQuestAreaTriggersCommand("a");
+    HandleReloadQuestPOICommand("a");
     HandleReloadQuestTemplateCommand("a");
 
     sLog.outString( "Re-Loading Quests Relations..." );
@@ -470,6 +471,14 @@ bool ChatHandler::HandleReloadPointsOfInterestCommand(const char*)
     sLog.outString( "Re-Loading `points_of_interest` Table!" );
     sObjectMgr.LoadPointsOfInterest();
     SendGlobalSysMessage("DB table `points_of_interest` reloaded.");
+    return true;
+}
+
+bool ChatHandler::HandleReloadQuestPOICommand(const char*)
+{
+    sLog.outString( "Re-Loading `quest_poi` and `quest_poi_points` Tables!" );
+    sObjectMgr.LoadQuestPOI();
+    SendGlobalSysMessage("DB Table `quest_poi` and `quest_poi_points` reloaded.");
     return true;
 }
 
@@ -4444,7 +4453,7 @@ bool ChatHandler::HandleResetSpellsCommand(const char * args)
     Player* target;
     uint64 target_guid;
     std::string target_name;
-    if(!extractPlayerTarget((char*)args,&target,&target_guid,&target_name))
+    if(!extractPlayerTarget((char*)args, &target, &target_guid, &target_name))
         return false;
 
     if(target)
@@ -4469,7 +4478,7 @@ bool ChatHandler::HandleResetTalentsCommand(const char * args)
     Player* target;
     uint64 target_guid;
     std::string target_name;
-    if (!extractPlayerTarget((char*)args,&target,&target_guid,&target_name))
+    if (!extractPlayerTarget((char*)args, &target, &target_guid, &target_name))
     {
         // Try reset talents as Hunter Pet
         Creature* creature = getSelectedCreature();
@@ -4482,7 +4491,7 @@ bool ChatHandler::HandleResetTalentsCommand(const char * args)
                 ((Player*)owner)->SendTalentsInfoData(true);
 
                 ChatHandler((Player*)owner).SendSysMessage(LANG_RESET_PET_TALENTS);
-                if(!m_session || m_session->GetPlayer()!=((Player*)owner))
+                if(!m_session || m_session->GetPlayer() != ((Player*)owner))
                     PSendSysMessage(LANG_RESET_PET_TALENTS_ONLINE,GetNameLink((Player*)owner).c_str());
             }
             return true;
@@ -4498,21 +4507,21 @@ bool ChatHandler::HandleResetTalentsCommand(const char * args)
         target->resetTalents(true);
         target->SendTalentsInfoData(false);
         ChatHandler(target).SendSysMessage(LANG_RESET_TALENTS);
-        if (!m_session || m_session->GetPlayer()!=target)
+        if (!m_session || m_session->GetPlayer() != target)
             PSendSysMessage(LANG_RESET_TALENTS_ONLINE,GetNameLink(target).c_str());
 
         Pet* pet = target->GetPet();
-        Pet::resetTalentsForAllPetsOf(target,pet);
+        Pet::resetTalentsForAllPetsOf(target, pet);
         if(pet)
             target->SendTalentsInfoData(true);
         return true;
     }
     else if (target_guid)
     {
-        uint32 at_flags = AT_LOGIN_NONE | AT_LOGIN_RESET_PET_TALENTS;
-        CharacterDatabase.PExecute("UPDATE characters SET at_login = at_login | '%u' WHERE guid = '%u'",at_flags, GUID_LOPART(target_guid) );
+        uint32 at_flags = AT_LOGIN_RESET_PET_TALENTS;
+        CharacterDatabase.PExecute("UPDATE characters SET at_login = at_login | '%u' WHERE guid = '%u'", at_flags, GUID_LOPART(target_guid) );
         std::string nameLink = playerLink(target_name);
-        PSendSysMessage(LANG_RESET_TALENTS_OFFLINE,nameLink.c_str());
+        PSendSysMessage(LANG_RESET_TALENTS_OFFLINE, nameLink.c_str());
         return true;
     }
 
