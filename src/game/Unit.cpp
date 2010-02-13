@@ -13953,7 +13953,7 @@ void Unit::SendHighestThreatUpdate(HostileReference* pHostilReference)
 
 void Unit::SendThreatClear()
 {
-    if(isInWorld())
+    if(IsInWorld())
     {
         sLog.outDebug( "WORLD: Send SMSG_THREAT_CLEAR Message" );
         WorldPacket data(SMSG_THREAT_CLEAR, 8);
