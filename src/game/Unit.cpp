@@ -13953,10 +13953,13 @@ void Unit::SendHighestThreatUpdate(HostileReference* pHostilReference)
 
 void Unit::SendThreatClear()
 {
-    sLog.outDebug( "WORLD: Send SMSG_THREAT_CLEAR Message" );
-    WorldPacket data(SMSG_THREAT_CLEAR, 8);
-    data.append(GetPackGUID());
-    SendMessageToSet(&data, false);
+    if(isInWorld())
+    {
+        sLog.outDebug( "WORLD: Send SMSG_THREAT_CLEAR Message" );
+        WorldPacket data(SMSG_THREAT_CLEAR, 8);
+        data.append(GetPackGUID());
+        SendMessageToSet(&data, false);
+    }
 }
 
 void Unit::SendThreatRemove(HostileReference* pHostileReference)
