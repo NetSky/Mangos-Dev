@@ -18916,7 +18916,7 @@ inline void UpdateVisibilityOf_helper(std::set<uint64>& s64, std::set<Unit*>& vi
 }
 
 template<class T>
-void Player::UpdateVisibilityOf(WorldObject const* viewPoint, T* target, std::set<Unit*>& visibleNow)
+void Player::UpdateVisibilityOf(WorldObject const* viewPoint, T* target, UpdateData& data, std::set<Unit*>& visibleNow)
 {
     if(HaveAtClient(target))
     {
