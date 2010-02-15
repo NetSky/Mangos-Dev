@@ -504,7 +504,7 @@ bool ChatHandler::HandleGameObjectTargetCommand(const char* args)
 
     if(target)
     {
-        int32 curRespawnDelay = target->GetRespawnTimeEx()-time(NULL);
+        time_t curRespawnDelay = target->GetRespawnTimeEx()-time(NULL);
         if(curRespawnDelay < 0)
             curRespawnDelay = 0;
 
@@ -810,7 +810,7 @@ bool ChatHandler::HandleGameObjectPhaseCommand(const char* args)
 
 bool ChatHandler::HandleGameObjectNearCommand(const char* args)
 {
-    float distance = (!*args) ? 10 : atol(args);
+    float distance = (!*args) ? 10.0f : (float)atof(args);
     uint32 count = 0;
 
     Player* pl = m_session->GetPlayer();
@@ -1261,7 +1261,7 @@ bool ChatHandler::HandleNpcChangeLevelCommand(const char* args)
         return false;
 
     uint8 lvl = (uint8) atoi((char*)args);
-    if ( lvl < 1 || lvl > sWorld.getConfig(CONFIG_MAX_PLAYER_LEVEL) + 3)
+    if ( lvl < 1 || lvl > sWorld.getConfig(CONFIG_UINT32_MAX_PLAYER_LEVEL) + 3)
     {
         SendSysMessage(LANG_BAD_VALUE);
         SetSentErrorMessage(true);
@@ -1651,7 +1651,7 @@ bool ChatHandler::HandleNpcSpawnDistCommand(const char* args)
     if(!*args)
         return false;
 
-    float option = atof((char*)args);
+    float option = (float)atof((char*)args);
     if (option < 0.0f)
     {
         SendSysMessage(LANG_BAD_VALUE);
@@ -1814,7 +1814,7 @@ bool ChatHandler::HandleNpcTameCommand(const char* /*args*/)
     // place pet before player
     float x,y,z;
     player->GetClosePoint (x,y,z,creatureTarget->GetObjectSize (),CONTACT_DISTANCE);
-    pet->Relocate (x,y,z,M_PI-player->GetOrientation ());
+    pet->Relocate (x,y,z,M_PI_F-player->GetOrientation ());
 
     // set pet to defensive mode by default (some classes can't control controlled pets in fact).
     pet->GetCharmInfo()->SetReactState(REACT_DEFENSIVE);
