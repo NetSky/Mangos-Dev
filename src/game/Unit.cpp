@@ -5698,6 +5698,35 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                     CastSpell(this, 28682, true, castItem, triggeredByAura);
                     return (procEx & PROC_EX_CRITICAL_HIT); // charge update only at crit hits, no hidden cooldowns
                 }
+                // Empowered Fire
+                case 12654:
+                {
+                    if (Unit* caster = triggeredByAura->GetCaster())
+                    {
+                        if (pVictim != caster)
+                            return false;
+                        Unit::AuraList const& auras = caster->GetAurasByType(SPELL_AURA_ADD_FLAT_MODIFIER);
+                        for (Unit::AuraList::const_iterator i = auras.begin(); i != auras.end(); i++)
+                        {
+                            switch((*i)->GetId())
+                            {
+                                case 31656:
+                                case 31657:
+                                case 31658:
+                                    if(roll_chance_i((*i)->GetSpellProto()->procChance))
+                                    {
+                                        caster->CastSpell( caster, 67545, true );
+                                        return true;
+                                    }
+                                    break;
+                                default:
+                                    continue;
+                            }
+                            break;
+                        }
+                    }
+                    return false;
+                }
                 // Glyph of Ice Block
                 case 56372:
                 {
@@ -7034,6 +7063,13 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                 if(Spell* spell = GetCurrentSpell(CURRENT_GENERIC_SPELL))
                     spell->AddTriggeredSpell(63685);
                 return true;
+            }
+            // Flametongue Weapon
+            if (dummySpell->SpellFamilyFlags & UI64LIT(0x200000))
+            {
+                triggered_spell_id = 10444;
+                basepoints0 = int32(triggerAmount * GetAttackTime(BASE_ATTACK) / (100 * IN_MILISECONDS));
+                break;
             }
             break;
         }
