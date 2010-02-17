@@ -927,6 +927,17 @@ ListenRange.Yell = 300
 #        Default: 0 (join announcement in normal way)
 #                 1 (GM join without announcement)
 #
+#    Announce.Ban
+#        Announce bans (player and reason) to the world
+#        Default: 0 (deactivated)
+#                 1 (activated)
+#
+#    Announce.Mute
+#        Announce mutes (player and reason) to the world
+#        Default: 0 (deactivated)
+#                 1 (activated)
+#
+
 ###################################################################################################################
 
 ChatFakeMessagePreventing = 0
@@ -937,6 +948,8 @@ ChatFlood.MessageDelay = 1
 ChatFlood.MuteTime = 10
 Channel.RestrictedLfg = 1
 Channel.SilentlyGMJoin = 0
+Announce.Ban = 0
+Announce.Mute = 0
 
 ###################################################################################################################
 # GAME MASTER SETTINGS
@@ -1338,6 +1351,11 @@ BattleGround.PremadeGroupWaitForMatch = 1800000
 #        Default: 1 (active)
 #                 0 (finished)
 #
+#    Arena.EndArenaIfNotEnoughtPlayer
+#        End Arena if there are not enough players (e.g. 2v1)
+#        Default: 0 (deactivated)
+#                 1 (activated)
+#
 ###################################################################################################################
 
 Arena.MaxRatingDifference = 150
@@ -1347,6 +1365,7 @@ Arena.AutoDistributeInterval = 7
 Arena.QueueAnnouncer.Enable = 0
 Arena.ArenaSeason.ID = 1
 Arena.ArenaSeason.InProgress = 1
+Arena.EndArenaIfNotEnoughtPlayer = 0
 
 ###################################################################################################################
 # NETWORK CONFIG
