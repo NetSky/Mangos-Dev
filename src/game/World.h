@@ -179,6 +179,7 @@ enum eConfigUint32Values
 enum eConfigInt32Values
 {
     CONFIG_INT32_DEATH_SICKNESS_LEVEL = 0,
+    CONFIG_INT32_NUMTHREADS,
     CONFIG_INT32_VALUE_COUNT
 };
 

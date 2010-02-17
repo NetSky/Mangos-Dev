@@ -526,6 +526,8 @@ void World::LoadConfigSettings(bool reload)
     setConfigMin(CONFIG_UINT32_INTERVAL_MAPUPDATE, "MapUpdateInterval", 100, MIN_MAP_UPDATE_DELAY);
     if (reload)
         sMapMgr.SetMapUpdateInterval(getConfig(CONFIG_UINT32_INTERVAL_MAPUPDATE));
+    
+    setConfig(CONFIG_INT32_NUMTHREADS, "MapUpdate.Threads", 1);
 
     setConfig(CONFIG_UINT32_INTERVAL_CHANGEWEATHER, "ChangeWeatherInterval", 10 * MINUTE * IN_MILISECONDS);
 
