@@ -273,8 +273,8 @@ void MapManager::Update(uint32 diff)
             iter->second->Update(i_timer.GetCurrent());
         }
      }
-    if (m_updater.activated())
-        m_updater.wait();
+     if (m_updater.activated())
+         m_updater.wait();
 
     checkAndCorrectGridStatesArray();
 
