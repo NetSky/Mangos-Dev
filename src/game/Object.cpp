@@ -1770,8 +1770,13 @@ Vehicle* WorldObject::SummonVehicle(uint32 id, float x, float y, float z, float 
 
 GameObject* WorldObject::SummonGameobject(uint32 id, float x, float y, float z, float ang, uint32 despwTime)
 {
+    Map* GO_map = GetMap();
+    
+    if (!GO_map)
+        return NULL;
+    
     GameObject* GO = new GameObject;
-    if(!GO->Create(sObjectMgr.GenerateLowGuid(HIGHGUID_GAMEOBJECT), id, GetMap(),
+    if(!GO->Create(sObjectMgr.GenerateLowGuid(HIGHGUID_GAMEOBJECT), id, GO_map,
         GetPhaseMask(), x, y, z, ang, 0.0f, 0.0f, 0.0f, 0.0f, 100, GO_STATE_READY))
     {
         delete GO;
@@ -1779,7 +1784,7 @@ GameObject* WorldObject::SummonGameobject(uint32 id, float x, float y, float z, 
     }
     
     GO->SetRespawnTime(despwTime);
-    map->Add(GO);
+    GO_map->Add(GO);
     GO->SummonLinkedTrapIfAny();
     
     return GO;
