@@ -61,8 +61,6 @@ bool ChatHandler::HandleMuteCommand(const char* args)
         return false;
     
     char* reason = strtok (NULL,"");
-    if(!reason)
-        return false;
 
     Player* target;
     uint64 target_guid;
@@ -98,7 +96,8 @@ bool ChatHandler::HandleMuteCommand(const char* args)
     std::string nameLink = playerLink(target_name);
 
     PSendSysMessage(LANG_YOU_DISABLE_CHAT, nameLink.c_str(), notspeaktime);
-    sWorld.SendWorldText(LANG_MUTEANNOUNCE,nameStr,reason);
+    if(sWorld.getConfig(CONFIG_BOOL_ANNOUNCE_MUTE))
+        sWorld.SendWorldText(LANG_MUTEANNOUNCE,nameStr,reason);
     return true;
 }
 

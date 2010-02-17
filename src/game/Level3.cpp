@@ -5032,7 +5032,8 @@ bool ChatHandler::HandleBanHelper(BanMode mode, const char* args)
             SetSentErrorMessage(true);
             return false;
     }
-    sWorld.SendWorldText(LANG_BANANNOUNCE,nameOrIP.c_str(),reason);
+    if(sWorld.getConfig(CONFIG_BOOL_ANNOUNCE_BAN))
+        sWorld.SendWorldText(LANG_BANANNOUNCE,nameOrIP.c_str(),reason);
     
     return true;
 }

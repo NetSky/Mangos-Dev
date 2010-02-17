@@ -734,7 +734,9 @@ void World::LoadConfigSettings(bool reload)
     setConfig(CONFIG_BOOL_OFFHAND_CHECK_AT_TALENTS_RESET, "OffhandCheckAtTalentsReset", false);
     
     // Custom bool settings
-    setConfig(CONFIG_BOOL_END_ARENA_IF_NOT_ENOUGH_PLAYERS,             "EndArenaIfNotEnoughtPlayers", false);
+    setConfig(CONFIG_BOOL_END_ARENA_IF_NOT_ENOUGH_PLAYERS,             "Arena.EndArenaIfNotEnoughtPlayers", false);
+    setConfig(CONFIG_BOOL_ANNOUNCE_BAN,                                "Announce.Ban", false);
+    setConfig(CONFIG_BOOL_ANNOUNCE_MUTE,                               "Announce.Mute", false);
 
     if(int clientCacheId = sConfig.GetIntDefault("ClientCacheVersion", 0))
     {
