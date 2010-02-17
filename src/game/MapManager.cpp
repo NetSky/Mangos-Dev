@@ -66,7 +66,7 @@ MapManager::Initialize()
         }
         i_GridStateErrorCount = 0;
     }
-    int num_threads(sWorld.getConfig(CONFIG_NUMTHREADS));
+    int num_threads(sWorld.getConfig(CONFIG_INT32_NUMTHREADS));
     // Start mtmaps if needed.
     if(num_threads > 0 && m_updater.activate(num_threads) == -1)
         abort();
