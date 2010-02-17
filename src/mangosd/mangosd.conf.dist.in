@@ -937,7 +937,6 @@ ListenRange.Yell = 300
 #        Default: 0 (deactivated)
 #                 1 (activated)
 #
-
 ###################################################################################################################
 
 ChatFakeMessagePreventing = 0
