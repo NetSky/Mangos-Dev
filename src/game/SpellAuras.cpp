@@ -366,7 +366,7 @@ pAuraHandler AuraHandler[TOTAL_AURAS]=
     &Aura::HandleNULL,                                      //313 0 spells in 3.3
     &Aura::HandleNULL,                                      //314 1 test spell (reduce duration of silince/magic)
     &Aura::HandleNULL,                                      //315 underwater walking
-    &Aura::HandleNULL                                       //316 makes haste affect HOT/DOT ticks
+    &Aura::HandleNoImmediateEffect,                         //316 SPELL_AURA_AFFECT_HASTE_HOT_DOT makes haste affect HOT/DOT ticks
 };
 
 static AuraType const frozenAuraTypes[] = { SPELL_AURA_MOD_ROOT, SPELL_AURA_MOD_STUN, SPELL_AURA_NONE };
@@ -454,8 +454,25 @@ m_isRemovedOnShapeLost(true), m_in_use(0), m_deleted(false)
     m_effIndex = eff;
     SetModifier(AuraType(m_spellProto->EffectApplyAuraName[eff]), damage, m_spellProto->EffectAmplitude[eff], m_spellProto->EffectMiscValue[eff]);
 
-    //Apply haste to channeled spells
-    if(GetSpellProto()->AttributesEx & (SPELL_ATTR_EX_CHANNELED_1 | SPELL_ATTR_EX_CHANNELED_2) && m_modifier.periodictime)
+    // Apply haste to channeled spells
+    bool affectHaste = GetSpellProto()->AttributesEx & (SPELL_ATTR_EX_CHANNELED_1 | SPELL_ATTR_EX_CHANNELED_2);
+    // SPELL_AURA_AFFECT_HASTE_HOT_DOT implentation 
+    // Skip iteration if already true
+    if(caster && !affectHaste)
+    {
+        Unit::AuraList const& stateAuras = caster->GetAurasByType(SPELL_AURA_AFFECT_HASTE_HOT_DOT);
+        for(Unit::AuraList::const_iterator j = stateAuras.begin();j != stateAuras.end(); ++j)
+        {
+            if((*j)->isAffectedOnSpell(spell))
+            {
+                affectHaste = true;
+                break;
+            }
+        }
+    }
+
+    // Apply haste affect
+    if(affectHaste && m_modifier.periodictime)
         ApplyHasteToPeriodic();
 
     // Apply periodic time mod
