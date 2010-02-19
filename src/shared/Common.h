@@ -161,7 +161,7 @@ enum AccountTypes
     SEC_PLAYER         = 0,
     SEC_VIP_1          = 1,
     SEC_VIP_2          = 2,
-    SEC_VIP_3          = 3
+    SEC_VIP_3          = 3,
     SEC_MODERATOR      = 4,
     SEC_GAMEMASTER     = 5,
     SEC_GAMEADMIN      = 6,
