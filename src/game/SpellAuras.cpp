@@ -463,7 +463,7 @@ m_isRemovedOnShapeLost(true), m_in_use(0), m_deleted(false)
         Unit::AuraList const& stateAuras = caster->GetAurasByType(SPELL_AURA_AFFECT_HASTE_HOT_DOT);
         for(Unit::AuraList::const_iterator j = stateAuras.begin();j != stateAuras.end(); ++j)
         {
-            if((*j)->isAffectedOnSpell(spell))
+            if((*j)->isAffectedOnSpell(spellproto))
             {
                 affectHaste = true;
                 break;
