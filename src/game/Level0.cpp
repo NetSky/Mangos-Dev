@@ -261,10 +261,10 @@ bool ChatHandler::HandleServerMotdCommand(const char* /*args*/)
 {
     PSendSysMessage(LANG_MOTD_CURRENT, sWorld.GetMotd());
     if(sGameEventMgr.IsActiveEvent(41))
-        SendSysMessage("Bonusehre Schlachtfeld: Arathibecken!");
+        PSendSysMessage(LANG_MOTD_CURRENT, "Bonusehre Schlachtfeld: Arathibecken!");
     if(sGameEventMgr.IsActiveEvent(42))
-        SendSysMessage("Bonusehre Schlachtfeld: Auge des Sturms!");
+        PSendSysMessage(LANG_MOTD_CURRENT, "Bonusehre Schlachtfeld: Auge des Sturms!");
     if(sGameEventMgr.IsActiveEvent(43))
-        SendSysMessage("Bonusehre Schlachtfeld: Kriegshymnenschluch!");     
+        PSendSysMessage(LANG_MOTD_CURRENT, "Bonusehre Schlachtfeld: Kriegshymnenschluch!");     
     return true;
 }
