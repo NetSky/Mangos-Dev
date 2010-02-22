@@ -4181,11 +4181,9 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
 
     int32 amount = damage > 0 ? damage : 1;
     
-    if(pet_entry == 31216 && m_caster->GetGuardians().size() == 2)
-    {  
-        if(m_caster->GetAura(63093,EFFECT_INDEX_0))
-            amount += 1;
-    }
+    if(pet_entry == 31216 && m_caster->GetAura(63093,EFFECT_INDEX_0))  
+        amount += 1;
+    
     
     for(int32 count = 0; count < amount; ++count)
     {
