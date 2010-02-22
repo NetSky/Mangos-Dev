@@ -3668,6 +3668,8 @@ void Spell::EffectSummonType(SpellEffectIndex eff_idx)
                     //SUMMON_TYPE_TOTEM2 = 647: 52893, Anti-Magic Zone (npc used)
                     if(prop_id == 121 || prop_id == 647)
                         DoSummonTotem(eff_idx);
+                    else if(prop_id == 1021 || prop_id == 2301) //mirror image/snake trap
+                        DoSummonGuardian(i, summon_prop->FactionId);                    
                     else
                         DoSummonWild(eff_idx, summon_prop->FactionId);
                     break;
@@ -4176,7 +4178,13 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
         modOwner->ApplySpellMod(m_spellInfo->Id, SPELLMOD_DURATION, duration);
 
     int32 amount = damage > 0 ? damage : 1;
-
+    
+    if(pet_entry == 31216 && m_caster->GetGuardians().size() == 2)
+    {  
+        if(m_caster->GetAura(63093,0))
+            amount += 1;
+    }
+    
     for(int32 count = 0; count < amount; ++count)
     {
         Pet* spawnCreature = new Pet(GUARDIAN_PET);
@@ -4239,14 +4247,14 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
         // add spells for guardian ai
         switch(pet_entry)
         {
+            case 15352:
+                spawnCreature->addSpell(36213, ACT_ENABLED);
+                break;
             case 19921:
                 spawnCreature->addSpell(25810, ACT_ENABLED);
                 break;
             case 19833:
                 spawnCreature->addSpell(30981, ACT_ENABLED);
-                break;
-            case 15352:
-                spawnCreature->addSpell(36213, ACT_ENABLED);
                 break;
             case 29264:
                 spawnCreature->addSpell(58861, ACT_ENABLED);
@@ -4256,6 +4264,12 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
             case 27829:
                 spawnCreature->addSpell(31664, ACT_ENABLED);
                 break;
+            case 31216:
+                spawnCreature->SetDisplayId(m_caster->GetDisplayId());
+                spawnCreature->SetName(m_caster->GetName());
+                if(m_caster->GetTypeId() == TYPEID_PLAYER)
+                {
+                spawnCreature->addSpell(42842,ACT_ENABLED);
             default:
                 break;
         }
