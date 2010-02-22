@@ -3671,7 +3671,7 @@ void Spell::EffectSummonType(SpellEffectIndex eff_idx)
                     if(prop_id == 121 || prop_id == 647)
                         DoSummonTotem(eff_idx);
                     else if(prop_id == 1021 || prop_id == 2301) //mirror image/snake trap
-                        DoSummonGuardian(i, summon_prop->FactionId);                    
+                        DoSummonGuardian(eff_idx, summon_prop->FactionId);                    
                     else
                         DoSummonWild(eff_idx, summon_prop->FactionId);
                     break;
@@ -4181,9 +4181,11 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
 
     int32 amount = damage > 0 ? damage : 1;
     
-    if(pet_entry == 31216 && m_caster->GetAura(63093,EFFECT_INDEX_0))  
-        amount += 1;
-    
+    if(pet_entry == 31216 && m_caster->GetGuardians().size() == 2)
+    {  
+        if(m_caster->GetAura(63093,EFFECT_INDEX_0))
+            amount += 1;
+    }
     
     for(int32 count = 0; count < amount; ++count)
     {
@@ -4267,8 +4269,6 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
             case 31216:
                 spawnCreature->SetDisplayId(m_caster->GetDisplayId());
                 spawnCreature->SetName(m_caster->GetName());
-                if(m_caster->GetTypeId() == TYPEID_PLAYER)
-                {
                 spawnCreature->addSpell(42842,ACT_ENABLED);
             default:
                 break;
