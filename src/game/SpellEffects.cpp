@@ -4183,7 +4183,7 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
     
     if(pet_entry == 31216 && m_caster->GetGuardians().size() == 2)
     {  
-        if(m_caster->GetAura(63093,0))
+        if(m_caster->GetAura(63093,EFFECT_INDEX_0))
             amount += 1;
     }
     
