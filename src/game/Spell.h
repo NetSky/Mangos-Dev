@@ -327,6 +327,8 @@ class Spell
         void EffectSpecCount(SpellEffectIndex eff_idx);
         void EffectActivateSpec(SpellEffectIndex eff_idx);
         void EffectCastButtons(SpellEffectIndex eff_idx);
+        void EffectSummonVehicle(SpellEffectIndex eff_idx);
+        void EffectDamageBuilding(SpellEffectIndex eff_idx);
 
         Spell( Unit* Caster, SpellEntry const *info, bool triggered, uint64 originalCasterGUID = 0, Spell** triggeringContainer = NULL );
         ~Spell();
