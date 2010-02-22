@@ -1730,7 +1730,7 @@ void Unit::DealMeleeDamage(CalcDamageInfo *damageInfo, bool durabilityLoss)
                {
                    if (const SpellBonusEntry *bonus = sSpellMgr.GetSpellBonusData(i_spellProto->Id))
                    {
-                       SpellEffectIndex effIndex effIndex = (*i)->GetEffIndex();
+                       SpellEffectIndex effIndex = (*i)->GetEffIndex();
                        int32 spellPower = caster->SpellBaseDamageBonus(GetSpellSchoolMask(i_spellProto)) + 
                                           caster->SpellBaseDamageBonusForVictim(GetSpellSchoolMask(i_spellProto), this);
                        damage = i_spellProto->CalculateSimpleValue(effIndex) + bonus->direct_damage * spellPower;    
