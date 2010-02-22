@@ -8779,3 +8779,50 @@ Quest const* GetQuestTemplateStore(uint32 entry)
 {
     return sObjectMgr.GetQuestTemplate(entry);
 }
+
+//special channels
+void ObjectMgr::LoadSpecialChannels(void)
+{
+    sLog.outString("Loading Special Channels...");
+    mSpecialChannels.clear();
+    QueryResult *result = CharacterDatabase.PQuery("SELECT name,no_notify,unowned FROM channels_special");
+    uint32 count = 0;
+    if(result)
+    {
+        barGoLink bar(result->GetRowCount());
+        do
+        {
+            Field *fields = result->Fetch();
+            std::string name = fields[0].GetCppString();
+            bool no_notify = fields[1].GetBool();
+            bool unowned = fields[2].GetBool();
+            if(name.length())
+            {
+                SpecialChannel ch;
+                ch.name = name;
+                ch.no_notify = no_notify;
+                ch.unowned = unowned;
+
+                mSpecialChannels[name] = ch;
+                sLog.outString("Special Channel '%s'",ch.name.c_str());
+            }
+            bar.step();
+            count++;
+        }
+        while(result->NextRow());
+
+        sLog.outString(">> Loaded %u special channels", count);
+        delete result;
+    }
+    else
+        sLog.outError("Can't load special channels!");
+}
+
+SpecialChannel ObjectMgr::GetSpecialChan(std::string name)
+{
+    std::map<std::string,SpecialChannel>::iterator it = mSpecialChannels.find(name);
+    if(it != mSpecialChannels.end())
+        return it->second;
+
+    return SpecialChannel(); // invalid special channel
+}

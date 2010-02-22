@@ -48,6 +48,14 @@ Channel::Channel(const std::string& name, uint32 channel_id)
     {
         m_flags |= CHANNEL_FLAG_CUSTOM;
     }
+    // if it returns a valid struct its a special channel
+    SpecialChannel spch = sObjectMgr.GetSpecialChan(m_name);
+    if(spch.name.length())
+    {
+        m_announce = false;
+        m_unowned = true;
+        m_flags = CHANNEL_FLAG_CUSTOM; // its a custom channel anyway; no additional flags needed
+    }    
 }
 
 void Channel::Join(uint64 p, const char *pass)
@@ -367,6 +375,10 @@ void Channel::SetMode(uint64 p, const char *p2n, bool mod, bool set)
 
 void Channel::SetOwner(uint64 p, const char *newname)
 {
+    // special channels may not have an owner
+    if(m_unowned)
+        return;
+    
     Player *plr = sObjectMgr.GetPlayer(p);
     if (!plr)
         return;
@@ -635,6 +647,10 @@ void Channel::Invite(uint64 p, const char *newname)
 
 void Channel::SetOwner(uint64 guid, bool exclaim)
 {
+    // special channels may not have an owner
+    if(m_unowned)
+        return;
+    
     if(m_ownerGUID)
     {
         // [] will re-add player after it possible removed
