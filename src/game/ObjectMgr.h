@@ -1055,6 +1055,9 @@ class ObjectMgr
         CacheNpcTextIdMap m_mCacheNpcTextIdMap;
         CacheVendorItemMap m_mCacheVendorItemMap;
         CacheTrainerSpellMap m_mCacheTrainerSpellMap;
+        
+        // storage for special channels
+        std::map<std::string, SpecialChannel> mSpecialChannels;
 };
 
 #define sObjectMgr MaNGOS::Singleton<ObjectMgr>::Instance()
