@@ -155,6 +155,7 @@ class Channel
     uint8       m_flags;
     uint32      m_channelId;
     uint64      m_ownerGUID;
+    bool        m_unowned;
 
     private:
         // initial packet data (notify type and channel name)
