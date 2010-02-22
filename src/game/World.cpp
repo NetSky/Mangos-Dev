@@ -1291,10 +1291,12 @@ void World::SetInitialWorldSettings()
 
     sLog.outString("Starting objects Pooling system..." );
     sPoolMgr.Initialize();
-
+    
+    sObjectMgr.LoadSpecialChannels();
+    
     sLog.outString("Starting Game Event system..." );
     uint32 nextGameEvent = sGameEventMgr.Initialize();
-    m_timers[WUPDATE_EVENTS].SetInterval(nextGameEvent);    //depend on next event
+    m_timers[WUPDATE_EVENTS].SetInterval(nextGameEvent);    //depend on next event    
     sLog.outString("Starting Autobroadcast system by Xeross..." );
     sLog.outString( "WORLD: World initialized" );
 
