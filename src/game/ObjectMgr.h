@@ -127,6 +127,15 @@ struct AreaTrigger
     float  target_Orientation;
 };
 
+// special channels
+struct SpecialChannel
+{
+    SpecialChannel() : no_notify(false), unowned(false) {}
+    std::string name;
+    bool no_notify;
+    bool unowned;
+};
+
 typedef std::set<uint32> CellGuidSet;
 typedef std::map<uint32/*player guid*/,uint32/*instance*/> CellCorpseSet;
 struct CellObjectGuids
@@ -917,6 +926,10 @@ class ObjectMgr
         {
             return GossipMenuItemsMapBounds(m_mGossipMenuItemsMap.lower_bound(uiMenuId),m_mGossipMenuItemsMap.upper_bound(uiMenuId));
         }
+        
+        //special channels
+        void LoadSpecialChannels(void);
+        SpecialChannel GetSpecialChan(std::string);        
 
     protected:
 
