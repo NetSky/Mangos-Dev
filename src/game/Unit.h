@@ -1875,7 +1875,7 @@ class MANGOS_DLL_SPEC Unit : public WorldObject
         float m_lastAuraProcRoll;
         uint64  m_auraUpdateMask;
         uint64 m_vehicleGUID;
-        bool m_spoofSamePlayerFaction : 1;
+        bool m_spoofSamePlayerFaction;
 
     private:
         void CleanupDeletedAuras();

@@ -684,8 +684,8 @@ void Object::BuildValuesUpdate(uint8 updatetype, ByteBuffer * data, UpdateMask *
                             }
                         }
 
-                        if(((Unit*)this)->IsSpoofSamePlayerFaction() || forcefriendly
-                            || (target->GetTypeId() == TYPEID_PLAYER && GetTypeId() == TYPEID_PLAYER && (target->IsInSameGroupWith((Player*)this) || target->IsInSameRaidWith((Player*)this))))
+                        if((/*(Unit*)this)->IsSpoofSamePlayerFaction() ||*/ forcefriendly
+                            || ((target->GetTypeId() == TYPEID_PLAYER && GetTypeId() == TYPEID_PLAYER && (target->IsInSameGroupWith((Player*)this) || target->IsInSameRaidWith((Player*)this))) && !(InBattleGround() || InArena())))
                         {
                             if(index == UNIT_FIELD_BYTES_2)
                             {
