@@ -4267,6 +4267,7 @@ void Spell::DoSummonGuardian(SpellEffectIndex eff_idx, uint32 forceFaction)
                 spawnCreature->SetDisplayId(m_caster->GetDisplayId());
                 spawnCreature->SetName(m_caster->GetName());
                 spawnCreature->addSpell(42842,ACT_ENABLED);
+                break;
             default:
                 break;
         }
