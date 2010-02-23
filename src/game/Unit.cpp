@@ -7278,8 +7278,25 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                 triggered_spell_id = 50536;
                 basepoints0 = triggerAmount * damage / 100;
                 break;
-            }            
-            break;
+            }
+            // Sudden Doom
+            if (dummySpell->SpellIconID == 1939)
+            {
+                int32 casterLevel = getLevel();
+                // cast correct rank            
+                if (casterLevel > 79)
+                    triggered_spell_id = 49895;
+                else if (casterLevel > 75)
+                    triggered_spell_id = 49894;
+                else if (casterLevel > 67)
+                    triggered_spell_id = 49893;
+                else if (casterLevel > 61)
+                    triggered_spell_id = 49892;
+                else 
+                    triggered_spell_id = 47541;
+                break;
+            }
+            break;            
         }
         default:
             break;
