@@ -39,14 +39,17 @@ HomeMovementGenerator<Creature>::Reset(Creature &)
 void
 HomeMovementGenerator<Creature>::_setTargetLocation(Creature & owner)
 {
-    if( !&owner )
+    if (!owner)
         return;
 
-    if( owner.hasUnitState(UNIT_STAT_NOT_MOVE | UNIT_STAT_ON_VEHICLE) )
+    if (owner.hasUnitState(UNIT_STAT_NOT_MOVE | UNIT_STAT_ON_VEHICLE))
         return;
 
     float x, y, z;
-    owner.GetRespawnCoord(x, y, z);
+
+    // at apply we can select more nice return points base at current movegen
+    if (owner.GetMotionMaster()->empty() || !owner.GetMotionMaster()->top()->GetResetPosition(owner,x,y,z))
+        owner.GetRespawnCoord(x, y, z);
 
     CreatureTraveller traveller(owner);
 
