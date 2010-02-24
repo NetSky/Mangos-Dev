@@ -146,6 +146,7 @@ Player*
 ObjectAccessor::FindPlayerByName(const char *name)
 {
     //TODO: Player Guard
+    Guard guard(*HashMapHolder<Player>::GetLock());
     HashMapHolder<Player>::MapType& m = HashMapHolder<Player>::GetContainer();
     HashMapHolder<Player>::MapType::iterator iter = m.begin();
     for(; iter != m.end(); ++iter)
@@ -161,7 +162,12 @@ ObjectAccessor::SaveAllPlayers()
     HashMapHolder<Player>::MapType& m = HashMapHolder<Player>::GetContainer();
     HashMapHolder<Player>::MapType::iterator itr = m.begin();
     for(; itr != m.end(); ++itr)
-        itr->second->SaveToDB();
+    {
+        if(itr->second->IsInWorld())
+            itr->second->SaveToDB();
+        else
+            continue;
+    }
 }
 
 void ObjectAccessor::KickPlayer(uint64 guid)
