@@ -67,6 +67,7 @@ void WaypointMovementGenerator<Creature>::LoadPath(Creature &c)
     // so when the routine is called the first time, wpSys gets the last waypoint
     // and this prevents the system from performing text/emote, etc
     i_hasDone[node_count - 1] = true;
+    i_currentNode = 0;
 }
 
 void WaypointMovementGenerator<Creature>::ClearWaypoints()
@@ -143,7 +144,13 @@ bool WaypointMovementGenerator<Creature>::Update(Creature &creature, const uint3
 
             if (creature.canFly())
                 creature.AddSplineFlag(SPLINEFLAG_UNKNOWN7);
-
+            
+            // prevent a crash at empty waypoint path.
+            if (!i_path || i_path->empty())
+            {
+                creature.clearUnitState(UNIT_STAT_ROAMING_MOVE);
+                return true;
+            }
             // Now we re-set destination to same node and start travel
             const WaypointNode &node = i_path->at(i_currentNode);
             i_destinationHolder.SetDestination(traveller, node.x, node.y, node.z);
@@ -229,7 +236,10 @@ bool WaypointMovementGenerator<Creature>::Update(Creature &creature, const uint3
 
             if (creature.canFly())
                 creature.AddSplineFlag(SPLINEFLAG_UNKNOWN7);
-
+            
+            if (!i_path || i_path->empty())
+                return true;
+            
             const WaypointNode &node = i_path->at(i_currentNode);
             i_destinationHolder.SetDestination(traveller, node.x, node.y, node.z);
             i_nextMoveTime.Reset(i_destinationHolder.GetTotalTravelTime());
@@ -254,7 +264,14 @@ bool WaypointMovementGenerator<Creature>::Update(Creature &creature, const uint3
             // If not stopped then stop it and set the reset of TimeTracker to waittime
             creature.StopMoving();
             SetStoppedByPlayer(false);
-
+            
+            // prevent a crash at empty waypoint path.
+            if (!i_path || i_path->empty())
+            {
+                creature.clearUnitState(UNIT_STAT_ROAMING_MOVE);
+                return true;
+            }
+            
             i_nextMoveTime.Reset(i_path->at(i_currentNode).delay);
             ++i_currentNode;
 
