@@ -960,8 +960,10 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
         return;
 
     // Get original caster (if exist) and calculate damage/healing from him data
-    Unit *caster = GetAffectiveCaster();
-
+    Unit *real_caster = GetAffectiveCaster();
+    
+    // FIXME: in case wild GO heal/damage spells will be used target bonuses
+    Unit *caster = real_caster ? real_caster : m_caster;
     // Skip if m_originalCaster not available
     if (!caster)
         return;
@@ -1005,12 +1007,12 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
         // Do triggers for unit (reflect triggers passed on hit phase for correct drop charge)
         if (m_canTrigger && missInfo != SPELL_MISS_REFLECT)
         {
-            caster->ProcDamageAndSpell(unitTarget, caster ? procAttacker : PROC_FLAG_NONE, procVictim, procEx, addhealth, m_attackType, m_spellInfo);
+            caster->ProcDamageAndSpell(unitTarget, real_caster ? procAttacker : PROC_FLAG_NONE, procVictim, procEx, addhealth, m_attackType, m_spellInfo);
         }
 
         int32 gain = caster->DealHeal(unitTarget, addhealth, m_spellInfo, crit);
 
-        if (caster)
+        if (real_caster)
             unitTarget->getHostileRefManager().threatAssist(caster, float(gain) * 0.5f, m_spellInfo);
     }
     // Do damage and triggers
@@ -1032,7 +1034,7 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
 
         // Do triggers for unit (reflect triggers passed on hit phase for correct drop charge)
         if (m_canTrigger && missInfo != SPELL_MISS_REFLECT)
-            caster->ProcDamageAndSpell(unitTarget, caster ? procAttacker : PROC_FLAG_NONE, procVictim, procEx, damageInfo.damage, m_attackType, m_spellInfo);
+            caster->ProcDamageAndSpell(unitTarget, real_caster ? procAttacker : PROC_FLAG_NONE, procVictim, procEx, damageInfo.damage, m_attackType, m_spellInfo);
 
         // Haunt (NOTE: for avoid use additional field damage stored in dummy value (replace unused 100%)
         // apply before deal damage because aura can be removed at target kill
@@ -1051,7 +1053,7 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
         procEx = createProcExtendMask(&damageInfo, missInfo);
         // Do triggers for unit (reflect triggers passed on hit phase for correct drop charge)
         if (m_canTrigger && missInfo != SPELL_MISS_REFLECT)
-            caster->ProcDamageAndSpell(unit, caster ? procAttacker : PROC_FLAG_NONE, procVictim, procEx, 0, m_attackType, m_spellInfo);
+            caster->ProcDamageAndSpell(unit, real_caster ? procAttacker : PROC_FLAG_NONE, procVictim, procEx, 0, m_attackType, m_spellInfo);
     }
 
     // Call scripted function for AI if this spell is casted upon a creature
@@ -1059,7 +1061,7 @@ void Spell::DoAllEffectOnTarget(TargetInfo *target)
     {
         // cast at creature (or GO) quest objectives update at successful cast finished (+channel finished)
         // ignore pets or autorepeat/melee casts for speed (not exist quest for spells (hm... )
-        if (caster && !((Creature*)unit)->isPet() && !IsAutoRepeat() && !IsNextMeleeSwingSpell() && !IsChannelActive())
+        if (real_caster && !((Creature*)unit)->isPet() && !IsAutoRepeat() && !IsNextMeleeSwingSpell() && !IsChannelActive())
             if (Player* p = caster->GetCharmerOrOwnerPlayerOrPlayerItself())
                 p->CastedCreatureOrGO(unit->GetEntry(), unit->GetGUID(), m_spellInfo->Id);
 
@@ -1078,8 +1080,6 @@ void Spell::DoSpellHitOnUnit(Unit *unit, const uint32 effectMask)
         return;
 
     Unit* realCaster = GetAffectiveCaster();
-    if (!realCaster)
-        return;
 
     // Recheck immune (only for delayed spells)
     if (m_spellInfo->speed && (
@@ -1092,7 +1092,7 @@ void Spell::DoSpellHitOnUnit(Unit *unit, const uint32 effectMask)
     }
 
     // recheck deflect for delayed spells on target with Deterrence
-    if (m_spellInfo->speed && unit->HasAura(19263))
+    if (realCaster && m_spellInfo->speed && unit->HasAura(19263))
     {
         realCaster->SendSpellMiss(unit, m_spellInfo->Id, SPELL_MISS_DODGE);
         return;
