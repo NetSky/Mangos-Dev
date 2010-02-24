@@ -2533,6 +2533,7 @@ bool ChatHandler::HandleNameAnnounceCommand(const char* args)
         break;
       case SEC_OPERATOR:
 	strid = LANG_SYSTEMMESSAGE_OPERATOR;
+        break;
       default:
         return false;
     }
