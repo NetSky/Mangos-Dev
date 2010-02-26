@@ -2676,14 +2676,6 @@ void Aura::HandleAuraDummy(bool apply, bool Real)
                     caster->InterruptSpell(CURRENT_CHANNELED_SPELL);
                 return;
             }
-            // Stop caster Penance chanelling on death
-            if (m_spellProto->SpellFamilyName == SPELLFAMILY_PRIEST &&
-                (m_spellProto->SpellFamilyFlags2 & UI64LIT(0x00000080)))
-            {
-                if (Unit* caster = GetCaster())
-                    caster->InterruptSpell(CURRENT_CHANNELED_SPELL);
-                return;
-            }
         }
     }
 
@@ -4848,6 +4840,14 @@ void Aura::HandlePeriodicTriggerSpell(bool apply, bool /*Real*/)
                 if (m_removeMode == AURA_REMOVE_BY_DEFAULT && GetEffIndex() + 1 < MAX_EFFECT_INDEX)
                     m_target->CastSpell(m_target, m_spellProto->CalculateSimpleValue(SpellEffectIndex(GetEffIndex()+1)), true);
                 return;
+            case 51912:                                     // Ultra-Advanced Proto-Typical Shortening Blaster
+                if (m_removeMode == AURA_REMOVE_BY_DEFAULT && m_duration <= 0)
+                {
+                    if (Unit* pCaster = GetCaster())
+                        pCaster->CastSpell(m_target, m_spellProto->EffectTriggerSpell[GetEffIndex()], true, NULL, this);
+                }
+
+                return;
             default:
                 break;
         }
@@ -4965,11 +4965,7 @@ void Aura::HandlePeriodicHeal(bool apply, bool /*Real*/)
 {
     m_isPeriodic = apply;
 
-    Unit *caster = GetCaster();
-    if (!caster)
-        return;
-
-    // Gift of the Naaru
+    /*/ Gift of the Naaru
     switch( m_spellProto->Id )
     {
         case 28880:
@@ -4979,12 +4975,40 @@ void Aura::HandlePeriodicHeal(bool apply, bool /*Real*/)
         case 59545:
         case 59547:
         case 59548:
+        {
+            if(Unit *caster = GetCaster())
             {
                 int32 levelHeal = caster->getLevel() * 3 + 7;
                 int32 ap = 0.22f * caster->GetTotalAttackPowerValue(BASE_ATTACK);
                 int32 holy = 0.377f * caster->SpellBaseDamageBonus( GetSpellSchoolMask( m_spellProto ));        
                 m_modifier.m_amount = levelHeal + ( ap > holy ? ap : holy );
             }
+        }
+    }*/
+    
+    // For prevent double apply bonuses
+    bool loading = (m_target->GetTypeId() == TYPEID_PLAYER && ((Player*)m_target)->GetSession()->PlayerLoading());
+
+    // Custom damage calculation after
+    if (apply)
+    {
+        if(loading)
+            return;
+
+        Unit *caster = GetCaster();
+        if (!caster)
+            return;
+
+        // Gift of the Naaru (have diff spellfamilies)
+        if (m_spellProto->SpellIconID == 329 && m_spellProto->SpellVisual[0] == 7625)
+        {
+            int32 levelHeal = caster->getLevel() * 3 + 7;
+            int32 ap = int32 (0.22f * caster->GetTotalAttackPowerValue(BASE_ATTACK));
+            int32 holy = caster->SpellBaseDamageBonus(GetSpellSchoolMask(m_spellProto))
+                + caster->SpellBaseDamageBonusForVictim(GetSpellSchoolMask(m_spellProto), m_target);
+            holy = int32(holy * 377 / 1000);
+            m_modifier.m_amount += levelHeal + (ap > holy ? ap : holy);
+        }
     }
 }
 
@@ -7299,7 +7323,14 @@ void Aura::PeriodicTick()
                 {
                     int32 ticks = GetAuraMaxTicks();
                     int32 remainingTicks = ticks - GetAuraTicks();
-                    pdamage = int32(pdamage) + int32(amount)*ticks*(-6+2*remainingTicks)/100;
+                    int32 addition = int32(amount)*ticks*(-6+2*remainingTicks)/100;
+
+                    if (GetAuraTicks() != 1)
+                        // Item - Druid T10 Restoration 2P Bonus
+                        if (Aura *aura = pCaster->GetAura(70658, EFFECT_INDEX_0))
+                            addition += abs(int32((addition * aura->GetModifier()->m_amount) / ((ticks-1)* 100)));
+
+                    pdamage = int32(pdamage) + addition;
                 }
             }
 

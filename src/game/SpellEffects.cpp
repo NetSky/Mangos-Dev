@@ -1762,6 +1762,10 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                         return;
                 }
 
+                // prevent interrupted message for main spell
+                finish(true);
+
+                // replace cast by selected spell, this also make it interruptible including target death case
                 if (m_caster->IsFriendlyTo(unitTarget))
                     m_caster->CastSpell(unitTarget, heal, false);
                 else
@@ -2241,7 +2245,20 @@ void Spell::EffectDummy(SpellEffectIndex eff_idx)
                     }
                 }
 
-                int32 bp = int32(count * m_caster->GetMaxHealth() * m_spellInfo->DmgMultiplier[0] / 100);
+                int32 bp = int32(count * m_caster->GetMaxHealth() * m_spellInfo->DmgMultiplier[EFFECT_INDEX_0] / 100);
+
+                // Improved Death Strike (percent stored in not existed EFFECT_INDEX_2 effect base points)
+                Unit::AuraList const& auraMod = m_caster->GetAurasByType(SPELL_AURA_ADD_FLAT_MODIFIER);
+                for(Unit::AuraList::const_iterator iter = auraMod.begin(); iter != auraMod.end(); ++iter)
+                {
+                    // only required spell have spellicon for SPELL_AURA_ADD_FLAT_MODIFIER
+                    if ((*iter)->GetSpellProto()->SpellIconID == 2751 && (*iter)->GetSpellProto()->SpellFamilyName == SPELLFAMILY_DEATHKNIGHT)
+                    {
+                        bp += (*iter)->GetSpellProto()->CalculateSimpleValue(EFFECT_INDEX_2) * bp / 100;
+                        break;
+                    }
+                }
+
                 m_caster->CastCustomSpell(m_caster, 45470, &bp, NULL, NULL, true);
                 return;
             }
@@ -5506,14 +5523,12 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
                     unitTarget->CastSpell(unitTarget, 44870, true);
                     break;
                 }
-                /* Spell 51912 that trigger this need correction before this can work.
-                   Some additional research also seem to be needed + adjustment, this is mostly place holder for spells used.
                 case 45668:                                 // Ultra-Advanced Proto-Typical Shortening Blaster
                 {
                     if (!unitTarget || unitTarget->GetTypeId() != TYPEID_UNIT)
                         return;
 
-                    if (roll_chance_i(50))                  // chance unknown, using 50
+                    if (roll_chance_i(25))                  // chance unknown, using 25
                         return;
 
                     static uint32 const spellPlayer[5] =
@@ -5538,7 +5553,7 @@ void Spell::EffectScriptEffect(SpellEffectIndex eff_idx)
                     unitTarget->CastSpell(unitTarget, spellTarget[urand(0,4)], true);
 
                     return;
-                }*/
+                }
                 case 46203:                                 // Goblin Weather Machine
                 {
                     if (!unitTarget)
