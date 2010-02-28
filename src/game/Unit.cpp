@@ -5845,12 +5845,9 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                     if(procSpell && procSpell->Id == 26654)
                         return false;
 
-                    target = SelectNearbyTarget(pVictim);
+                    target = SelectRandomUnfriendlyTarget(pVictim);
                     if(!target)
                         return false;
-                /*target = SelectRandomUnfriendlyTarget(pVictim);
-                if(!target)
-                    return false;*/
 
                     triggered_spell_id = 26654;
                     break;
