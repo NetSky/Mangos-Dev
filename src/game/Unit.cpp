@@ -2121,6 +2121,26 @@ void Unit::CalcAbsorbResist(Unit *pVictim,SpellSchoolMask schoolMask, DamageEffe
                 }
                 break;
             }
+            case SPELLFAMILY_PALADIN:
+            {
+                //Ardent Defender
+                if (spellProto->SpellIconId == 2135)
+                {
+                    //absorb below 35% of health
+                    int32 absorbed_pos = RemainingDamage + 0.35f * pVictim->GetMaxHealth() - pVictim->GetHealth();
+                    if (absorbed_pos > RemainingDamage)
+                        absorbed_pos = RemainingDamage;
+                    if (absorbed_pos > 0)
+                        RemaingDamage -= absorbed_pos * currentAbsorb / 100;
+                    
+                    //prevent death
+                    if (!((Player*)pVictim)->HasAura(66233))
+                        preventDeathSpell = (*i)->GetSpellProto();
+                    
+                    continue;
+                }
+                break;
+            }
             case SPELLFAMILY_DEATHKNIGHT:
             {
                 // Shadow of Death
@@ -2368,6 +2388,29 @@ void Unit::CalcAbsorbResist(Unit *pVictim,SpellSchoolMask schoolMask, DamageEffe
                     pVictim->CastCustomSpell(pVictim, 48153, &healAmount, NULL, NULL, true);
                     pVictim->RemoveAurasDueToSpell(preventDeathSpell->Id);
                     RemainingDamage = 0;
+                }
+                break;
+            }
+            case SPELLFAMILY_PALADIN:
+            {
+                //Ardent Defender
+                if (preventDeathSpell->SpellIconID == 2135)
+                {
+                    //Calculate defense
+                    int32 defenseAmount = pVictim->GetDefenseSkillValue() - pVictim->getLevel() * 5;
+                    if (defenseAmount > 0)
+                    {
+                        if (defenseAmount > 140)
+                            defenseAmount = 140;
+                        
+                        pVictim->CastSpell(pVictim, 66233, true);
+                        
+                        int32 heal = defenseAmount * pVictim->GetMaxhealth() * preventDeathSpell->CalculateSimpleValue(1) / 14000 - pVictim->GetHealth();
+                        if (heal > 0)
+                            pVicitm->CastCustomSpell(pVictim, 66235, &heal, NULL, NULL, true);
+                        
+                        RemainingDamage = 0;
+                    }               
                 }
                 break;
             }
