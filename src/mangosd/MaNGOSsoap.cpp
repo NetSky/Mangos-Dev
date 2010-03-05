@@ -123,13 +123,17 @@ int ns1__executeCommand(soap* soap, char* command, char** result)
     // commands are executed in the world thread. We have to wait for them to be completed
     {
         // CliCommandHolder will be deleted from world, accessing after queueing is NOT save
-        CliCommandHolder* cmd = new CliCommandHolder(&connection, command, &SOAPCommand::print, &SOAPCommand::commandFinished);
+        CliCommandHolder* cmd = new CliCommandHolder(accountId, SEC_CONSOLE, &connection, command, &SOAPCommand::print, &SOAPCommand::commandFinished);
         sWorld.QueueCliCommand(cmd);
     }
 
     // wait for callback to complete command
 
-    connection.pendingCommands.acquire();
+    int acc = connection.pendingCommands.acquire();
+    if(acc)
+    {
+        sLog.outError("MaNGOSsoap: Error while acquiring lock, acc = %i, errno = %u", acc, errno);
+    }
 
     // alright, command finished
 
