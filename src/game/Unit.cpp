@@ -3521,10 +3521,11 @@ void Unit::_UpdateAutoRepeatSpell()
         // cancel wand shoot
         if(!isAutoShot)
             InterruptSpell(CURRENT_AUTOREPEAT_SPELL);
+        // auto shot just waits
         return;
     }
 
-    // check for spell casts
+    // check spell casts
     if (IsNonMeleeSpellCasted(false, false, true))
     {
         // cancel wand shoot
@@ -3537,7 +3538,6 @@ void Unit::_UpdateAutoRepeatSpell()
         else if (!(m_currentSpells[CURRENT_GENERIC_SPELL] && m_currentSpells[CURRENT_GENERIC_SPELL]->IsRangedSpell()))
             return;
     }
-
     //castroutine
     if (isAttackReady(RANGED_ATTACK))
     {
