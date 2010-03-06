@@ -8057,7 +8057,12 @@ bool Unit::HandleProcTriggerSpell(Unit *pVictim, uint32 damage, Aura* triggeredB
             {
                 if (GetTypeId() != TYPEID_PLAYER || !((Player*)this)->isHonorOrXPTarget(pVictim) || !damage)
                     return false;
+                if (HasAura(50365))
+                    triggerAmount += 5;
+                else if (HasAura(50371))
+                    triggerAmount += 10;
                 basepoints[0] = triggerAmount * damage / 100;
+                
                 trigger_spell_id = 50475;
             }
             break;
