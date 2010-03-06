@@ -383,7 +383,7 @@ struct CreatureEventAI_Action
         {
             uint32 gameobjectId;
             uint32 spawnId;
-        }
+        } summon_gameobject;
         // RAW
         struct
         {
