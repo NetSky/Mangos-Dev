@@ -1417,6 +1417,8 @@ void Spell::SetTargetMap(SpellEffectIndex effIndex, uint32 targetMode, UnitList&
         {
             if (m_spellInfo->SpellFamilyFlags2 & 0x00000100)// Starfall
                 unMaxTargets = 2;
+            if (( m_spellInfo->SpellFamilyFlags & UI64LIT(0x0000004000000000) ) && m_caster->HasAura(50334))
+                unMaxTargets = 3;
             break;
         }
         default:

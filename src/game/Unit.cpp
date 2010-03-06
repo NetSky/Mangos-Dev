@@ -11108,7 +11108,7 @@ bool Unit::isVisibleForOrDetect(Unit const* u, WorldObject const* viewPoint, boo
     return IsWithinLOS(ox,oy,oz);
 }
 
-void Unit::SetVisibility(UnitVisibility x)
+// void Unit::SetVisibility(UnitVisibility x)
 {
     m_Visibility = x;
 
