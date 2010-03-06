@@ -2124,7 +2124,7 @@ void Unit::CalcAbsorbResist(Unit *pVictim,SpellSchoolMask schoolMask, DamageEffe
             case SPELLFAMILY_PALADIN:
             {
                 //Ardent Defender
-                if (spellProto->SpellIconId == 2135)
+                if (spellProto->SpellIconID == 2135)
                 {
                     //absorb below 35% of health
                     int32 absorbed_pos = RemainingDamage + 0.35f * pVictim->GetMaxHealth() - pVictim->GetHealth();
@@ -6105,12 +6105,12 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                     // find Divine Aegis on the target and get absorb amount
                     Aura* DivineAegis = pVictim->GetAura(47753, EFFECT_INDEX_0);
                     if (DivineAegis)
-                        basepoints0 = DivineAegis->GetModifier()->m_amount;
-                    basepoints0 += damage * triggerAmount/100;
+                        basepoints[0] = DivineAegis->GetModifier()->m_amount;
+                    basepoints[0] += damage * triggerAmount/100;
 
                     // limit absorb amount
-                    if (basepoints0 > pVictim->getLevel()*125)
-                        basepoints0 = pVictim->getLevel()*125;
+                    if (basepoints[0] > pVictim->getLevel()*125)
+                        basepoints[0] = pVictim->getLevel()*125;
 
                     triggered_spell_id = 47753;
                     break;
@@ -6844,17 +6844,17 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                         {
                             case 53569:
                             case 53576:
-                                basepoints0 = (*i)->GetSpellProto()->CalculateSimpleValue(EFFECT_INDEX_2);
+                                basepoints[0] = (*i)->GetSpellProto()->CalculateSimpleValue(EFFECT_INDEX_2);
                                 break;
                             default: continue;
                         }
                         break;
                     }
 
-                    if (!basepoints0)
+                    if (!basepoints[0])
                         return false;
 
-                    damage = int32(damage * basepoints0 / 100);
+                    damage = int32(damage * basepoints[0] / 100);
 
                     basepoints[0] = int32(damage / (GetSpellDuration(triggeredEntry) / triggeredEntry->EffectAmplitude[EFFECT_INDEX_0]));
                     target = this;
@@ -7255,7 +7255,7 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
             if (dummySpell->SpellFamilyFlags & UI64LIT(0x200000))
             {
                 triggered_spell_id = 10444;
-                basepoints0 = int32(triggerAmount * GetAttackTime(BASE_ATTACK) / (100 * IN_MILISECONDS));
+                basepoints[0] = int32(triggerAmount * GetAttackTime(BASE_ATTACK) / (100 * IN_MILISECONDS));
                 break;
             }
             break;
@@ -7422,7 +7422,7 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
             if (dummySpell->Id == 49194)
             {
                 triggered_spell_id = 50536;
-                basepoints0 = triggerAmount * damage / 100;
+                basepoints[0] = triggerAmount * damage / 100;
                 break;
             }
             // Sudden Doom
