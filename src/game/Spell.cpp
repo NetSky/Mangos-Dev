@@ -3371,6 +3371,8 @@ void Spell::SendSpellStart()
     }
 
     m_caster->SendMessageToSet(&data, true);
+    if (m_caster->getClass() == CLASS_DEATH_KNIGHT)
+        ((Player*)m_caster)->ResyncRunes(MAX_RUNES);
 }
 
 void Spell::SendSpellGo()
@@ -3466,6 +3468,8 @@ void Spell::SendSpellGo()
     }
 
     m_caster->SendMessageToSet(&data, true);
+    if (m_caster->getClass() ==  CLASS_DEATH_KNIGHT)
+        ((Player*)m_caster)->ResyncRunes(MAX_RUNES);
 }
 
 void Spell::WriteAmmoToPacket( WorldPacket * data )
