@@ -109,6 +109,7 @@ enum EventAI_ActionType
     ACTION_T_SET_SHEATH                 = 40,               // Sheath (0-passive,1-melee,2-ranged)
     ACTION_T_FORCE_DESPAWN              = 41,               // No Params
     ACTION_T_SET_INVINCIBILITY_HP_LEVEL = 42,               // MinHpValue, format(0-flat,1-percent from max health)
+    ACTION_T_SUMMON_GAMEOBJECT          = 43,               // GO Id, spawnId
     ACTION_T_END,
 };
 
@@ -377,6 +378,12 @@ struct CreatureEventAI_Action
             uint32 hp_level;
             uint32 is_percent;
         } invincibility_hp_level;
+        // ACTION_T_SUMMON_GAMEOBJECT                       = 43
+        struct
+        {
+            uint32 gameobjectId;
+            uint32 spawnId;
+        }
         // RAW
         struct
         {
@@ -495,7 +502,7 @@ struct CreatureEventAI_Event
             uint32 creatureId;
             uint32 repeatMin;
             uint32 repeatMax;
-        } summoned;
+        } summoned;, EventId
         // EVENT_T_QUEST_ACCEPT                             = 19
         // EVENT_T_QUEST_COMPLETE                           = 20
         struct
