@@ -341,6 +341,15 @@ void Spell::EffectSchoolDMG(SpellEffectIndex effect_idx)
                         damage /= count;                    // divide to all targets
                         break;
                     }
+                    // reduced damage for following AOE spells with increasing distance
+                    case 62598: case 62937:                 // Detonate
+                    case 65279:                             // Lightning Nova
+                    case 62311: case 64569:                 // Cosmic Smash
+                    {
+                        float distance = unitTarget->GetDistance2d(m_targets.m_destX, m_targets.m_destY);
+                        damage *= exp(-distance/15.0f);
+                        break;
+                    }
                     // percent from health with min
                     case 25599:                             // Thundercrash
                     {
