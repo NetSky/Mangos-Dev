@@ -6096,6 +6096,15 @@ bool Unit::HandleDummyAuraProc(Unit *pVictim, uint32 damage, Aura* triggeredByAu
                     RemoveSpellsCausingAura(SPELL_AURA_MOD_DECREASE_SPEED);
                     break;
                 }
+                // Greater Heal
+                case 2060: case 10963: case 10964: case 10965: case 25314: case 25210: case 25213: case 48062: case 48063:
+                //Prayer of Healing
+                case 596: case 996: case 10960: case 10961: case 25316: case 25308: case 48072:
+                {
+                    if (HasAura(63737))
+                        RemoveAurasDueToSpell(63737);
+                    break;
+                }
                 // Divine Aegis
                 case 2820:
                 {
