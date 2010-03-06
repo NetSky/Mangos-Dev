@@ -3098,7 +3098,22 @@ void Spell::EffectHeal(SpellEffectIndex /*eff_idx*/)
             return;
 
         int32 addhealth = damage;
-
+        
+        if(caster->GetTypeId() == TYPEID_PLAYER && caster->GetClass() == CLASS_PRIEST)
+        {
+            switch (m_spellInfo->Id)
+            {
+                // Greater Heal
+                case 2060: case 10963: case 10964: case 10965: case 25314: case 25210: case 25213: case 48062: case 48063:
+                //Prayer of Healing
+                case 596: case 996: case 10960: case 10961: case 25316: case 25308: case 48072:
+                {
+                    if (HasAura(63737))
+                        RemoveAurasDueToSpell(63737);
+                    break;
+                }
+            }
+        }
         // Seal of Light proc
         if (m_spellInfo->Id == 20167)
         {
