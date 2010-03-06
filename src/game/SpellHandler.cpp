@@ -553,24 +553,24 @@ void WorldSession::HandleSpellClick( WorldPacket & recv_data )
     uint64 guid;
     recv_data >> guid;
 
-    if (_player->isInCombat())                              // client prevent click and set different icon at combat state
-        return;
-
     Creature *unit = ObjectAccessor::GetCreatureOrPetOrVehicle(*_player, guid);
     if (!unit || unit->isInCombat())                        // client prevent click and set different icon at combat state
-        return;
-
-    if(!_player->IsWithinDistInMap(unit, 10))
-        return;
-
-    // cheater?
-    if(!unit->HasFlag(UNIT_NPC_FLAGS,UNIT_NPC_FLAG_SPELLCLICK))
         return;
 
     uint32 vehicleId = 0;
     CreatureDataAddon const *cainfo = unit->GetCreatureAddon();
     if(cainfo)
         vehicleId = cainfo->vehicle_id;
+    
+    if (_player->isInCombat())                              // client prevent click and set different icon at combat state
+        return;
+    
+    if(!_player->IsWithinDistInMap(unit, 10))
+        return;
+
+    // cheater?
+    if(!unit->HasFlag(UNIT_NPC_FLAGS,UNIT_NPC_FLAG_SPELLCLICK))
+        return;
 
     // handled other (hacky) way to avoid overwriting auras
     if(vehicleId || unit->isVehicle())
@@ -595,9 +595,11 @@ void WorldSession::HandleSpellClick( WorldPacket & recv_data )
                 unit->RemoveCorpse();
                 unit->SetHealth(0);
             }
-            unit = v;
+            unit = v;            
         }
-
+        
+        unit->SetHealth(unit->GetMaxHealth());
+        
         if(((Vehicle*)unit)->GetVehicleData())
             if(uint32 r_aura = ((Vehicle*)unit)->GetVehicleData()->req_aura)
                 if(!_player->HasAura(r_aura))
